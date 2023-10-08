@@ -1,0 +1,10 @@
+D:\TDTU\CNPM\RegisterForm\RegisterForm\bin\Debug\RegisterForm.exe.config
+D:\TDTU\CNPM\RegisterForm\RegisterForm\bin\Debug\RegisterForm.exe
+D:\TDTU\CNPM\RegisterForm\RegisterForm\bin\Debug\RegisterForm.pdb
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.csproj.AssemblyReference.cache
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.RegisterForm.resources
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.Properties.Resources.resources
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.csproj.GenerateResource.cache
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.csproj.CoreCompileInputs.cache
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.exe
+D:\TDTU\CNPM\RegisterForm\RegisterForm\obj\Debug\RegisterForm.pdb
