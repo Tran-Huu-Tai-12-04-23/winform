@@ -1,0 +1,17 @@
+E:\CNPM\login\bin\Debug\net6.0-windows\login.exe
+E:\CNPM\login\bin\Debug\net6.0-windows\login.deps.json
+E:\CNPM\login\bin\Debug\net6.0-windows\login.runtimeconfig.json
+E:\CNPM\login\bin\Debug\net6.0-windows\login.dll
+E:\CNPM\login\bin\Debug\net6.0-windows\login.pdb
+E:\CNPM\login\obj\Debug\net6.0-windows\login.Form1.resources
+E:\CNPM\login\obj\Debug\net6.0-windows\login.Properties.Resources.resources
+E:\CNPM\login\obj\Debug\net6.0-windows\login.csproj.GenerateResource.cache
+E:\CNPM\login\obj\Debug\net6.0-windows\login.GeneratedMSBuildEditorConfig.editorconfig
+E:\CNPM\login\obj\Debug\net6.0-windows\login.AssemblyInfoInputs.cache
+E:\CNPM\login\obj\Debug\net6.0-windows\login.AssemblyInfo.cs
+E:\CNPM\login\obj\Debug\net6.0-windows\login.csproj.CoreCompileInputs.cache
+E:\CNPM\login\obj\Debug\net6.0-windows\login.dll
+E:\CNPM\login\obj\Debug\net6.0-windows\refint\login.dll
+E:\CNPM\login\obj\Debug\net6.0-windows\login.pdb
+E:\CNPM\login\obj\Debug\net6.0-windows\login.genruntimeconfig.cache
+E:\CNPM\login\obj\Debug\net6.0-windows\ref\login.dll
