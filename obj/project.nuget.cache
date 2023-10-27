@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "dxM//6zxjU/JKGQOVG6J2+U43Yi0eO3weNVVn9K/VMJa0jCtC0idseGfgQKLIU9uV0DayX2RX1G8Lz7OulzR4A==",
+  "success": true,
+  "projectFilePath": "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\huuta\\.nuget\\packages\\bootstrap-table\\0.4.0\\bootstrap-table.0.4.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\jquery\\1.7.2\\jquery.1.7.2.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\twitter.bootstrap\\2.0.3\\twitter.bootstrap.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
