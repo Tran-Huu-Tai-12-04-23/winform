@@ -506,6 +506,7 @@
             buttonCustom4.TextColor = Color.Black;
             buttonCustom4.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonCustom4.UseVisualStyleBackColor = false;
+            buttonCustom4.Click += buttonCustom4_Click;
             // 
             // buttonCustom1
             // 

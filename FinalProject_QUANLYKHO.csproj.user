@@ -16,13 +16,22 @@
     <Compile Update="ComponentCustom\RJToggle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="View\Bake\AddBakeForm.cs">
+    <Compile Update="View\BakeView\AddBakeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\BakeView\ManagerBake.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\CustomerView\ManagerCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\CustomerView\ModalAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\MainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\MaterialView\ManagerMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

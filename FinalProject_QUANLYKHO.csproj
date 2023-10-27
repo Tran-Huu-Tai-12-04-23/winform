@@ -12,7 +12,6 @@
     <Folder Include="Dialogs\" />
     <Folder Include="Pages\" />
     <Folder Include="View\MainScreen\" />
-    <Folder Include="View\Material\" />
   </ItemGroup>
 
   <ItemGroup>

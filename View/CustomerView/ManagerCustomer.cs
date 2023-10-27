@@ -71,6 +71,12 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
         {
 
         }
+
+        private void buttonCustom4_Click(object sender, EventArgs e)
+        {
+            ModalAddCustomer modal = new ModalAddCustomer();
+            modal.Show();
+        }
     }
 
 }

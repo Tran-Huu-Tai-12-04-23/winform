@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FinalProject_QUANLYKHO.View.Bake
+namespace FinalProject_QUANLYKHO.View.CustomerView
 {
-    public partial class AddBakeForm : Form
+    public partial class ModalAddCustomer : Form
     {
-        public AddBakeForm()
+        public ModalAddCustomer()
         {
             InitializeComponent();
         }
@@ -20,6 +20,11 @@ namespace FinalProject_QUANLYKHO.View.Bake
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCustom2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

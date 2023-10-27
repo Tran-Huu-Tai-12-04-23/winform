@@ -1,5 +1,5 @@
 ﻿using FinalProject_QUANLYKHO.Contanst;
-namespace FinalProject_QUANLYKHO.View.Bake
+namespace FinalProject_QUANLYKHO.View.BakeView
 {
     partial class AddBakeForm
     {

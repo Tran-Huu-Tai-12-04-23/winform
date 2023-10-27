@@ -16,6 +16,9 @@ W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\Fin
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.genruntimeconfig.cache
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\ref\FinalProject_QUANLYKHO.dll
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Properties.Resources.resources
-W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.Bake.AddBakeForm.resources
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\CustomControls.RJControls.RJTextBox.resources
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ManagerCustomer.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ModalAddCustomer.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.AddBakeForm.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.ManagerBake.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.MaterialView.ManagerMaterial.resources

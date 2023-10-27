@@ -2,7 +2,8 @@
 using System.Windows.Forms;
 using FinalProject_QUANLYKHO.Contanst;
 using FinalProject_QUANLYKHO.Properties;
-using FinalProject_QUANLYKHO.View.Bake;
+using FinalProject_QUANLYKHO.View.BakeView;
+using FinalProject_QUANLYKHO.View.MaterialView;
 using FinalProject_QUANLYKHO.View.CustomerView;
 
 namespace FinalProject_QUANLYKHO
@@ -32,18 +33,14 @@ namespace FinalProject_QUANLYKHO
             childForm.BringToFront();
             childForm.Show();
 
-
-
         }
-
-
 
 
         private void switchForm(int active)
         {
             if (active == ContanstApp.BAKE_SCREEN)
             {
-                OpenChildForm(new AddBakeForm());
+                OpenChildForm(new ManagerBake());
                 labelActiveBar.Text = "Quản lý danh mục bánh";
             }
             else if (active == ContanstApp.CUSTOMER_SCREEN)
@@ -53,7 +50,7 @@ namespace FinalProject_QUANLYKHO
             }
             else if (active == ContanstApp.MATERIAL_SCREEN)
             {
-                OpenChildForm(new AddBakeForm());
+                OpenChildForm(new ManagerMaterial());
                 labelActiveBar.Text = "Quản lý danh mục nguyên liệu";
             }
             else
