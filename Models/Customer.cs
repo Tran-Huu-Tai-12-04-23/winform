@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace FinalProject_QUANLYKHO.Models
 {
-    internal class Customer
+    public class Customer
     {
         private string id;
         private string name;
         private string address;
+        private string phoneNumber;
+        private bool active;
 
         public string maKhachHang
         {
@@ -30,17 +32,41 @@ namespace FinalProject_QUANLYKHO.Models
             set { address = value; }
         }
 
-        public Customer(string maKhachHang, string tenKhachHang, string diaChi)
+        public string sodienthoai
+        {
+            get { return phoneNumber; }
+            set { phoneNumber = value; }
+        }
+
+        public bool hien
+        {
+            get { return active; }
+            set { active = value; }
+        }
+
+        public Customer(string maKhachHang, string tenKhachHang, string diaChi, string phoneNumber)
         {
             id = maKhachHang;
             name = tenKhachHang;
             address = diaChi;
+            this.phoneNumber = phoneNumber;
+            this.sodienthoai = sodienthoai;
+            this.hien = hien;
+        }
+        public Customer( string tenKhachHang, string diaChi, string phoneNumber)
+        {
+            name = tenKhachHang;
+            address = diaChi;
+            this.phoneNumber = phoneNumber;
+            this.sodienthoai = sodienthoai;
+            this.hien = hien;
         }
         public Customer()
         {
             id = "";
             name = "";
             address = "";
+            phoneNumber = "";
         }
     }
 

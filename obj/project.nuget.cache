@@ -1,11 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "dxM//6zxjU/JKGQOVG6J2+U43Yi0eO3weNVVn9K/VMJa0jCtC0idseGfgQKLIU9uV0DayX2RX1G8Lz7OulzR4A==",
+  "dgSpecHash": "SZw1PFs7oI9jhQZ8joywOxPYHZY1OnYO5eFwEamZ4W27aZAye/DgCL/XjiFMZY0FgQAgpgh4e8uJWpvGsudNmg==",
   "success": true,
   "projectFilePath": "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huuta\\.nuget\\packages\\bootstrap-table\\0.4.0\\bootstrap-table.0.4.0.nupkg.sha512",
     "C:\\Users\\huuta\\.nuget\\packages\\jquery\\1.7.2\\jquery.1.7.2.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\huuta\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\huuta\\.nuget\\packages\\twitter.bootstrap\\2.0.3\\twitter.bootstrap.2.0.3.nupkg.sha512"
   ],
   "logs": []

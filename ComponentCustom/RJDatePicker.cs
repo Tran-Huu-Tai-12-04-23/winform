@@ -22,7 +22,7 @@ namespace FinalProject_QUANLYKHO.ComponentCustom
         private bool droppedDown = false;
         private Image calendarIcon = Properties.Resources.calendarWhite;
         private RectangleF iconButtonArea;
-        private const int calendarIconWidth = 34;
+        private const int calendarIconWidth = 28;
         private const int arrowIconWidth = 17;
 
         //Properties

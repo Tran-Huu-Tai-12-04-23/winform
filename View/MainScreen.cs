@@ -13,6 +13,7 @@ namespace FinalProject_QUANLYKHO
     {
 
         private int formActive = ContanstApp.MAIN_SCREEN;
+        private bool closeMenu = false;
         private List<Button> buttons = new List<Button>();
         private Form currentForm;
 
@@ -146,5 +147,39 @@ namespace FinalProject_QUANLYKHO
                 switchForm(ContanstApp.MATERIAL_SCREEN);
             }
         }
+
+
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            if (closeMenu)
+            {
+                // Expand the sidebar
+                panelFlowSidebar.Width = panelFlowSidebar.MaximumSize.Width;
+                closeMenu = false;
+                panelHeader.Location = new Point(panelFlowSidebar.MaximumSize.Width, panelHeader.Location.Y);
+                panelMainForm.Location = new Point(panelFlowSidebar.MaximumSize.Width, panelMainForm.Location.Y);
+
+            }
+            else
+            {
+                // Collapse the sidebar
+                panelFlowSidebar.Width = panelFlowSidebar.MinimumSize.Width;
+                panelHeader.Location = new Point(panelFlowSidebar.MinimumSize.Width, panelHeader.Location.Y);
+                panelMainForm.Location = new Point(panelFlowSidebar.MinimumSize.Width, panelMainForm.Location.Y);
+                closeMenu = true;
+
+            }
+
+            // Adjust the widths of panelHeader and panelMainForm
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+
+            panelHeader.Width = screenWidth - panelFlowSidebar.Width;
+            panelMainForm.Width = screenWidth - panelFlowSidebar.Width;
+
+        }
+
+
+
     }
 }

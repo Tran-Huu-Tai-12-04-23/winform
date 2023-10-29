@@ -173,6 +173,26 @@ namespace FinalProject_QUANLYKHO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_menu_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menu-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_menu_241 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-menu-241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_online_store_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-online-store-40", resourceCulture);

@@ -9,13 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dialogs\" />
-    <Folder Include="Pages\" />
     <Folder Include="View\MainScreen\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Bootstrap-Table" Version="0.4.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>

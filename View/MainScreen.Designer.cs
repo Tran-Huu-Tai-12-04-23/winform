@@ -37,6 +37,7 @@ namespace FinalProject_QUANLYKHO
         {
             panelFlowSidebar = new FlowLayoutPanel();
             panel3 = new Panel();
+            button1 = new Button();
             panel2 = new Panel();
             btnActiveMainScreen = new Button();
             button7 = new Button();
@@ -45,11 +46,10 @@ namespace FinalProject_QUANLYKHO
             btnActiveBakeScreen = new Button();
             btnActiveMaterialScreen = new Button();
             label3 = new Label();
-            openFileDialog1 = new OpenFileDialog();
             panelMainForm = new Panel();
-            labelActiveBar = new Label();
             panelHeader = new Panel();
-            button1 = new Button();
+            btnMenu = new ComponentCustom.ButtonCustom();
+            labelActiveBar = new Label();
             panelFlowSidebar.SuspendLayout();
             panel3.SuspendLayout();
             panelHeader.SuspendLayout();
@@ -72,8 +72,10 @@ namespace FinalProject_QUANLYKHO
             panelFlowSidebar.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             panelFlowSidebar.Location = new Point(0, 0);
             panelFlowSidebar.Margin = new Padding(0);
+            panelFlowSidebar.MaximumSize = new Size(200, 595);
+            panelFlowSidebar.MinimumSize = new Size(50, 595);
             panelFlowSidebar.Name = "panelFlowSidebar";
-            panelFlowSidebar.Size = new Size(201, 595);
+            panelFlowSidebar.Size = new Size(200, 595);
             panelFlowSidebar.TabIndex = 0;
             panelFlowSidebar.Paint += flowLayoutPanel1_Paint_1;
             // 
@@ -85,6 +87,26 @@ namespace FinalProject_QUANLYKHO
             panel3.Name = "panel3";
             panel3.Size = new Size(200, 46);
             panel3.TabIndex = 5;
+            // 
+            // button1
+            // 
+            button1.AccessibleName = "";
+            button1.BackColor = Color.Transparent;
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = Color.Black;
+            button1.Image = Properties.Resources.icons8_online_store_40;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 0);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(200, 50);
+            button1.TabIndex = 12;
+            button1.Text = "   Quản lý";
+            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -234,74 +256,69 @@ namespace FinalProject_QUANLYKHO
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Right;
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(782, 16);
+            label3.Location = new Point(763, 16);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
             label3.Size = new Size(144, 18);
             label3.TabIndex = 1;
             label3.Text = "Xin Chào, Admin";
             // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            // 
             // panelMainForm
             // 
             panelMainForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelMainForm.BackColor = Color.FromArgb(241, 246, 249);
             panelMainForm.Font = new Font("Rockwell", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            panelMainForm.Location = new Point(201, 52);
+            panelMainForm.Location = new Point(200, 52);
             panelMainForm.Margin = new Padding(0);
             panelMainForm.Name = "panelMainForm";
-            panelMainForm.Size = new Size(935, 543);
+            panelMainForm.Size = new Size(936, 543);
             panelMainForm.TabIndex = 2;
+            // 
+            // panelHeader
+            // 
+            panelHeader.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelHeader.Controls.Add(btnMenu);
+            panelHeader.Controls.Add(label3);
+            panelHeader.Controls.Add(labelActiveBar);
+            panelHeader.Location = new Point(200, 0);
+            panelHeader.Margin = new Padding(0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(936, 52);
+            panelHeader.TabIndex = 3;
+            // 
+            // btnMenu
+            // 
+            btnMenu.BackColor = Color.White;
+            btnMenu.BackgroundColor = Color.White;
+            btnMenu.BorderColor = Color.PaleVioletRed;
+            btnMenu.BorderRadius = 8;
+            btnMenu.BorderSize = 0;
+            btnMenu.FlatAppearance.BorderSize = 0;
+            btnMenu.FlatStyle = FlatStyle.Flat;
+            btnMenu.ForeColor = Color.White;
+            btnMenu.Image = Properties.Resources.icons8_menu_241;
+            btnMenu.Location = new Point(3, 10);
+            btnMenu.Name = "btnMenu";
+            btnMenu.Size = new Size(46, 32);
+            btnMenu.TabIndex = 0;
+            btnMenu.TextColor = Color.White;
+            btnMenu.UseVisualStyleBackColor = false;
+            btnMenu.Click += btnMenu_Click;
             // 
             // labelActiveBar
             // 
             labelActiveBar.Anchor = AnchorStyles.Left;
             labelActiveBar.AutoSize = true;
             labelActiveBar.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelActiveBar.Location = new Point(17, 16);
+            labelActiveBar.Location = new Point(52, 18);
             labelActiveBar.Margin = new Padding(0);
             labelActiveBar.Name = "labelActiveBar";
             labelActiveBar.Size = new Size(131, 18);
             labelActiveBar.TabIndex = 0;
             labelActiveBar.Text = "Màn hình chính";
-            // 
-            // panelHeader
-            // 
-            panelHeader.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelHeader.Controls.Add(label3);
-            panelHeader.Controls.Add(labelActiveBar);
-            panelHeader.Location = new Point(201, 0);
-            panelHeader.Margin = new Padding(0);
-            panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(935, 52);
-            panelHeader.TabIndex = 3;
-            // 
-            // button1
-            // 
-            button1.AccessibleName = "";
-            button1.BackColor = Color.Transparent;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Black;
-            button1.Image = Properties.Resources.icons8_online_store_40;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Padding = new Padding(12, 0, 0, 0);
-            button1.Size = new Size(200, 50);
-            button1.TabIndex = 12;
-            button1.Text = "Quản lý";
-            button1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -348,10 +365,8 @@ namespace FinalProject_QUANLYKHO
         private Button button12;
         private Button button11;
         private Button button10;
-        private OpenFileDialog openFileDialog1;
 
         private Label label3;
-        private Label labelActiveBar;
         private Panel panelHeader;
         private Panel panel1;
         private Button button4;
@@ -360,6 +375,8 @@ namespace FinalProject_QUANLYKHO
         private Button button9;
         private Panel panel;
         private Button button1;
+        private ComponentCustom.ButtonCustom btnMenu;
+        private Label labelActiveBar;
     }
 
 
