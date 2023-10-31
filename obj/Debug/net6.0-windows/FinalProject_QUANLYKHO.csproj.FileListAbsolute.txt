@@ -29,3 +29,6 @@ W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\run
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CopyComplete
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ModalEditCustomer.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.Authentication.Authentication.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.MaterialView.AddMaterial.resources

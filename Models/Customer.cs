@@ -50,8 +50,7 @@ namespace FinalProject_QUANLYKHO.Models
             name = tenKhachHang;
             address = diaChi;
             this.phoneNumber = phoneNumber;
-            this.sodienthoai = sodienthoai;
-            this.hien = hien;
+            this.hien = true;
         }
         public Customer( string tenKhachHang, string diaChi, string phoneNumber)
         {
@@ -59,7 +58,7 @@ namespace FinalProject_QUANLYKHO.Models
             address = diaChi;
             this.phoneNumber = phoneNumber;
             this.sodienthoai = sodienthoai;
-            this.hien = hien;
+            this.hien = true;
         }
         public Customer()
         {
@@ -68,6 +67,11 @@ namespace FinalProject_QUANLYKHO.Models
             address = "";
             phoneNumber = "";
         }
+        public override string ToString()
+        {
+            return $"ID: {maKhachHang}, Name: {tenKhachHang}, Address: {diaChi}, Phone: {sodienthoai}, Active: {hien}";
+        }
+
     }
 
 }

@@ -44,12 +44,12 @@
             Column6 = new DataGridViewImageColumn();
             contextMenuStrip1 = new ContextMenuStrip(components);
             panel3 = new Panel();
-            textBox1 = new TextBox();
+            inputSearch = new TextBox();
             label5Loc = new Label();
             buttonCustom4 = new ComponentCustom.ButtonCustom();
             labelCustomerTitle = new Label();
             bindingSource1 = new BindingSource(components);
-            buttonCustom5 = new ComponentCustom.ButtonCustom();
+            btnSarch = new ComponentCustom.ButtonCustom();
             label2 = new Label();
             label4 = new Label();
             button2 = new Button();
@@ -64,12 +64,15 @@
             buttonCustom2 = new ComponentCustom.ButtonCustom();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label7 = new Label();
-            comboBox1 = new ComboBox();
-            buttonCustom8 = new ComponentCustom.ButtonCustom();
-            buttonCustom7 = new ComponentCustom.ButtonCustom();
+            selectNumberPage = new ComboBox();
+            btnPrevPage = new ComponentCustom.ButtonCustom();
+            numberPage = new Label();
+            btnNextPage = new ComponentCustom.ButtonCustom();
             panel1 = new Panel();
             rjToggle2 = new ComponentCustom.RJToggle();
-            btnFilter = new ComponentCustom.ButtonCustom();
+            btnRemoveSelected = new ComponentCustom.ButtonCustom();
+            timerSearch = new System.Windows.Forms.Timer(components);
+            rowShowNotification = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -142,6 +145,7 @@
             dataGridViewCustomer.StandardTab = true;
             dataGridViewCustomer.TabIndex = 0;
             dataGridViewCustomer.CellContentClick += dataGridViewCustomer_CellContentClick;
+            dataGridViewCustomer.SelectionChanged += dataGridView1_SelectionChanged;
             // 
             // maKhachHang
             // 
@@ -224,28 +228,29 @@
             panel3.Size = new Size(956, 358);
             panel3.TabIndex = 5;
             // 
-            // textBox1
+            // inputSearch
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(278, 50);
-            textBox1.Margin = new Padding(0);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(563, 27);
-            textBox1.TabIndex = 8;
+            inputSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            inputSearch.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            inputSearch.Location = new Point(278, 50);
+            inputSearch.Margin = new Padding(0);
+            inputSearch.Name = "inputSearch";
+            inputSearch.Size = new Size(563, 27);
+            inputSearch.TabIndex = 8;
+            inputSearch.TextChanged += yourTextBox_TextChanged;
             // 
             // label5Loc
             // 
             label5Loc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5Loc.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5Loc.ImageAlign = ContentAlignment.MiddleRight;
-            label5Loc.Location = new Point(684, 86);
+            label5Loc.Location = new Point(721, 87);
             label5Loc.Margin = new Padding(0);
             label5Loc.Name = "label5Loc";
-            label5Loc.Size = new Size(99, 42);
+            label5Loc.Size = new Size(184, 42);
             label5Loc.TabIndex = 27;
-            label5Loc.Text = "Ẩn / Hiện";
-            label5Loc.TextAlign = ContentAlignment.MiddleLeft;
+            label5Loc.Text = "Chỉ khách hàng hiện";
+            label5Loc.TextAlign = ContentAlignment.MiddleRight;
             // 
             // buttonCustom4
             // 
@@ -280,27 +285,26 @@
             labelCustomerTitle.TabIndex = 0;
             labelCustomerTitle.Text = "Danh sách khách hàng";
             // 
-            // buttonCustom5
+            // btnSarch
             // 
-            buttonCustom5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCustom5.BackColor = Color.LightSkyBlue;
-            buttonCustom5.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom5.BorderColor = Color.PaleVioletRed;
-            buttonCustom5.BorderRadius = 0;
-            buttonCustom5.BorderSize = 0;
-            buttonCustom5.FlatAppearance.BorderSize = 0;
-            buttonCustom5.FlatStyle = FlatStyle.Flat;
-            buttonCustom5.ForeColor = Color.Black;
-            buttonCustom5.Image = Properties.Resources.search;
-            buttonCustom5.Location = new Point(844, 49);
-            buttonCustom5.Name = "buttonCustom5";
-            buttonCustom5.Size = new Size(112, 28);
-            buttonCustom5.TabIndex = 7;
-            buttonCustom5.Text = "Tìm";
-            buttonCustom5.TextAlign = ContentAlignment.MiddleRight;
-            buttonCustom5.TextColor = Color.Black;
-            buttonCustom5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonCustom5.UseVisualStyleBackColor = false;
+            btnSarch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSarch.BackColor = Color.LightSkyBlue;
+            btnSarch.BackgroundColor = Color.LightSkyBlue;
+            btnSarch.BorderColor = Color.PaleVioletRed;
+            btnSarch.BorderRadius = 0;
+            btnSarch.BorderSize = 0;
+            btnSarch.FlatAppearance.BorderSize = 0;
+            btnSarch.FlatStyle = FlatStyle.Flat;
+            btnSarch.ForeColor = Color.Black;
+            btnSarch.Location = new Point(844, 49);
+            btnSarch.Name = "btnSarch";
+            btnSarch.Size = new Size(112, 28);
+            btnSarch.TabIndex = 7;
+            btnSarch.Text = "Làm mới";
+            btnSarch.TextColor = Color.Black;
+            btnSarch.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSarch.UseVisualStyleBackColor = false;
+            btnSarch.Click += btnSarch_Click;
             // 
             // label2
             // 
@@ -501,12 +505,13 @@
             flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             flowLayoutPanel1.BackColor = Color.Transparent;
             flowLayoutPanel1.Controls.Add(label7);
-            flowLayoutPanel1.Controls.Add(comboBox1);
-            flowLayoutPanel1.Controls.Add(buttonCustom8);
-            flowLayoutPanel1.Controls.Add(buttonCustom7);
-            flowLayoutPanel1.Location = new Point(571, 528);
+            flowLayoutPanel1.Controls.Add(selectNumberPage);
+            flowLayoutPanel1.Controls.Add(btnPrevPage);
+            flowLayoutPanel1.Controls.Add(numberPage);
+            flowLayoutPanel1.Controls.Add(btnNextPage);
+            flowLayoutPanel1.Location = new Point(516, 528);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(409, 35);
+            flowLayoutPanel1.Size = new Size(464, 35);
             flowLayoutPanel1.TabIndex = 7;
             // 
             // label7
@@ -514,7 +519,7 @@
             label7.Anchor = AnchorStyles.Right;
             label7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ImageAlign = ContentAlignment.MiddleRight;
-            label7.Location = new Point(0, 0);
+            label7.Location = new Point(0, 1);
             label7.Margin = new Padding(0);
             label7.Name = "label7";
             label7.Size = new Size(169, 35);
@@ -522,64 +527,79 @@
             label7.Text = "Số hàng hiển thị : ";
             label7.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // comboBox1
+            // selectNumberPage
             // 
-            comboBox1.Anchor = AnchorStyles.None;
-            comboBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "10", "20", "30", "40" });
-            comboBox1.Location = new Point(172, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(51, 26);
-            comboBox1.TabIndex = 2;
-            comboBox1.Tag = "";
+            selectNumberPage.Anchor = AnchorStyles.None;
+            selectNumberPage.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            selectNumberPage.FormattingEnabled = true;
+            selectNumberPage.Items.AddRange(new object[] { "10", "20", "30", "40" });
+            selectNumberPage.Location = new Point(172, 6);
+            selectNumberPage.Name = "selectNumberPage";
+            selectNumberPage.Size = new Size(51, 26);
+            selectNumberPage.TabIndex = 2;
+            selectNumberPage.Tag = "";
+            selectNumberPage.SelectedIndexChanged += SelectNumberPage_SelectedIndexChanged;
             // 
-            // buttonCustom8
+            // btnPrevPage
             // 
-            buttonCustom8.BackColor = Color.LightSkyBlue;
-            buttonCustom8.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom8.BorderColor = Color.PaleVioletRed;
-            buttonCustom8.BorderRadius = 0;
-            buttonCustom8.BorderSize = 0;
-            buttonCustom8.FlatAppearance.BorderSize = 0;
-            buttonCustom8.FlatStyle = FlatStyle.Flat;
-            buttonCustom8.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCustom8.ForeColor = Color.Black;
-            buttonCustom8.Location = new Point(229, 3);
-            buttonCustom8.Name = "buttonCustom8";
-            buttonCustom8.Size = new Size(82, 26);
-            buttonCustom8.TabIndex = 1;
-            buttonCustom8.Text = "Sau";
-            buttonCustom8.TextColor = Color.Black;
-            buttonCustom8.UseVisualStyleBackColor = false;
+            btnPrevPage.BackColor = Color.LightSkyBlue;
+            btnPrevPage.BackgroundColor = Color.LightSkyBlue;
+            btnPrevPage.BorderColor = Color.PaleVioletRed;
+            btnPrevPage.BorderRadius = 0;
+            btnPrevPage.BorderSize = 0;
+            btnPrevPage.FlatAppearance.BorderSize = 0;
+            btnPrevPage.FlatStyle = FlatStyle.Flat;
+            btnPrevPage.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPrevPage.ForeColor = Color.Black;
+            btnPrevPage.Location = new Point(229, 3);
+            btnPrevPage.Name = "btnPrevPage";
+            btnPrevPage.Size = new Size(82, 32);
+            btnPrevPage.TabIndex = 1;
+            btnPrevPage.Text = "Trước";
+            btnPrevPage.TextColor = Color.Black;
+            btnPrevPage.UseVisualStyleBackColor = false;
+            btnPrevPage.Click += btnPrevPage_Click;
             // 
-            // buttonCustom7
+            // numberPage
             // 
-            buttonCustom7.BackColor = Color.LightSkyBlue;
-            buttonCustom7.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom7.BorderColor = Color.PaleVioletRed;
-            buttonCustom7.BorderRadius = 0;
-            buttonCustom7.BorderSize = 0;
-            buttonCustom7.FlatAppearance.BorderSize = 0;
-            buttonCustom7.FlatStyle = FlatStyle.Flat;
-            buttonCustom7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCustom7.ForeColor = Color.Black;
-            buttonCustom7.Location = new Point(317, 3);
-            buttonCustom7.Name = "buttonCustom7";
-            buttonCustom7.Size = new Size(79, 26);
-            buttonCustom7.TabIndex = 0;
-            buttonCustom7.Text = "Trước";
-            buttonCustom7.TextColor = Color.Black;
-            buttonCustom7.UseVisualStyleBackColor = false;
+            numberPage.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            numberPage.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            numberPage.ForeColor = SystemColors.HotTrack;
+            numberPage.Location = new Point(314, 1);
+            numberPage.Margin = new Padding(0);
+            numberPage.Name = "numberPage";
+            numberPage.Size = new Size(65, 37);
+            numberPage.TabIndex = 34;
+            numberPage.Text = "1";
+            numberPage.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnNextPage
+            // 
+            btnNextPage.BackColor = Color.LightSkyBlue;
+            btnNextPage.BackgroundColor = Color.LightSkyBlue;
+            btnNextPage.BorderColor = Color.PaleVioletRed;
+            btnNextPage.BorderRadius = 0;
+            btnNextPage.BorderSize = 0;
+            btnNextPage.FlatAppearance.BorderSize = 0;
+            btnNextPage.FlatStyle = FlatStyle.Flat;
+            btnNextPage.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNextPage.ForeColor = Color.Black;
+            btnNextPage.Location = new Point(382, 3);
+            btnNextPage.Name = "btnNextPage";
+            btnNextPage.Size = new Size(79, 32);
+            btnNextPage.TabIndex = 0;
+            btnNextPage.Text = "Sau";
+            btnNextPage.TextColor = Color.Black;
+            btnNextPage.UseVisualStyleBackColor = false;
+            btnNextPage.Click += btnNextPage_Click;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(btnFilter);
             panel1.Controls.Add(rjToggle2);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(buttonCustom5);
+            panel1.Controls.Add(inputSearch);
+            panel1.Controls.Add(btnSarch);
             panel1.Controls.Add(buttonCustom4);
             panel1.Controls.Add(labelCustomerTitle);
             panel1.Controls.Add(label2);
@@ -594,7 +614,7 @@
             // 
             rjToggle2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             rjToggle2.AutoSize = true;
-            rjToggle2.Location = new Point(786, 98);
+            rjToggle2.Location = new Point(908, 99);
             rjToggle2.MinimumSize = new Size(45, 22);
             rjToggle2.Name = "rjToggle2";
             rjToggle2.OffBackColor = Color.Gray;
@@ -604,26 +624,49 @@
             rjToggle2.Size = new Size(45, 22);
             rjToggle2.TabIndex = 28;
             rjToggle2.UseVisualStyleBackColor = true;
+            rjToggle2.CheckedChanged += rjToggle2_CheckedChanged;
             // 
-            // btnFilter
+            // btnRemoveSelected
             // 
-            btnFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnFilter.BackColor = Color.LightSkyBlue;
-            btnFilter.BackgroundColor = Color.LightSkyBlue;
-            btnFilter.BorderColor = Color.PaleVioletRed;
-            btnFilter.BorderRadius = 0;
-            btnFilter.BorderSize = 0;
-            btnFilter.FlatAppearance.BorderSize = 0;
-            btnFilter.FlatStyle = FlatStyle.Flat;
-            btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(844, 94);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(112, 28);
-            btnFilter.TabIndex = 29;
-            btnFilter.Text = "Lọc";
-            btnFilter.TextColor = Color.Black;
-            btnFilter.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnFilter.UseVisualStyleBackColor = false;
+            btnRemoveSelected.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnRemoveSelected.BackColor = Color.LightSkyBlue;
+            btnRemoveSelected.BackgroundColor = Color.LightSkyBlue;
+            btnRemoveSelected.BorderColor = Color.PaleVioletRed;
+            btnRemoveSelected.BorderRadius = 0;
+            btnRemoveSelected.BorderSize = 0;
+            btnRemoveSelected.FlatAppearance.BorderSize = 0;
+            btnRemoveSelected.FlatStyle = FlatStyle.Flat;
+            btnRemoveSelected.ForeColor = Color.Black;
+            btnRemoveSelected.Image = Properties.Resources.icons8_remove_20;
+            btnRemoveSelected.Location = new Point(24, 528);
+            btnRemoveSelected.Name = "btnRemoveSelected";
+            btnRemoveSelected.Size = new Size(260, 32);
+            btnRemoveSelected.TabIndex = 10;
+            btnRemoveSelected.Text = "   Xóa tất cả khách hàng đã chọn";
+            btnRemoveSelected.TextAlign = ContentAlignment.MiddleRight;
+            btnRemoveSelected.TextColor = Color.Black;
+            btnRemoveSelected.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRemoveSelected.UseVisualStyleBackColor = false;
+            btnRemoveSelected.Click += btnRemoveSelected_Click;
+            // 
+            // timerSearch
+            // 
+            timerSearch.Interval = 200;
+            timerSearch.Tick += SearchTimer_Tick;
+            // 
+            // rowShowNotification
+            // 
+            rowShowNotification.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rowShowNotification.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rowShowNotification.ForeColor = SystemColors.HotTrack;
+            rowShowNotification.ImageAlign = ContentAlignment.MiddleRight;
+            rowShowNotification.Location = new Point(312, 532);
+            rowShowNotification.Margin = new Padding(0);
+            rowShowNotification.Name = "rowShowNotification";
+            rowShowNotification.Size = new Size(169, 35);
+            rowShowNotification.TabIndex = 33;
+            rowShowNotification.Text = "row show";
+            rowShowNotification.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // ManagerCustomer
             // 
@@ -631,8 +674,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 246, 249);
             ClientSize = new Size(998, 578);
+            Controls.Add(btnRemoveSelected);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanel1);
+            Controls.Add(rowShowNotification);
             Controls.Add(panel3);
             ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
@@ -648,6 +693,7 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
 
         #endregion
         private ContextMenuStrip contextMenuStrip1;
@@ -669,15 +715,20 @@
         private Button button1;
         private ComponentCustom.ButtonCustom buttonCustom2;
         private ComponentCustom.ButtonCustom buttonCustom4;
-        private ComponentCustom.ButtonCustom buttonCustom5;
+        private ComponentCustom.ButtonCustom btnSarch;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
-        private TextBox textBox1;
+        private TextBox inputSearch;
         private FlowLayoutPanel flowLayoutPanel1;
-        private ComponentCustom.ButtonCustom buttonCustom7;
-        private ComponentCustom.ButtonCustom buttonCustom8;
-        private ComboBox comboBox1;
+        private ComponentCustom.ButtonCustom btnNextPage;
+        private ComponentCustom.ButtonCustom btnPrevPage;
+        private ComboBox selectNumberPage;
         private Label label7;
         private Panel panel1;
+        private ComponentCustom.RJToggle rjToggle2;
+        private ComponentCustom.ButtonCustom btnRemoveSelected;
+        private System.Windows.Forms.Timer timerSearch;
+        private Label rowShowNotification;
+        private Label numberPage;
         private DataGridViewTextBoxColumn maKhachHang;
         private DataGridViewTextBoxColumn tenKhachHang;
         private DataGridViewTextBoxColumn diaChi;
@@ -685,7 +736,5 @@
         private DataGridViewCheckBoxColumn Column4;
         private DataGridViewImageColumn Column5;
         private DataGridViewImageColumn Column6;
-        private ComponentCustom.ButtonCustom btnFilter;
-        private ComponentCustom.RJToggle rjToggle2;
     }
 }
