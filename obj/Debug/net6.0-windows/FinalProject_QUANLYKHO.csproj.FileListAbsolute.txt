@@ -1,0 +1,93 @@
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.AssemblyReference.cache
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Form1.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.GenerateResource.cache
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.GeneratedMSBuildEditorConfig.editorconfig
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.AssemblyInfoInputs.cache
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.AssemblyInfo.cs
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CoreCompileInputs.cache
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.exe
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.deps.json
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.runtimeconfig.json
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.pdb
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\refint\FinalProject_QUANLYKHO.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.pdb
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.genruntimeconfig.cache
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\ref\FinalProject_QUANLYKHO.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Properties.Resources.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\CustomControls.RJControls.RJTextBox.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ManagerCustomer.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ModalAddCustomer.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.AddBakeForm.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.ManagerBake.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.MaterialView.ManagerMaterial.resources
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+W:\work\SoftwareTech-winform\FinalProject_QUANLYKHO\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CopyComplete
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.exe
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.deps.json
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.runtimeconfig.json
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.pdb
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.AssemblyReference.cache
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\CustomControls.RJControls.RJTextBox.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Properties.Resources.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.AddBakeForm.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.ManagerBake.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ManagerCustomer.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ModalAddCustomer.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Form1.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.MaterialView.ManagerMaterial.resources
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.GenerateResource.cache
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.AssemblyInfoInputs.cache
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.AssemblyInfo.cs
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CoreCompileInputs.cache
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CopyComplete
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\refint\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.pdb
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.genruntimeconfig.cache
+D:\Code & Study materials\PHAN MEM\cuoiky\winform-main\obj\Debug\net6.0-windows\ref\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.exe
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.deps.json
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.runtimeconfig.json
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\FinalProject_QUANLYKHO.pdb
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.AssemblyReference.cache
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\CustomControls.RJControls.RJTextBox.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Properties.Resources.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.AddBakeForm.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.BakeView.ManagerBake.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ManagerCustomer.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.CustomerView.ModalAddCustomer.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.Form1.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.View.MaterialView.ManagerMaterial.resources
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.GenerateResource.cache
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.AssemblyInfoInputs.cache
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.AssemblyInfo.cs
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CoreCompileInputs.cache
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.csproj.CopyComplete
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\refint\FinalProject_QUANLYKHO.dll
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.pdb
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\FinalProject_QUANLYKHO.genruntimeconfig.cache
+D:\Code & Study materials\PHAN MEM\CuoiKy_Khai\winform-main\obj\Debug\net6.0-windows\ref\FinalProject_QUANLYKHO.dll
