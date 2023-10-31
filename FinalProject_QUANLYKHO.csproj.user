@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="ComponentCustom\ButtonCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="ComponentCustom\PanelCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="ComponentCustom\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="ComponentCustom\RJTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ComponentCustom\RJToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="View\BakeView\AddBakeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\BakeView\ManagerBake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\CustomerView\ManagerCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\CustomerView\ModalAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\MainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\MaterialView\AddMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\MaterialView\ManagerMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
