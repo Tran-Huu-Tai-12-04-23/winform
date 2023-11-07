@@ -46,8 +46,6 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
                 }
                 numberPage.Text = (page + 1).ToString() + "/" + totalPage.ToString();
 
-
-
                 selectNumberPage.SelectedIndex = 0;
 
             }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SZw1PFs7oI9jhQZ8joywOxPYHZY1OnYO5eFwEamZ4W27aZAye/DgCL/XjiFMZY0FgQAgpgh4e8uJWpvGsudNmg==",
+  "dgSpecHash": "Uw2UZwoYgsGjg+mQC6wUmYAZs2VlsqyGSfXNmdiuiyxkuAiMPcUXBS3I1/V+NW6S09nsTqxa/UEwIvBANkiPHw==",
   "success": true,
-  "projectFilePath": "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj",
+  "projectFilePath": "W:\\work\\SoftwareTech-winform\\winform\\FinalProject_QUANLYKHO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huuta\\.nuget\\packages\\bootstrap-table\\0.4.0\\bootstrap-table.0.4.0.nupkg.sha512",
     "C:\\Users\\huuta\\.nuget\\packages\\jquery\\1.7.2\\jquery.1.7.2.nupkg.sha512",

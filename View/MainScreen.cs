@@ -5,6 +5,9 @@ using FinalProject_QUANLYKHO.Properties;
 using FinalProject_QUANLYKHO.View.BakeView;
 using FinalProject_QUANLYKHO.View.MaterialView;
 using FinalProject_QUANLYKHO.View.CustomerView;
+using FinalProject_QUANLYKHO.View.Authentication;
+using FinalProject_QUANLYKHO.View.DecentralizationView;
+using Microsoft.VisualBasic;
 
 namespace FinalProject_QUANLYKHO
 {
@@ -54,6 +57,11 @@ namespace FinalProject_QUANLYKHO
                 OpenChildForm(new ManagerMaterial());
                 labelActiveBar.Text = "Quản lý danh mục nguyên liệu";
             }
+            else if (active == ContanstApp.DECENTRALIZATION)
+            {
+                OpenChildForm(new ManagerDecentralization());
+                labelActiveBar.Text = "Phần quyền";
+            }
             else
             {
                 if (currentForm != null)
@@ -69,12 +77,15 @@ namespace FinalProject_QUANLYKHO
         {
 
             InitializeComponent();
-
-
             buttons.Add(btnActiveBakeScreen);
             buttons.Add(btnActiveMainScreen);
             buttons.Add(btnActiveCustomerScreen);
             buttons.Add(btnActiveMaterialScreen);
+            buttons.Add(btnActiveDecentrialtion);
+            buttons.Add(btnActiveExportInvoceBake);
+            buttons.Add(btnActiveImportInvoceBake);
+            buttons.Add(btnActiveExportInvoceMaterial);
+            buttons.Add(btnActiveImportInvoceMaterial);
         }
 
 
@@ -84,7 +95,6 @@ namespace FinalProject_QUANLYKHO
             {
                 Button button = buttons[i];
                 ChangeStatusBtnNavigate(button, false);
-
             }
         }
 
@@ -159,6 +169,18 @@ namespace FinalProject_QUANLYKHO
                 closeMenu = false;
                 panelHeader.Location = new Point(panelFlowSidebar.MaximumSize.Width, panelHeader.Location.Y);
                 panelMainForm.Location = new Point(panelFlowSidebar.MaximumSize.Width, panelMainForm.Location.Y);
+                
+                
+                btnActiveMainScreen.Text = ContanstApp.NAME_NAV_HOME;
+                btnActiveCustomerScreen.Text = ContanstApp.NAME_NAV_CUSTOMER;
+                btnActiveBakeScreen.Text = ContanstApp.NAME_NAV_BAKE;
+                btnActiveMaterialScreen.Text = ContanstApp.NAME_NAV_MATERIAL;
+                btnActiveExportInvoceBake.Text = ContanstApp.NAME_NAV_EXPORTBAKE;
+                btnActiveImportInvoceBake.Text = ContanstApp.NAME_NAV_IMPORTBAKE;
+                btnActiveImportInvoceMaterial.Text = ContanstApp.NAME_NAV_EXPORTMATERIAL;
+                btnActiveExportInvoceMaterial.Text = ContanstApp.NAME_NAV_EXPORTMATERIAL;
+                btnActiveDecentrialtion.Text = ContanstApp.NAME_NAV_DECENTRILIZATION;
+                
 
             }
             else
@@ -168,6 +190,16 @@ namespace FinalProject_QUANLYKHO
                 panelHeader.Location = new Point(panelFlowSidebar.MinimumSize.Width, panelHeader.Location.Y);
                 panelMainForm.Location = new Point(panelFlowSidebar.MinimumSize.Width, panelMainForm.Location.Y);
                 closeMenu = true;
+
+                btnActiveMainScreen.Text = "";
+                btnActiveCustomerScreen.Text = "";
+                btnActiveBakeScreen.Text = "";
+                btnActiveMaterialScreen.Text = "";
+                btnActiveExportInvoceBake.Text = "";
+                btnActiveImportInvoceBake.Text = "";
+                btnActiveExportInvoceMaterial.Text = "";
+                btnActiveImportInvoceMaterial.Text = "";
+                btnActiveDecentrialtion.Text = "";
 
             }
 
@@ -179,7 +211,28 @@ namespace FinalProject_QUANLYKHO
 
         }
 
+        private void buttonCustom1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.login = false;
+            Properties.Settings.Default.username = "";
+            Properties.Settings.Default.role = -1;
+            Properties.Settings.Default.Save();
 
+            Form1 form = (Form1)Application.OpenForms["Form1"];
+            Authentication formmain = new Authentication();
+            formmain.Show();
+            form.Hide();
+        }
+
+        private void btnActiveDecentrialtion_Click(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                DiableAllNavigate();
+                ChangeStatusBtnNavigate(button, true);
+                switchForm(ContanstApp.DECENTRALIZATION);
+            }
+        }
 
     }
 }

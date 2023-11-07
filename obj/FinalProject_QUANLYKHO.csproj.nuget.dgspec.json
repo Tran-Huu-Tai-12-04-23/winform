@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj": {}
+    "W:\\work\\SoftwareTech-winform\\winform\\FinalProject_QUANLYKHO.csproj": {}
   },
   "projects": {
-    "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj": {
+    "W:\\work\\SoftwareTech-winform\\winform\\FinalProject_QUANLYKHO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj",
+        "projectUniqueName": "W:\\work\\SoftwareTech-winform\\winform\\FinalProject_QUANLYKHO.csproj",
         "projectName": "FinalProject_QUANLYKHO",
-        "projectPath": "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\FinalProject_QUANLYKHO.csproj",
+        "projectPath": "W:\\work\\SoftwareTech-winform\\winform\\FinalProject_QUANLYKHO.csproj",
         "packagesPath": "C:\\Users\\huuta\\.nuget\\packages\\",
-        "outputPath": "W:\\work\\SoftwareTech-winform\\FinalProject_QUANLYKHO\\obj\\",
+        "outputPath": "W:\\work\\SoftwareTech-winform\\winform\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

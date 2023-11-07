@@ -32,34 +32,25 @@ namespace FinalProject_QUANLYKHO.Service
             try
             {
                 SqlCommand cmd = new SqlCommand(CREATE_CUSTOMER_QUERY, connection);
-
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                // Input parameters
+                
                 cmd.Parameters.Add("@tenKhachHang", SqlDbType.VarChar).Value = customer.tenKhachHang;
                 cmd.Parameters.Add("@diachi", SqlDbType.VarChar).Value = customer.diaChi;
                 cmd.Parameters.Add("@soDienThoai", SqlDbType.VarChar).Value = customer.sodienthoai;
-
-                // Output parameter for the new customer ID
+                
                 SqlParameter newCustomerIDParam = new SqlParameter("@newCustomerID", SqlDbType.VarChar, 255);
                 newCustomerIDParam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(newCustomerIDParam);
 
-                
                 // Open the connection if it's not already open
                 if (connection.State == ConnectionState.Closed)
                 {
                     connection.Open();
-                    
-
                 }
                 cmd.ExecuteNonQuery();
-
                 string newCustomerID = cmd.Parameters["@newCustomerID"].Value.ToString();
-
                 customer.hien = true;
                 customer.maKhachHang = newCustomerID;
-
                 // Close the connection
                 connection.Close();
                 // Return the customer with the generated ID (if applicable)
@@ -107,8 +98,6 @@ namespace FinalProject_QUANLYKHO.Service
                             };
 
                             customer.hien = bool.Parse(reader["hien"].ToString());
-
-
                             customers.Add(customer);
                         }
                     }

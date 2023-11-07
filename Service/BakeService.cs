@@ -108,6 +108,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 // Xử lý lỗi
+                return null;
             }
             finally
             {

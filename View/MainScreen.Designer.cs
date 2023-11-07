@@ -40,14 +40,18 @@ namespace FinalProject_QUANLYKHO
             button1 = new Button();
             panel2 = new Panel();
             btnActiveMainScreen = new Button();
-            button7 = new Button();
-            button8 = new Button();
             btnActiveCustomerScreen = new Button();
             btnActiveBakeScreen = new Button();
             btnActiveMaterialScreen = new Button();
+            btnActiveImportInvoceMaterial = new Button();
+            btnActiveExportInvoceMaterial = new Button();
+            btnActiveExportInvoceBake = new Button();
+            btnActiveImportInvoceBake = new Button();
+            btnActiveDecentrialtion = new Button();
             label3 = new Label();
             panelMainForm = new Panel();
             panelHeader = new Panel();
+            buttonCustom1 = new ComponentCustom.ButtonCustom();
             btnMenu = new ComponentCustom.ButtonCustom();
             labelActiveBar = new Label();
             panelFlowSidebar.SuspendLayout();
@@ -63,21 +67,23 @@ namespace FinalProject_QUANLYKHO
             panelFlowSidebar.Controls.Add(panel3);
             panelFlowSidebar.Controls.Add(panel2);
             panelFlowSidebar.Controls.Add(btnActiveMainScreen);
-            panelFlowSidebar.Controls.Add(button7);
-            panelFlowSidebar.Controls.Add(button8);
             panelFlowSidebar.Controls.Add(btnActiveCustomerScreen);
             panelFlowSidebar.Controls.Add(btnActiveBakeScreen);
             panelFlowSidebar.Controls.Add(btnActiveMaterialScreen);
+            panelFlowSidebar.Controls.Add(btnActiveImportInvoceMaterial);
+            panelFlowSidebar.Controls.Add(btnActiveExportInvoceMaterial);
+            panelFlowSidebar.Controls.Add(btnActiveExportInvoceBake);
+            panelFlowSidebar.Controls.Add(btnActiveImportInvoceBake);
+            panelFlowSidebar.Controls.Add(btnActiveDecentrialtion);
             panelFlowSidebar.FlowDirection = FlowDirection.TopDown;
             panelFlowSidebar.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             panelFlowSidebar.Location = new Point(0, 0);
             panelFlowSidebar.Margin = new Padding(0);
-            panelFlowSidebar.MaximumSize = new Size(200, 595);
+            panelFlowSidebar.MaximumSize = new Size(230, 595);
             panelFlowSidebar.MinimumSize = new Size(50, 595);
             panelFlowSidebar.Name = "panelFlowSidebar";
-            panelFlowSidebar.Size = new Size(200, 595);
+            panelFlowSidebar.Size = new Size(230, 595);
             panelFlowSidebar.TabIndex = 0;
-            panelFlowSidebar.Paint += flowLayoutPanel1_Paint_1;
             // 
             // panel3
             // 
@@ -85,7 +91,7 @@ namespace FinalProject_QUANLYKHO
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(200, 46);
+            panel3.Size = new Size(230, 46);
             panel3.TabIndex = 5;
             // 
             // button1
@@ -102,7 +108,7 @@ namespace FinalProject_QUANLYKHO
             button1.Location = new Point(0, 0);
             button1.Margin = new Padding(0);
             button1.Name = "button1";
-            button1.Size = new Size(200, 50);
+            button1.Size = new Size(230, 50);
             button1.TabIndex = 12;
             button1.Text = "   Quản lý";
             button1.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -115,14 +121,14 @@ namespace FinalProject_QUANLYKHO
             panel2.BackColor = Color.Silver;
             panel2.Location = new Point(3, 49);
             panel2.Name = "panel2";
-            panel2.Size = new Size(194, 0);
+            panel2.Size = new Size(224, 0);
             panel2.TabIndex = 1;
             // 
             // btnActiveMainScreen
             // 
             btnActiveMainScreen.AccessibleName = "";
+            btnActiveMainScreen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnActiveMainScreen.BackColor = Color.FromArgb(241, 246, 249);
-            btnActiveMainScreen.Dock = DockStyle.Top;
             btnActiveMainScreen.FlatAppearance.BorderSize = 0;
             btnActiveMainScreen.FlatStyle = FlatStyle.Flat;
             btnActiveMainScreen.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -132,58 +138,14 @@ namespace FinalProject_QUANLYKHO
             btnActiveMainScreen.Location = new Point(0, 52);
             btnActiveMainScreen.Margin = new Padding(0);
             btnActiveMainScreen.Name = "btnActiveMainScreen";
-            btnActiveMainScreen.Padding = new Padding(12, 0, 0, 0);
+            btnActiveMainScreen.Padding = new Padding(6, 0, 0, 0);
             btnActiveMainScreen.RightToLeft = RightToLeft.No;
-            btnActiveMainScreen.Size = new Size(200, 50);
+            btnActiveMainScreen.Size = new Size(230, 50);
             btnActiveMainScreen.TabIndex = 6;
             btnActiveMainScreen.Text = "  Màn hình chính";
             btnActiveMainScreen.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveMainScreen.UseVisualStyleBackColor = false;
             btnActiveMainScreen.Click += btnActiveMainScreen_Click;
-            // 
-            // button7
-            // 
-            button7.AccessibleName = "btnNguyenLieu";
-            button7.BackColor = Color.Transparent;
-            button7.Dock = DockStyle.Top;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.ForeColor = Color.Black;
-            button7.Image = Properties.Resources.hoadon;
-            button7.ImageAlign = ContentAlignment.MiddleLeft;
-            button7.Location = new Point(0, 102);
-            button7.Margin = new Padding(0);
-            button7.Name = "button7";
-            button7.Padding = new Padding(12, 0, 0, 0);
-            button7.Size = new Size(200, 50);
-            button7.TabIndex = 9;
-            button7.Text = "  Hóa đơn xuất";
-            button7.TextAlign = ContentAlignment.MiddleLeft;
-            button7.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            button8.AccessibleName = "btnNguyenLieu";
-            button8.BackColor = Color.Transparent;
-            button8.Dock = DockStyle.Top;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.ForeColor = Color.Black;
-            button8.Image = Properties.Resources.hoadon;
-            button8.ImageAlign = ContentAlignment.MiddleLeft;
-            button8.Location = new Point(0, 152);
-            button8.Margin = new Padding(0);
-            button8.Name = "button8";
-            button8.Padding = new Padding(12, 0, 0, 0);
-            button8.Size = new Size(200, 50);
-            button8.TabIndex = 10;
-            button8.Text = "  Hóa đơn nhập";
-            button8.TextAlign = ContentAlignment.MiddleLeft;
-            button8.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button8.UseVisualStyleBackColor = false;
             // 
             // btnActiveCustomerScreen
             // 
@@ -196,11 +158,11 @@ namespace FinalProject_QUANLYKHO
             btnActiveCustomerScreen.ForeColor = Color.Black;
             btnActiveCustomerScreen.Image = Properties.Resources.customer;
             btnActiveCustomerScreen.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveCustomerScreen.Location = new Point(0, 202);
+            btnActiveCustomerScreen.Location = new Point(0, 102);
             btnActiveCustomerScreen.Margin = new Padding(0);
             btnActiveCustomerScreen.Name = "btnActiveCustomerScreen";
-            btnActiveCustomerScreen.Padding = new Padding(12, 0, 0, 0);
-            btnActiveCustomerScreen.Size = new Size(200, 50);
+            btnActiveCustomerScreen.Padding = new Padding(6, 0, 0, 0);
+            btnActiveCustomerScreen.Size = new Size(230, 50);
             btnActiveCustomerScreen.TabIndex = 11;
             btnActiveCustomerScreen.Text = "  Khách  hàng";
             btnActiveCustomerScreen.TextAlign = ContentAlignment.MiddleLeft;
@@ -219,11 +181,11 @@ namespace FinalProject_QUANLYKHO
             btnActiveBakeScreen.ForeColor = Color.Black;
             btnActiveBakeScreen.Image = Properties.Resources.bake;
             btnActiveBakeScreen.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveBakeScreen.Location = new Point(0, 252);
+            btnActiveBakeScreen.Location = new Point(0, 152);
             btnActiveBakeScreen.Margin = new Padding(0);
             btnActiveBakeScreen.Name = "btnActiveBakeScreen";
-            btnActiveBakeScreen.Padding = new Padding(12, 0, 0, 0);
-            btnActiveBakeScreen.Size = new Size(200, 50);
+            btnActiveBakeScreen.Padding = new Padding(6, 0, 0, 0);
+            btnActiveBakeScreen.Size = new Size(230, 50);
             btnActiveBakeScreen.TabIndex = 12;
             btnActiveBakeScreen.Text = "  Bánh";
             btnActiveBakeScreen.TextAlign = ContentAlignment.MiddleLeft;
@@ -242,11 +204,11 @@ namespace FinalProject_QUANLYKHO
             btnActiveMaterialScreen.ForeColor = Color.Black;
             btnActiveMaterialScreen.Image = Properties.Resources.material;
             btnActiveMaterialScreen.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveMaterialScreen.Location = new Point(0, 302);
+            btnActiveMaterialScreen.Location = new Point(0, 202);
             btnActiveMaterialScreen.Margin = new Padding(0);
             btnActiveMaterialScreen.Name = "btnActiveMaterialScreen";
-            btnActiveMaterialScreen.Padding = new Padding(12, 0, 0, 0);
-            btnActiveMaterialScreen.Size = new Size(200, 50);
+            btnActiveMaterialScreen.Padding = new Padding(6, 0, 0, 0);
+            btnActiveMaterialScreen.Size = new Size(230, 50);
             btnActiveMaterialScreen.TabIndex = 13;
             btnActiveMaterialScreen.Text = "  Nguyên liệu";
             btnActiveMaterialScreen.TextAlign = ContentAlignment.MiddleLeft;
@@ -254,12 +216,123 @@ namespace FinalProject_QUANLYKHO
             btnActiveMaterialScreen.UseVisualStyleBackColor = false;
             btnActiveMaterialScreen.Click += btnActiveMaterialScreen_Click;
             // 
+            // btnActiveImportInvoceMaterial
+            // 
+            btnActiveImportInvoceMaterial.AccessibleName = "btnNguyenLieu";
+            btnActiveImportInvoceMaterial.BackColor = Color.Transparent;
+            btnActiveImportInvoceMaterial.Dock = DockStyle.Top;
+            btnActiveImportInvoceMaterial.FlatAppearance.BorderSize = 0;
+            btnActiveImportInvoceMaterial.FlatStyle = FlatStyle.Flat;
+            btnActiveImportInvoceMaterial.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveImportInvoceMaterial.ForeColor = Color.Black;
+            btnActiveImportInvoceMaterial.Image = Properties.Resources.hoadon;
+            btnActiveImportInvoceMaterial.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActiveImportInvoceMaterial.Location = new Point(0, 252);
+            btnActiveImportInvoceMaterial.Margin = new Padding(0);
+            btnActiveImportInvoceMaterial.Name = "btnActiveImportInvoceMaterial";
+            btnActiveImportInvoceMaterial.Padding = new Padding(6, 0, 0, 0);
+            btnActiveImportInvoceMaterial.Size = new Size(230, 50);
+            btnActiveImportInvoceMaterial.TabIndex = 15;
+            btnActiveImportInvoceMaterial.Text = "  HD nhập nguyên liệu";
+            btnActiveImportInvoceMaterial.TextAlign = ContentAlignment.MiddleLeft;
+            btnActiveImportInvoceMaterial.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnActiveImportInvoceMaterial.UseVisualStyleBackColor = false;
+            // 
+            // btnActiveExportInvoceMaterial
+            // 
+            btnActiveExportInvoceMaterial.AccessibleName = "btnNguyenLieu";
+            btnActiveExportInvoceMaterial.BackColor = Color.Transparent;
+            btnActiveExportInvoceMaterial.Dock = DockStyle.Top;
+            btnActiveExportInvoceMaterial.FlatAppearance.BorderSize = 0;
+            btnActiveExportInvoceMaterial.FlatStyle = FlatStyle.Flat;
+            btnActiveExportInvoceMaterial.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveExportInvoceMaterial.ForeColor = Color.Black;
+            btnActiveExportInvoceMaterial.Image = Properties.Resources.hoadon;
+            btnActiveExportInvoceMaterial.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActiveExportInvoceMaterial.Location = new Point(0, 302);
+            btnActiveExportInvoceMaterial.Margin = new Padding(0);
+            btnActiveExportInvoceMaterial.Name = "btnActiveExportInvoceMaterial";
+            btnActiveExportInvoceMaterial.Padding = new Padding(6, 0, 0, 0);
+            btnActiveExportInvoceMaterial.Size = new Size(230, 50);
+            btnActiveExportInvoceMaterial.TabIndex = 9;
+            btnActiveExportInvoceMaterial.Text = "  HD xuất nguyên liệu";
+            btnActiveExportInvoceMaterial.TextAlign = ContentAlignment.MiddleLeft;
+            btnActiveExportInvoceMaterial.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnActiveExportInvoceMaterial.UseVisualStyleBackColor = false;
+            // 
+            // btnActiveExportInvoceBake
+            // 
+            btnActiveExportInvoceBake.AccessibleName = "btnNguyenLieu";
+            btnActiveExportInvoceBake.BackColor = Color.Transparent;
+            btnActiveExportInvoceBake.Dock = DockStyle.Top;
+            btnActiveExportInvoceBake.FlatAppearance.BorderSize = 0;
+            btnActiveExportInvoceBake.FlatStyle = FlatStyle.Flat;
+            btnActiveExportInvoceBake.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveExportInvoceBake.ForeColor = Color.Black;
+            btnActiveExportInvoceBake.Image = Properties.Resources.hoadon;
+            btnActiveExportInvoceBake.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActiveExportInvoceBake.Location = new Point(0, 352);
+            btnActiveExportInvoceBake.Margin = new Padding(0);
+            btnActiveExportInvoceBake.Name = "btnActiveExportInvoceBake";
+            btnActiveExportInvoceBake.Padding = new Padding(6, 0, 0, 0);
+            btnActiveExportInvoceBake.Size = new Size(230, 50);
+            btnActiveExportInvoceBake.TabIndex = 16;
+            btnActiveExportInvoceBake.Text = "  HD xuất bánh";
+            btnActiveExportInvoceBake.TextAlign = ContentAlignment.MiddleLeft;
+            btnActiveExportInvoceBake.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnActiveExportInvoceBake.UseVisualStyleBackColor = false;
+            // 
+            // btnActiveImportInvoceBake
+            // 
+            btnActiveImportInvoceBake.AccessibleName = "btnNguyenLieu";
+            btnActiveImportInvoceBake.BackColor = Color.Transparent;
+            btnActiveImportInvoceBake.Dock = DockStyle.Top;
+            btnActiveImportInvoceBake.FlatAppearance.BorderSize = 0;
+            btnActiveImportInvoceBake.FlatStyle = FlatStyle.Flat;
+            btnActiveImportInvoceBake.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveImportInvoceBake.ForeColor = Color.Black;
+            btnActiveImportInvoceBake.Image = Properties.Resources.hoadon;
+            btnActiveImportInvoceBake.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActiveImportInvoceBake.Location = new Point(0, 402);
+            btnActiveImportInvoceBake.Margin = new Padding(0);
+            btnActiveImportInvoceBake.Name = "btnActiveImportInvoceBake";
+            btnActiveImportInvoceBake.Padding = new Padding(6, 0, 0, 0);
+            btnActiveImportInvoceBake.Size = new Size(230, 50);
+            btnActiveImportInvoceBake.TabIndex = 17;
+            btnActiveImportInvoceBake.Text = "  HD nhập bánh";
+            btnActiveImportInvoceBake.TextAlign = ContentAlignment.MiddleLeft;
+            btnActiveImportInvoceBake.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnActiveImportInvoceBake.UseVisualStyleBackColor = false;
+            // 
+            // btnActiveDecentrialtion
+            // 
+            btnActiveDecentrialtion.AccessibleName = "";
+            btnActiveDecentrialtion.BackColor = Color.Transparent;
+            btnActiveDecentrialtion.Dock = DockStyle.Top;
+            btnActiveDecentrialtion.FlatAppearance.BorderSize = 0;
+            btnActiveDecentrialtion.FlatStyle = FlatStyle.Flat;
+            btnActiveDecentrialtion.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveDecentrialtion.ForeColor = Color.Black;
+            btnActiveDecentrialtion.Image = Properties.Resources.authentication;
+            btnActiveDecentrialtion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActiveDecentrialtion.Location = new Point(0, 452);
+            btnActiveDecentrialtion.Margin = new Padding(0);
+            btnActiveDecentrialtion.Name = "btnActiveDecentrialtion";
+            btnActiveDecentrialtion.Padding = new Padding(6, 0, 0, 0);
+            btnActiveDecentrialtion.Size = new Size(230, 50);
+            btnActiveDecentrialtion.TabIndex = 14;
+            btnActiveDecentrialtion.Text = "  Phân quyền";
+            btnActiveDecentrialtion.TextAlign = ContentAlignment.MiddleLeft;
+            btnActiveDecentrialtion.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnActiveDecentrialtion.UseVisualStyleBackColor = false;
+            btnActiveDecentrialtion.Click += btnActiveDecentrialtion_Click;
+            // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(763, 16);
+            label3.Location = new Point(623, 18);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
             label3.Size = new Size(144, 18);
@@ -271,23 +344,45 @@ namespace FinalProject_QUANLYKHO
             panelMainForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelMainForm.BackColor = Color.FromArgb(241, 246, 249);
             panelMainForm.Font = new Font("Rockwell", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            panelMainForm.Location = new Point(200, 52);
+            panelMainForm.Location = new Point(230, 52);
             panelMainForm.Margin = new Padding(0);
             panelMainForm.Name = "panelMainForm";
-            panelMainForm.Size = new Size(936, 543);
+            panelMainForm.Size = new Size(906, 543);
             panelMainForm.TabIndex = 2;
             // 
             // panelHeader
             // 
             panelHeader.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelHeader.Controls.Add(buttonCustom1);
             panelHeader.Controls.Add(btnMenu);
             panelHeader.Controls.Add(label3);
             panelHeader.Controls.Add(labelActiveBar);
-            panelHeader.Location = new Point(200, 0);
+            panelHeader.Location = new Point(230, 0);
             panelHeader.Margin = new Padding(0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(936, 52);
+            panelHeader.Size = new Size(906, 52);
             panelHeader.TabIndex = 3;
+            // 
+            // buttonCustom1
+            // 
+            buttonCustom1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonCustom1.BackColor = Color.LightSkyBlue;
+            buttonCustom1.BackgroundColor = Color.LightSkyBlue;
+            buttonCustom1.BorderColor = Color.PaleVioletRed;
+            buttonCustom1.BorderRadius = 6;
+            buttonCustom1.BorderSize = 0;
+            buttonCustom1.FlatAppearance.BorderSize = 0;
+            buttonCustom1.FlatStyle = FlatStyle.Flat;
+            buttonCustom1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonCustom1.ForeColor = Color.White;
+            buttonCustom1.Location = new Point(780, 7);
+            buttonCustom1.Name = "buttonCustom1";
+            buttonCustom1.Size = new Size(104, 39);
+            buttonCustom1.TabIndex = 0;
+            buttonCustom1.Text = "Đăng xuất";
+            buttonCustom1.TextColor = Color.White;
+            buttonCustom1.UseVisualStyleBackColor = false;
+            buttonCustom1.Click += buttonCustom1_Click;
             // 
             // btnMenu
             // 
@@ -345,9 +440,6 @@ namespace FinalProject_QUANLYKHO
             ResumeLayout(false);
         }
 
-        private void flowLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-        }
 
         #endregion
         private FlowLayoutPanel panelFlowSidebar;
@@ -359,8 +451,7 @@ namespace FinalProject_QUANLYKHO
         private Button btnActiveBakeScreen;
         private Button btnActiveMaterialScreen;
         private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button btnActiveExportInvoceMaterial;
         private Panel panelText;
         private Button button12;
         private Button button11;
@@ -369,7 +460,7 @@ namespace FinalProject_QUANLYKHO
         private Label label3;
         private Panel panelHeader;
         private Panel panel1;
-        private Button button4;
+        private Button btnActiveImportInvoceBake;
         private Panel panel4;
         private Button button5;
         private Button button9;
@@ -377,6 +468,10 @@ namespace FinalProject_QUANLYKHO
         private Button button1;
         private ComponentCustom.ButtonCustom btnMenu;
         private Label labelActiveBar;
+        private ComponentCustom.ButtonCustom buttonCustom1;
+        private Button btnActiveDecentrialtion;
+        private Button btnActiveImportInvoceMaterial;
+        private Button btnActiveExportInvoceBake;
     }
 
 
