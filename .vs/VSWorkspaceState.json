@@ -1,11 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Service",
     "\\View",
-    "\\View\\Authentication",
-    "\\View\\BakeView"
+    "\\View\\BakeView",
+    "\\View\\CustomerView",
+    "\\View\\DecentralizationView"
   ],
-  "SelectedNode": "\\View\\MainScreen.cs",
+  "SelectedNode": "\\FinalProject_QUANLYKHO.sln",
   "PreviewInSolutionExplorer": false
 }

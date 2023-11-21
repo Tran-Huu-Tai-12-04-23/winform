@@ -71,7 +71,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             dataGridViewCustomer.Rows.Clear();
             List<Customer> dataCustomer = null;
 
-            if( isJustShowCustomerActive )
+            if (isJustShowCustomerActive)
             {
                 dataCustomer = customerService.GetAllActive(page, rowOfPage);
             }

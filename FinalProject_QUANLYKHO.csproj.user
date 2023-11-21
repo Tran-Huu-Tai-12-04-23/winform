@@ -19,10 +19,13 @@
     <Compile Update="View\Authentication\Authentication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\BakeView\AddBakeForm.cs">
+    <Compile Update="View\BakeView\AddBake.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\BakeView\ManagerBake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\BakeView\UpdateBake.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\CustomerView\ManagerCustomer.cs">
@@ -40,10 +43,16 @@
     <Compile Update="View\DecentralizationView\ModalViewDecentralization.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\ExportInvoceView\ManagerExportInvoce.cs">
+    <Compile Update="View\InvoceExportMaterialGoView\DetailInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\ImportInvoceView\ManagerImportInvoce.cs">
+    <Compile Update="View\InvoceExportMaterialGoView\FormAddInvoceExportMaterialGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceExportMaterialGoView\ManagerExportMaterialGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceView\InvoceMenuView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\MainScreen.cs">
@@ -53,6 +62,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\MaterialView\ManagerMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\MaterialView\UpdateMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

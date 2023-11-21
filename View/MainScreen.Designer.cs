@@ -35,6 +35,9 @@ namespace FinalProject_QUANLYKHO
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelFlowSidebar = new FlowLayoutPanel();
             panel3 = new Panel();
             button1 = new Button();
@@ -43,19 +46,51 @@ namespace FinalProject_QUANLYKHO
             btnActiveCustomerScreen = new Button();
             btnActiveBakeScreen = new Button();
             btnActiveMaterialScreen = new Button();
-            btnActiveImportInvoceMaterial = new Button();
-            btnActiveExportInvoceMaterial = new Button();
-            btnActiveExportInvoceBake = new Button();
-            btnActiveImportInvoceBake = new Button();
             btnActiveDecentrialtion = new Button();
+            btnActiveManagerInvoce = new Button();
             label3 = new Label();
             panelMainForm = new Panel();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            panel9 = new Panel();
+            label10 = new Label();
+            label11 = new Label();
+            panel10 = new Panel();
+            label12 = new Label();
+            label13 = new Label();
+            panel11 = new Panel();
+            label14 = new Label();
+            label15 = new Label();
+            panel12 = new Panel();
+            label16 = new Label();
+            label17 = new Label();
+            panel8 = new Panel();
+            label8 = new Label();
+            label9 = new Label();
+            panel7 = new Panel();
+            label6 = new Label();
+            label7 = new Label();
+            panel6 = new Panel();
+            label4 = new Label();
+            label5 = new Label();
+            panel5 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
             panelHeader = new Panel();
             buttonCustom1 = new ComponentCustom.ButtonCustom();
             btnMenu = new ComponentCustom.ButtonCustom();
             labelActiveBar = new Label();
             panelFlowSidebar.SuspendLayout();
             panel3.SuspendLayout();
+            panelMainForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            panel9.SuspendLayout();
+            panel10.SuspendLayout();
+            panel11.SuspendLayout();
+            panel12.SuspendLayout();
+            panel8.SuspendLayout();
+            panel7.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
             panelHeader.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,10 +105,7 @@ namespace FinalProject_QUANLYKHO
             panelFlowSidebar.Controls.Add(btnActiveCustomerScreen);
             panelFlowSidebar.Controls.Add(btnActiveBakeScreen);
             panelFlowSidebar.Controls.Add(btnActiveMaterialScreen);
-            panelFlowSidebar.Controls.Add(btnActiveImportInvoceMaterial);
-            panelFlowSidebar.Controls.Add(btnActiveExportInvoceMaterial);
-            panelFlowSidebar.Controls.Add(btnActiveExportInvoceBake);
-            panelFlowSidebar.Controls.Add(btnActiveImportInvoceBake);
+            panelFlowSidebar.Controls.Add(btnActiveManagerInvoce);
             panelFlowSidebar.Controls.Add(btnActiveDecentrialtion);
             panelFlowSidebar.FlowDirection = FlowDirection.TopDown;
             panelFlowSidebar.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -131,7 +163,7 @@ namespace FinalProject_QUANLYKHO
             btnActiveMainScreen.BackColor = Color.FromArgb(241, 246, 249);
             btnActiveMainScreen.FlatAppearance.BorderSize = 0;
             btnActiveMainScreen.FlatStyle = FlatStyle.Flat;
-            btnActiveMainScreen.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveMainScreen.Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnActiveMainScreen.ForeColor = Color.Black;
             btnActiveMainScreen.Image = Properties.Resources.home;
             btnActiveMainScreen.ImageAlign = ContentAlignment.MiddleLeft;
@@ -154,7 +186,7 @@ namespace FinalProject_QUANLYKHO
             btnActiveCustomerScreen.Dock = DockStyle.Top;
             btnActiveCustomerScreen.FlatAppearance.BorderSize = 0;
             btnActiveCustomerScreen.FlatStyle = FlatStyle.Flat;
-            btnActiveCustomerScreen.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveCustomerScreen.Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnActiveCustomerScreen.ForeColor = Color.Black;
             btnActiveCustomerScreen.Image = Properties.Resources.customer;
             btnActiveCustomerScreen.ImageAlign = ContentAlignment.MiddleLeft;
@@ -177,7 +209,7 @@ namespace FinalProject_QUANLYKHO
             btnActiveBakeScreen.Dock = DockStyle.Top;
             btnActiveBakeScreen.FlatAppearance.BorderSize = 0;
             btnActiveBakeScreen.FlatStyle = FlatStyle.Flat;
-            btnActiveBakeScreen.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveBakeScreen.Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnActiveBakeScreen.ForeColor = Color.Black;
             btnActiveBakeScreen.Image = Properties.Resources.bake;
             btnActiveBakeScreen.ImageAlign = ContentAlignment.MiddleLeft;
@@ -200,7 +232,7 @@ namespace FinalProject_QUANLYKHO
             btnActiveMaterialScreen.Dock = DockStyle.Top;
             btnActiveMaterialScreen.FlatAppearance.BorderSize = 0;
             btnActiveMaterialScreen.FlatStyle = FlatStyle.Flat;
-            btnActiveMaterialScreen.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveMaterialScreen.Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnActiveMaterialScreen.ForeColor = Color.Black;
             btnActiveMaterialScreen.Image = Properties.Resources.material;
             btnActiveMaterialScreen.ImageAlign = ContentAlignment.MiddleLeft;
@@ -216,93 +248,28 @@ namespace FinalProject_QUANLYKHO
             btnActiveMaterialScreen.UseVisualStyleBackColor = false;
             btnActiveMaterialScreen.Click += btnActiveMaterialScreen_Click;
             // 
-            // btnActiveImportInvoceMaterial
+            // btnActiveManagerInvoce
             // 
-            btnActiveImportInvoceMaterial.AccessibleName = "btnNguyenLieu";
-            btnActiveImportInvoceMaterial.BackColor = Color.Transparent;
-            btnActiveImportInvoceMaterial.Dock = DockStyle.Top;
-            btnActiveImportInvoceMaterial.FlatAppearance.BorderSize = 0;
-            btnActiveImportInvoceMaterial.FlatStyle = FlatStyle.Flat;
-            btnActiveImportInvoceMaterial.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveImportInvoceMaterial.ForeColor = Color.Black;
-            btnActiveImportInvoceMaterial.Image = Properties.Resources.hoadon;
-            btnActiveImportInvoceMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveImportInvoceMaterial.Location = new Point(0, 252);
-            btnActiveImportInvoceMaterial.Margin = new Padding(0);
-            btnActiveImportInvoceMaterial.Name = "btnActiveImportInvoceMaterial";
-            btnActiveImportInvoceMaterial.Padding = new Padding(6, 0, 0, 0);
-            btnActiveImportInvoceMaterial.Size = new Size(230, 50);
-            btnActiveImportInvoceMaterial.TabIndex = 15;
-            btnActiveImportInvoceMaterial.Text = "  HD nhập nguyên liệu";
-            btnActiveImportInvoceMaterial.TextAlign = ContentAlignment.MiddleLeft;
-            btnActiveImportInvoceMaterial.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnActiveImportInvoceMaterial.UseVisualStyleBackColor = false;
-            // 
-            // btnActiveExportInvoceMaterial
-            // 
-            btnActiveExportInvoceMaterial.AccessibleName = "btnNguyenLieu";
-            btnActiveExportInvoceMaterial.BackColor = Color.Transparent;
-            btnActiveExportInvoceMaterial.Dock = DockStyle.Top;
-            btnActiveExportInvoceMaterial.FlatAppearance.BorderSize = 0;
-            btnActiveExportInvoceMaterial.FlatStyle = FlatStyle.Flat;
-            btnActiveExportInvoceMaterial.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveExportInvoceMaterial.ForeColor = Color.Black;
-            btnActiveExportInvoceMaterial.Image = Properties.Resources.hoadon;
-            btnActiveExportInvoceMaterial.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveExportInvoceMaterial.Location = new Point(0, 302);
-            btnActiveExportInvoceMaterial.Margin = new Padding(0);
-            btnActiveExportInvoceMaterial.Name = "btnActiveExportInvoceMaterial";
-            btnActiveExportInvoceMaterial.Padding = new Padding(6, 0, 0, 0);
-            btnActiveExportInvoceMaterial.Size = new Size(230, 50);
-            btnActiveExportInvoceMaterial.TabIndex = 9;
-            btnActiveExportInvoceMaterial.Text = "  HD xuất nguyên liệu";
-            btnActiveExportInvoceMaterial.TextAlign = ContentAlignment.MiddleLeft;
-            btnActiveExportInvoceMaterial.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnActiveExportInvoceMaterial.UseVisualStyleBackColor = false;
-            // 
-            // btnActiveExportInvoceBake
-            // 
-            btnActiveExportInvoceBake.AccessibleName = "btnNguyenLieu";
-            btnActiveExportInvoceBake.BackColor = Color.Transparent;
-            btnActiveExportInvoceBake.Dock = DockStyle.Top;
-            btnActiveExportInvoceBake.FlatAppearance.BorderSize = 0;
-            btnActiveExportInvoceBake.FlatStyle = FlatStyle.Flat;
-            btnActiveExportInvoceBake.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveExportInvoceBake.ForeColor = Color.Black;
-            btnActiveExportInvoceBake.Image = Properties.Resources.hoadon;
-            btnActiveExportInvoceBake.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveExportInvoceBake.Location = new Point(0, 352);
-            btnActiveExportInvoceBake.Margin = new Padding(0);
-            btnActiveExportInvoceBake.Name = "btnActiveExportInvoceBake";
-            btnActiveExportInvoceBake.Padding = new Padding(6, 0, 0, 0);
-            btnActiveExportInvoceBake.Size = new Size(230, 50);
-            btnActiveExportInvoceBake.TabIndex = 16;
-            btnActiveExportInvoceBake.Text = "  HD xuất bánh";
-            btnActiveExportInvoceBake.TextAlign = ContentAlignment.MiddleLeft;
-            btnActiveExportInvoceBake.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnActiveExportInvoceBake.UseVisualStyleBackColor = false;
-            // 
-            // btnActiveImportInvoceBake
-            // 
-            btnActiveImportInvoceBake.AccessibleName = "btnNguyenLieu";
-            btnActiveImportInvoceBake.BackColor = Color.Transparent;
-            btnActiveImportInvoceBake.Dock = DockStyle.Top;
-            btnActiveImportInvoceBake.FlatAppearance.BorderSize = 0;
-            btnActiveImportInvoceBake.FlatStyle = FlatStyle.Flat;
-            btnActiveImportInvoceBake.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveImportInvoceBake.ForeColor = Color.Black;
-            btnActiveImportInvoceBake.Image = Properties.Resources.hoadon;
-            btnActiveImportInvoceBake.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveImportInvoceBake.Location = new Point(0, 402);
-            btnActiveImportInvoceBake.Margin = new Padding(0);
-            btnActiveImportInvoceBake.Name = "btnActiveImportInvoceBake";
-            btnActiveImportInvoceBake.Padding = new Padding(6, 0, 0, 0);
-            btnActiveImportInvoceBake.Size = new Size(230, 50);
-            btnActiveImportInvoceBake.TabIndex = 17;
-            btnActiveImportInvoceBake.Text = "  HD nhập bánh";
-            btnActiveImportInvoceBake.TextAlign = ContentAlignment.MiddleLeft;
-            btnActiveImportInvoceBake.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnActiveImportInvoceBake.UseVisualStyleBackColor = false;
+            btnActiveManagerInvoce.AccessibleName = "btnNguyenLieu";
+            btnActiveManagerInvoce.BackColor = Color.Transparent;
+            btnActiveManagerInvoce.Dock = DockStyle.Top;
+            btnActiveManagerInvoce.FlatAppearance.BorderSize = 0;
+            btnActiveManagerInvoce.FlatStyle = FlatStyle.Flat;
+            btnActiveManagerInvoce.Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveManagerInvoce.ForeColor = Color.Black;
+            btnActiveManagerInvoce.Image = Properties.Resources.hoadon;
+            btnActiveManagerInvoce.ImageAlign = ContentAlignment.MiddleLeft;
+            btnActiveManagerInvoce.Location = new Point(0, 252);
+            btnActiveManagerInvoce.Margin = new Padding(0);
+            btnActiveManagerInvoce.Name = "btnActiveManagerInvoce";
+            btnActiveManagerInvoce.Padding = new Padding(6, 0, 0, 0);
+            btnActiveManagerInvoce.Size = new Size(230, 50);
+            btnActiveManagerInvoce.TabIndex = 15;
+            btnActiveManagerInvoce.Text = "  Quản lý hóa đơn";
+            btnActiveManagerInvoce.TextAlign = ContentAlignment.MiddleLeft;
+            btnActiveManagerInvoce.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnActiveManagerInvoce.UseVisualStyleBackColor = false;
+            btnActiveManagerInvoce.Click += btnActiveManagerInvoce_click;
             // 
             // btnActiveDecentrialtion
             // 
@@ -311,11 +278,11 @@ namespace FinalProject_QUANLYKHO
             btnActiveDecentrialtion.Dock = DockStyle.Top;
             btnActiveDecentrialtion.FlatAppearance.BorderSize = 0;
             btnActiveDecentrialtion.FlatStyle = FlatStyle.Flat;
-            btnActiveDecentrialtion.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnActiveDecentrialtion.Font = new Font("Verdana", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnActiveDecentrialtion.ForeColor = Color.Black;
             btnActiveDecentrialtion.Image = Properties.Resources.authentication;
             btnActiveDecentrialtion.ImageAlign = ContentAlignment.MiddleLeft;
-            btnActiveDecentrialtion.Location = new Point(0, 452);
+            btnActiveDecentrialtion.Location = new Point(0, 302);
             btnActiveDecentrialtion.Margin = new Padding(0);
             btnActiveDecentrialtion.Name = "btnActiveDecentrialtion";
             btnActiveDecentrialtion.Padding = new Padding(6, 0, 0, 0);
@@ -332,7 +299,7 @@ namespace FinalProject_QUANLYKHO
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(623, 18);
+            label3.Location = new Point(871, 18);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
             label3.Size = new Size(144, 18);
@@ -343,12 +310,262 @@ namespace FinalProject_QUANLYKHO
             // 
             panelMainForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelMainForm.BackColor = Color.FromArgb(241, 246, 249);
+            panelMainForm.Controls.Add(chart1);
+            panelMainForm.Controls.Add(panel9);
+            panelMainForm.Controls.Add(panel10);
+            panelMainForm.Controls.Add(panel11);
+            panelMainForm.Controls.Add(panel12);
+            panelMainForm.Controls.Add(panel8);
+            panelMainForm.Controls.Add(panel7);
+            panelMainForm.Controls.Add(panel6);
+            panelMainForm.Controls.Add(panel5);
             panelMainForm.Font = new Font("Rockwell", 12F, FontStyle.Regular, GraphicsUnit.Point);
             panelMainForm.Location = new Point(230, 52);
             panelMainForm.Margin = new Padding(0);
             panelMainForm.Name = "panelMainForm";
-            panelMainForm.Size = new Size(906, 543);
+            panelMainForm.Size = new Size(1154, 709);
             panelMainForm.TabIndex = 2;
+            // 
+            // chart1
+            // 
+            chart1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartArea2.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            chart1.Legends.Add(legend2);
+            chart1.Location = new Point(17, 243);
+            chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chart1.Series.Add(series2);
+            chart1.Size = new Size(1115, 454);
+            chart1.TabIndex = 10;
+            chart1.Text = "chart1";
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.FromArgb(128, 255, 255);
+            panel9.Controls.Add(label10);
+            panel9.Controls.Add(label11);
+            panel9.Location = new Point(669, 131);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(195, 100);
+            panel9.TabIndex = 9;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(54, 52);
+            label10.Name = "label10";
+            label10.Size = new Size(91, 19);
+            label10.TabIndex = 1;
+            label10.Text = "400.00 vnd";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(54, 17);
+            label11.Name = "label11";
+            label11.Size = new Size(84, 19);
+            label11.TabIndex = 0;
+            label11.Text = "Doanh thu";
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.FromArgb(128, 255, 255);
+            panel10.Controls.Add(label12);
+            panel10.Controls.Add(label13);
+            panel10.Location = new Point(451, 131);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(195, 100);
+            panel10.TabIndex = 8;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(54, 52);
+            label12.Name = "label12";
+            label12.Size = new Size(91, 19);
+            label12.TabIndex = 1;
+            label12.Text = "400.00 vnd";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(54, 17);
+            label13.Name = "label13";
+            label13.Size = new Size(84, 19);
+            label13.TabIndex = 0;
+            label13.Text = "Doanh thu";
+            // 
+            // panel11
+            // 
+            panel11.BackColor = Color.FromArgb(128, 255, 255);
+            panel11.Controls.Add(label14);
+            panel11.Controls.Add(label15);
+            panel11.Location = new Point(232, 131);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(195, 100);
+            panel11.TabIndex = 7;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(54, 52);
+            label14.Name = "label14";
+            label14.Size = new Size(91, 19);
+            label14.TabIndex = 1;
+            label14.Text = "400.00 vnd";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(54, 17);
+            label15.Name = "label15";
+            label15.Size = new Size(84, 19);
+            label15.TabIndex = 0;
+            label15.Text = "Doanh thu";
+            // 
+            // panel12
+            // 
+            panel12.BackColor = Color.FromArgb(128, 255, 255);
+            panel12.Controls.Add(label16);
+            panel12.Controls.Add(label17);
+            panel12.Location = new Point(17, 131);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(195, 100);
+            panel12.TabIndex = 6;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(54, 52);
+            label16.Name = "label16";
+            label16.Size = new Size(91, 19);
+            label16.TabIndex = 1;
+            label16.Text = "400.00 vnd";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(54, 17);
+            label17.Name = "label17";
+            label17.Size = new Size(84, 19);
+            label17.TabIndex = 0;
+            label17.Text = "Doanh thu";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.FromArgb(128, 255, 255);
+            panel8.Controls.Add(label8);
+            panel8.Controls.Add(label9);
+            panel8.Location = new Point(669, 14);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(195, 100);
+            panel8.TabIndex = 5;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(54, 52);
+            label8.Name = "label8";
+            label8.Size = new Size(91, 19);
+            label8.TabIndex = 1;
+            label8.Text = "400.00 vnd";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(54, 17);
+            label9.Name = "label9";
+            label9.Size = new Size(84, 19);
+            label9.TabIndex = 0;
+            label9.Text = "Doanh thu";
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(128, 255, 255);
+            panel7.Controls.Add(label6);
+            panel7.Controls.Add(label7);
+            panel7.Location = new Point(451, 14);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(195, 100);
+            panel7.TabIndex = 4;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(54, 52);
+            label6.Name = "label6";
+            label6.Size = new Size(91, 19);
+            label6.TabIndex = 1;
+            label6.Text = "400.00 vnd";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(54, 17);
+            label7.Name = "label7";
+            label7.Size = new Size(84, 19);
+            label7.TabIndex = 0;
+            label7.Text = "Doanh thu";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(128, 255, 255);
+            panel6.Controls.Add(label4);
+            panel6.Controls.Add(label5);
+            panel6.Location = new Point(232, 14);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(195, 100);
+            panel6.TabIndex = 3;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(54, 52);
+            label4.Name = "label4";
+            label4.Size = new Size(91, 19);
+            label4.TabIndex = 1;
+            label4.Text = "400.00 vnd";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(54, 17);
+            label5.Name = "label5";
+            label5.Size = new Size(84, 19);
+            label5.TabIndex = 0;
+            label5.Text = "Doanh thu";
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(128, 255, 255);
+            panel5.Controls.Add(label2);
+            panel5.Controls.Add(label1);
+            panel5.Location = new Point(17, 14);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(195, 100);
+            panel5.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(54, 52);
+            label2.Name = "label2";
+            label2.Size = new Size(91, 19);
+            label2.TabIndex = 1;
+            label2.Text = "400.00 vnd";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(54, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 19);
+            label1.TabIndex = 0;
+            label1.Text = "Doanh thu";
             // 
             // panelHeader
             // 
@@ -360,7 +577,7 @@ namespace FinalProject_QUANLYKHO
             panelHeader.Location = new Point(230, 0);
             panelHeader.Margin = new Padding(0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(906, 52);
+            panelHeader.Size = new Size(1154, 52);
             panelHeader.TabIndex = 3;
             // 
             // buttonCustom1
@@ -375,7 +592,7 @@ namespace FinalProject_QUANLYKHO
             buttonCustom1.FlatStyle = FlatStyle.Flat;
             buttonCustom1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             buttonCustom1.ForeColor = Color.White;
-            buttonCustom1.Location = new Point(780, 7);
+            buttonCustom1.Location = new Point(1028, 7);
             buttonCustom1.Name = "buttonCustom1";
             buttonCustom1.Size = new Size(104, 39);
             buttonCustom1.TabIndex = 0;
@@ -421,12 +638,12 @@ namespace FinalProject_QUANLYKHO
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            ClientSize = new Size(1136, 595);
+            ClientSize = new Size(1384, 761);
             Controls.Add(panelHeader);
             Controls.Add(panelMainForm);
             Controls.Add(panelFlowSidebar);
             HelpButton = true;
-            MinimumSize = new Size(1152, 634);
+            MinimumSize = new Size(1400, 800);
             Name = "Form1";
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
@@ -435,6 +652,24 @@ namespace FinalProject_QUANLYKHO
             panelFlowSidebar.ResumeLayout(false);
             panelFlowSidebar.PerformLayout();
             panel3.ResumeLayout(false);
+            panelMainForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             ResumeLayout(false);
@@ -451,7 +686,6 @@ namespace FinalProject_QUANLYKHO
         private Button btnActiveBakeScreen;
         private Button btnActiveMaterialScreen;
         private Button button6;
-        private Button btnActiveExportInvoceMaterial;
         private Panel panelText;
         private Button button12;
         private Button button11;
@@ -460,7 +694,6 @@ namespace FinalProject_QUANLYKHO
         private Label label3;
         private Panel panelHeader;
         private Panel panel1;
-        private Button btnActiveImportInvoceBake;
         private Panel panel4;
         private Button button5;
         private Button button9;
@@ -470,8 +703,32 @@ namespace FinalProject_QUANLYKHO
         private Label labelActiveBar;
         private ComponentCustom.ButtonCustom buttonCustom1;
         private Button btnActiveDecentrialtion;
-        private Button btnActiveImportInvoceMaterial;
-        private Button btnActiveExportInvoceBake;
+        private Button btnActiveManagerInvoce;
+        private Panel panel9;
+        private Label label10;
+        private Label label11;
+        private Panel panel10;
+        private Label label12;
+        private Label label13;
+        private Panel panel11;
+        private Label label14;
+        private Label label15;
+        private Panel panel12;
+        private Label label16;
+        private Label label17;
+        private Panel panel8;
+        private Label label8;
+        private Label label9;
+        private Panel panel7;
+        private Label label6;
+        private Label label7;
+        private Panel panel6;
+        private Label label4;
+        private Label label5;
+        private Panel panel5;
+        private Label label2;
+        private Label label1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 
 

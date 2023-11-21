@@ -27,8 +27,6 @@ namespace FinalProject_QUANLYKHO.View.Authentication
 
         }
 
-
-
         private void label8_Click(object sender, EventArgs e)
         {
             Authentication form = (Authentication)Application.OpenForms["Authentication"];
@@ -47,7 +45,7 @@ namespace FinalProject_QUANLYKHO.View.Authentication
             string password = inputPassword.Texts;
 
             isCheckErr = Util.CheckInputAndNotificationApp("Tên tài khoản", username, notificationUsername);
-            isCheckErr = Util.CheckInputAndNotificationApp("Mật khẩu", password, notificationPassword);
+            isCheckErr = Util.CheckInputAndNotificationApp("Mật khẩu", password, notificationPassword) || isCheckErr;
 
 
             if (isCheckErr)
@@ -69,6 +67,7 @@ namespace FinalProject_QUANLYKHO.View.Authentication
             Properties.Settings.Default.username = accountLogin.TenTaiKhoan;
             Properties.Settings.Default.role = accountLogin.ChucVu;
             Properties.Settings.Default.login = true;
+            Properties.Settings.Default.idTaiKhoan = accountLogin.IdTaiKhoan;
             Properties.Settings.Default.Save();
 
             Authentication form = (Authentication)Application.OpenForms["Authentication"];

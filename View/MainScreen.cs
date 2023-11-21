@@ -7,6 +7,8 @@ using FinalProject_QUANLYKHO.View.MaterialView;
 using FinalProject_QUANLYKHO.View.CustomerView;
 using FinalProject_QUANLYKHO.View.Authentication;
 using FinalProject_QUANLYKHO.View.DecentralizationView;
+using FinalProject_QUANLYKHO.View.ImportMaterialView;
+using FinalProject_QUANLYKHO.View.InvoceView;
 using Microsoft.VisualBasic;
 
 namespace FinalProject_QUANLYKHO
@@ -27,7 +29,6 @@ namespace FinalProject_QUANLYKHO
                 currentForm.Close();
             }
 
-
             currentForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -40,7 +41,7 @@ namespace FinalProject_QUANLYKHO
         }
 
 
-        private void switchForm(int active)
+        public void switchForm(int active)
         {
             if (active == ContanstApp.BAKE_SCREEN)
             {
@@ -62,6 +63,16 @@ namespace FinalProject_QUANLYKHO
                 OpenChildForm(new ManagerDecentralization());
                 labelActiveBar.Text = "Phần quyền";
             }
+            else if (active == ContanstApp.EXPORT_MATERIAL_GO)
+            {
+                OpenChildForm(new ManagerExportMaterialGo());
+                labelActiveBar.Text = ContanstApp.NAME_NAV_EXPORT_MATERIAL_GO;
+            }
+            else if (active == ContanstApp.MAIN_MENU_INVOCE)
+            {
+                OpenChildForm(new InvoceMenuView());
+                labelActiveBar.Text = " Quản lý hóa đơn cửa hàng.";
+            }
             else
             {
                 if (currentForm != null)
@@ -82,10 +93,8 @@ namespace FinalProject_QUANLYKHO
             buttons.Add(btnActiveCustomerScreen);
             buttons.Add(btnActiveMaterialScreen);
             buttons.Add(btnActiveDecentrialtion);
-            buttons.Add(btnActiveExportInvoceBake);
-            buttons.Add(btnActiveImportInvoceBake);
-            buttons.Add(btnActiveExportInvoceMaterial);
-            buttons.Add(btnActiveImportInvoceMaterial);
+            buttons.Add(btnActiveManagerInvoce);
+         
         }
 
 
@@ -169,18 +178,13 @@ namespace FinalProject_QUANLYKHO
                 closeMenu = false;
                 panelHeader.Location = new Point(panelFlowSidebar.MaximumSize.Width, panelHeader.Location.Y);
                 panelMainForm.Location = new Point(panelFlowSidebar.MaximumSize.Width, panelMainForm.Location.Y);
-                
-                
+
+
                 btnActiveMainScreen.Text = ContanstApp.NAME_NAV_HOME;
                 btnActiveCustomerScreen.Text = ContanstApp.NAME_NAV_CUSTOMER;
                 btnActiveBakeScreen.Text = ContanstApp.NAME_NAV_BAKE;
-                btnActiveMaterialScreen.Text = ContanstApp.NAME_NAV_MATERIAL;
-                btnActiveExportInvoceBake.Text = ContanstApp.NAME_NAV_EXPORTBAKE;
-                btnActiveImportInvoceBake.Text = ContanstApp.NAME_NAV_IMPORTBAKE;
-                btnActiveImportInvoceMaterial.Text = ContanstApp.NAME_NAV_EXPORTMATERIAL;
-                btnActiveExportInvoceMaterial.Text = ContanstApp.NAME_NAV_EXPORTMATERIAL;
-                btnActiveDecentrialtion.Text = ContanstApp.NAME_NAV_DECENTRILIZATION;
-                
+                btnActiveMaterialScreen.Text = ContanstApp.NAME_NAV_MANAGER_INVOCE;
+
 
             }
             else
@@ -195,11 +199,8 @@ namespace FinalProject_QUANLYKHO
                 btnActiveCustomerScreen.Text = "";
                 btnActiveBakeScreen.Text = "";
                 btnActiveMaterialScreen.Text = "";
-                btnActiveExportInvoceBake.Text = "";
-                btnActiveImportInvoceBake.Text = "";
-                btnActiveExportInvoceMaterial.Text = "";
-                btnActiveImportInvoceMaterial.Text = "";
                 btnActiveDecentrialtion.Text = "";
+                btnActiveManagerInvoce.Text = "";
 
             }
 
@@ -234,5 +235,14 @@ namespace FinalProject_QUANLYKHO
             }
         }
 
+        private void btnActiveManagerInvoce_click(object sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                DiableAllNavigate();
+                ChangeStatusBtnNavigate(button, true);
+                switchForm(ContanstApp.MAIN_MENU_INVOCE);
+            }
+        }
     }
 }

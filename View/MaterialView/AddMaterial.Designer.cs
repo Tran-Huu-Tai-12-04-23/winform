@@ -38,11 +38,11 @@
             inputNameMaterial = new CustomControls.RJControls.RJTextBox();
             label1 = new Label();
             panelCustom1 = new ComponentCustom.PanelCustom();
+            inputTypeMaterial = new ComboBox();
+            label6 = new Label();
             label5 = new Label();
             InputNumber = new CustomControls.RJControls.RJTextBox();
             panelCustom2 = new ComponentCustom.PanelCustom();
-            label6 = new Label();
-            inputTypeMaterial = new ComboBox();
             panelCustom1.SuspendLayout();
             panelCustom2.SuspendLayout();
             SuspendLayout();
@@ -59,7 +59,7 @@
             btnTurnOff.FlatStyle = FlatStyle.Flat;
             btnTurnOff.ForeColor = Color.White;
             btnTurnOff.Image = Properties.Resources.icons8_close_24;
-            btnTurnOff.Location = new Point(968, 0);
+            btnTurnOff.Location = new Point(995, 0);
             btnTurnOff.Margin = new Padding(0);
             btnTurnOff.Name = "btnTurnOff";
             btnTurnOff.Size = new Size(51, 43);
@@ -75,7 +75,7 @@
             label4.BackColor = Color.FromArgb(241, 246, 249);
             label4.FlatStyle = FlatStyle.Flat;
             label4.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(94, 247);
+            label4.Location = new Point(94, 238);
             label4.Name = "label4";
             label4.Size = new Size(96, 25);
             label4.TabIndex = 31;
@@ -91,7 +91,7 @@
             inputPrice.BorderSize = 2;
             inputPrice.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             inputPrice.ForeColor = Color.FromArgb(64, 64, 64);
-            inputPrice.Location = new Point(94, 275);
+            inputPrice.Location = new Point(94, 266);
             inputPrice.Margin = new Padding(5);
             inputPrice.Multiline = false;
             inputPrice.Name = "inputPrice";
@@ -116,7 +116,7 @@
             btnSubmit.FlatStyle = FlatStyle.Flat;
             btnSubmit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(344, 504);
+            btnSubmit.Location = new Point(319, 490);
             btnSubmit.Margin = new Padding(3, 4, 3, 4);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(147, 51);
@@ -133,7 +133,7 @@
             label3.BackColor = Color.FromArgb(241, 246, 249);
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(94, 164);
+            label3.Location = new Point(94, 155);
             label3.Name = "label3";
             label3.Size = new Size(80, 25);
             label3.TabIndex = 29;
@@ -149,7 +149,7 @@
             inputUnit.BorderSize = 2;
             inputUnit.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             inputUnit.ForeColor = Color.FromArgb(64, 64, 64);
-            inputUnit.Location = new Point(94, 193);
+            inputUnit.Location = new Point(94, 184);
             inputUnit.Margin = new Padding(5);
             inputUnit.Multiline = false;
             inputUnit.Name = "inputUnit";
@@ -169,7 +169,7 @@
             label2.BackColor = Color.FromArgb(241, 246, 249);
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(94, 78);
+            label2.Location = new Point(94, 69);
             label2.Name = "label2";
             label2.Size = new Size(182, 25);
             label2.TabIndex = 27;
@@ -185,7 +185,7 @@
             inputNameMaterial.BorderSize = 2;
             inputNameMaterial.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             inputNameMaterial.ForeColor = Color.FromArgb(64, 64, 64);
-            inputNameMaterial.Location = new Point(94, 106);
+            inputNameMaterial.Location = new Point(94, 97);
             inputNameMaterial.Margin = new Padding(5);
             inputNameMaterial.Multiline = false;
             inputNameMaterial.Name = "inputNameMaterial";
@@ -204,11 +204,11 @@
             label1.AutoSize = true;
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(94, 21);
+            label1.Location = new Point(94, 12);
             label1.Name = "label1";
-            label1.Size = new Size(317, 29);
+            label1.Size = new Size(314, 29);
             label1.TabIndex = 25;
-            label1.Text = "Thêm Nguyên Liệu Mới";
+            label1.Text = "Thêm nguyên Liệu Mới";
             // 
             // panelCustom1
             // 
@@ -225,10 +225,33 @@
             panelCustom1.Controls.Add(btnSubmit);
             panelCustom1.Controls.Add(inputUnit);
             panelCustom1.Controls.Add(label3);
-            panelCustom1.Location = new Point(133, 23);
+            panelCustom1.Location = new Point(123, 47);
             panelCustom1.Name = "panelCustom1";
-            panelCustom1.Size = new Size(798, 559);
+            panelCustom1.Size = new Size(851, 573);
             panelCustom1.TabIndex = 33;
+            panelCustom1.Paint += panelCustom1_Paint;
+            // 
+            // inputTypeMaterial
+            // 
+            inputTypeMaterial.FormattingEnabled = true;
+            inputTypeMaterial.Location = new Point(94, 447);
+            inputTypeMaterial.Name = "inputTypeMaterial";
+            inputTypeMaterial.Size = new Size(151, 28);
+            inputTypeMaterial.TabIndex = 37;
+            inputTypeMaterial.SelectedIndexChanged += inputTypeMaterial_SelectedIndexChanged_1;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(241, 246, 249);
+            label6.FlatStyle = FlatStyle.Flat;
+            label6.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(94, 410);
+            label6.Name = "label6";
+            label6.Size = new Size(186, 25);
+            label6.TabIndex = 36;
+            label6.Text = "Loại Nguyên Liệu";
             // 
             // label5
             // 
@@ -237,7 +260,7 @@
             label5.BackColor = Color.FromArgb(241, 246, 249);
             label5.FlatStyle = FlatStyle.Flat;
             label5.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(94, 333);
+            label5.Location = new Point(94, 324);
             label5.Name = "label5";
             label5.Size = new Size(101, 25);
             label5.TabIndex = 34;
@@ -253,7 +276,7 @@
             InputNumber.BorderSize = 2;
             InputNumber.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
             InputNumber.ForeColor = Color.FromArgb(64, 64, 64);
-            InputNumber.Location = new Point(94, 361);
+            InputNumber.Location = new Point(94, 352);
             InputNumber.Margin = new Padding(5);
             InputNumber.Multiline = false;
             InputNumber.Name = "InputNumber";
@@ -273,35 +296,14 @@
             panelCustom2.Dock = DockStyle.Fill;
             panelCustom2.Location = new Point(0, 0);
             panelCustom2.Name = "panelCustom2";
-            panelCustom2.Size = new Size(1019, 606);
+            panelCustom2.Size = new Size(1046, 632);
             panelCustom2.TabIndex = 34;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            label6.AutoSize = true;
-            label6.BackColor = Color.FromArgb(241, 246, 249);
-            label6.FlatStyle = FlatStyle.Flat;
-            label6.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(94, 419);
-            label6.Name = "label6";
-            label6.Size = new Size(186, 25);
-            label6.TabIndex = 36;
-            label6.Text = "Loại Nguyên Liệu";
-            // 
-            // inputTypeMaterial
-            // 
-            inputTypeMaterial.FormattingEnabled = true;
-            inputTypeMaterial.Location = new Point(94, 447);
-            inputTypeMaterial.Name = "inputTypeMaterial";
-            inputTypeMaterial.Size = new Size(151, 28);
-            inputTypeMaterial.TabIndex = 37;
             // 
             // AddMaterial
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1019, 606);
+            ClientSize = new Size(1046, 632);
             ControlBox = false;
             Controls.Add(panelCustom2);
             Name = "AddMaterial";

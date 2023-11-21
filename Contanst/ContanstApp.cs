@@ -13,26 +13,75 @@ namespace FinalProject_QUANLYKHO.Contanst
         public static int CUSTOMER_SCREEN = 1;
         public static int MATERIAL_SCREEN = 2;
         public static int DECENTRALIZATION = 3;
+        //nav invoce 
+        //BAKE
+        public static int IMPORT_BAKE_IN = 4;//NHAP BÁNH NỘI BỘ
+        public static int IMPORT_BAKE_OUT = 5;//NHẬP BÁNH NGOÀI
+        public static int EXPORT_BAKE_CANCEL = 6;//XUẤT BÁNH HỦY
+        public static int EXPORT_BAKE_RETURN = 7;//XUẤT BÁNH TRẢ
+        public static int EXPORT_BAKE_OTHER = 8;//NHẬP BÁNH KHÁC
+        public static int EXPORT_BAKE_GO = 9;//NHẬP BÁNH ĐI
+
+        public static string NAME_NAV_IMPORT_BAKE_IN = "  Hóa đơn nhập bánh nội bộ";
+        public static string NAME_NAV_IMPORT_BAKE_OUT = "  Hóa đơn nhập bánh mua ngoài";
+        public static string NAME_NAV_EXPORT_BAKE_CANCEL = "  Hóa đơn xuất bánh hủy";
+        public static string NAME_NAV_EXPORT_BAKE_RETURN = "  Hóa đơn xuất bánh trả";
+        public static string NAME_NAV_EXPORT_BAKE_OTHER = "  Hóa đơn xuất bánh khác";
+        public static string NAME_NAV_EXPORT_BAKE_GO = "  Hóa đơn xuất bánh đi";
+
+        //MATERIAL
+        public static int IMPORT_MATERIAL_IN = 10;//NHAP NGUYÊN LIỆU NỘI BỘ
+        public static int IMPORT_MATERIAL_OUT = 11;//NHẬP NGUYÊN LIỆU NGOÀI
+        public static int EXPORT_MATERIAL_CANCEL = 12;//XUẤT NGUYÊN LIỆU HỦY
+        public static int EXPORT_MATERIAL_RETURN = 13;//XUẤT NGUYÊN LIỆU TRẢ
+        public static int EXPORT_MATERIAL_OTHER = 14;//NHẬP NGUYÊN LIỆU KHÁC
+        public static int EXPORT_MATERIAL_GO = 15;//NHẬP NGUYÊN LIỆU ĐI
+
+        public static string NAME_NAV_IMPORT_MATERIAL_IN = "  Hóa đơn nhập nguyên liệu nội bộ";
+        public static string NAME_NAV_IMPORT_MATERIAL_OUT = "  Hóa đơn nhập nguyên liệu mua ngoài";
+        public static string NAME_NAV_EXPORT_MATERIAL_CANCEL = "  Hóa đơn xuất nguyên liệu hủy";
+        public static string NAME_NAV_EXPORT_MATERIAL_RETURN = "  Hóa đơn xuất nguyên liệu trả";
+        public static string NAME_NAV_EXPORT_MATERIAL_OTHER = "  Hóa đơn xuất nguyên liệu khác";
+        public static string NAME_NAV_EXPORT_MATERIAL_GO = "  Hóa đơn xuất nguyên liệu đi";
+        //OTHER
+        public static int MAIN_MENU_INVOCE = 16;//NHẬP NGUYÊN LIỆU ĐI
+
         public static string NAME_NAV_HOME = "  Màn hình chính";
         public static string NAME_NAV_CUSTOMER = "  Khách  hàng";
         public static string NAME_NAV_MATERIAL = "  Nguyên liệu";
         public static string NAME_NAV_BAKE = "  Bánh";
-        public static string NAME_NAV_EXPORTMATERIAL = "  HD xuất nguyên liệu";
-        public static string NAME_NAV_IMPORTMATERIAL = "  HD nhập nguyên liệu";
-        public static string NAME_NAV_EXPORTBAKE = "  HD xuất bánh";
-        public static string NAME_NAV_IMPORTBAKE = "  HD nhập bánh";
-        public static string NAME_NAV_DECENTRILIZATION= "  Phân quyền";
+        public static string NAME_NAV_MANAGER_INVOCE = "  Quản lý hóa đơn";
+
+
+
 
         public static Color ACTIVE_COLOR = Color.FromArgb(135, 206, 250);
         public static Color INACTIVE_COLOR = Color.FromArgb(241, 246, 249);
         public static Color BODY_COLOR = Color.FromArgb(241, 246, 249);
 
-        public static String CONNECT_DB_URL = "Data Source=\"localhost, 1433\";Initial Catalog=QUANLYKHOHANG;Persist Security Info=True;User ID=sa;password=tai2k300@@@@@";
+        public static String CONNECT_DB_URL = "Data Source=\"localhost, 1433\";Initial Catalog=QUANLYKHOHANG2;Persist Security Info=True;User ID=sa;password=tai2k300@@@@@";
         public static string ERROR_EMPTY_USER = "Vui lòng nhập tên tài khoản";
         public static string ERROR_EMPTY_PASSWORD = "Vui lòng nhập tên mật khẩu";
         public static string ERROR_LESS_LENGTH = "Vui lòng nhập nhiều hơn 6 ký tự";
         public static string ERROR_INVALID_PASSWORD = "Vui lòng nhập tên mật khẩu";
         public static string ERROR_INVALID_USERNAME = "Vui lòng nhập tên mật khẩu";
+
+
+
+
+        ///loai hoa don constanst 
+        public static readonly string XuatNguyenLieuDi = "1";
+        public static readonly string XuatNguyenLieuHuy = "2";
+        public static readonly string XuatNguyenLieuTra = "3";
+        public static readonly string XuatNguyenLieuKhac = "4";
+        public static readonly string NhapNguyenLieuMuaNgoai = "5";
+        public static readonly string NhapNguyenLieuNoiBo = "6";
+        public static readonly string XuatBanhDi = "7";
+        public static readonly string XuatBanhHuy = "8";
+        public static readonly string XuatBanhTra = "9";
+        public static readonly string XuatBanhKhac = "10";
+        public static readonly string NhapBanhMuaNgoai = "11";
+        public static readonly string NhapBanhNoiBo = "12";
 
     }
 }

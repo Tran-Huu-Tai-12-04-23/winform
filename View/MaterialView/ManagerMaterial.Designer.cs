@@ -36,22 +36,24 @@
             label1 = new Label();
             label4 = new Label();
             btnAddMaterial = new ComponentCustom.ButtonCustom();
-            panelCustom1 = new ComponentCustom.PanelCustom();
-            panelCustom2 = new ComponentCustom.PanelCustom();
-            panelCustom3 = new ComponentCustom.PanelCustom();
-            buttonCustom5 = new ComponentCustom.ButtonCustom();
-            edtFindMaterial = new CustomControls.RJControls.RJTextBox();
-            panelCustom5 = new ComponentCustom.PanelCustom();
-            label2 = new Label();
-            buttonCustom6 = new ComponentCustom.ButtonCustom();
-            rjToggle2 = new ComponentCustom.RJToggle();
-            rjDatePicker2 = new ComponentCustom.RJDatePicker();
-            label6 = new Label();
+            btnFind = new ComponentCustom.ButtonCustom();
+            btnTreatment = new ComponentCustom.ButtonCustom();
+            Active = new ComponentCustom.RJToggle();
             panelCustom4 = new ComponentCustom.PanelCustom();
+            panel1 = new Panel();
+            buttonDeleteType = new ComponentCustom.ButtonCustom();
+            btnRefreshType = new ComponentCustom.ButtonCustom();
+            btnAddType = new ComponentCustom.ButtonCustom();
+            inputTypeMaterial = new ComboBox();
+            label2 = new Label();
+            label5Loc = new Label();
+            edtFindMaterial = new TextBox();
             panelCustom6 = new ComponentCustom.PanelCustom();
-            buttonCustom7 = new ComponentCustom.ButtonCustom();
-            buttonCustom8 = new ComponentCustom.ButtonCustom();
-            comboBox1 = new ComboBox();
+            btnDeleteSelect = new ComponentCustom.ButtonCustom();
+            SumPage = new Label();
+            btnAfter = new ComponentCustom.ButtonCustom();
+            btnBefore = new ComponentCustom.ButtonCustom();
+            numberPage = new ComboBox();
             label7 = new Label();
             dataGridViewMaterial = new DataGridView();
             maNguyenLieu = new DataGridViewTextBoxColumn();
@@ -63,11 +65,8 @@
             Column4 = new DataGridViewCheckBoxColumn();
             Column5 = new DataGridViewImageColumn();
             Column6 = new DataGridViewImageColumn();
-            panelCustom1.SuspendLayout();
-            panelCustom2.SuspendLayout();
-            panelCustom3.SuspendLayout();
-            panelCustom5.SuspendLayout();
             panelCustom4.SuspendLayout();
+            panel1.SuspendLayout();
             panelCustom6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterial).BeginInit();
             SuspendLayout();
@@ -76,18 +75,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(22, 25);
+            label1.Location = new Point(3, 12);
             label1.Name = "label1";
             label1.Size = new Size(276, 25);
             label1.TabIndex = 0;
             label1.Text = "Danh Sách Nguyên Liệu";
-            label1.Click += label1_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(22, 21);
+            label4.Location = new Point(3, 65);
             label4.Name = "label4";
             label4.Size = new Size(263, 25);
             label4.TabIndex = 3;
@@ -105,276 +103,346 @@
             btnAddMaterial.FlatStyle = FlatStyle.Flat;
             btnAddMaterial.ForeColor = Color.Black;
             btnAddMaterial.Image = Properties.Resources.add1;
-            btnAddMaterial.Location = new Point(1061, 15);
+            btnAddMaterial.Location = new Point(1008, 12);
             btnAddMaterial.Margin = new Padding(3, 4, 3, 4);
             btnAddMaterial.Name = "btnAddMaterial";
-            btnAddMaterial.Size = new Size(190, 50);
+            btnAddMaterial.Size = new Size(128, 37);
             btnAddMaterial.TabIndex = 6;
-            btnAddMaterial.Text = "Thêm Nguyên Liệu";
+            btnAddMaterial.Text = "Thêm ";
+            btnAddMaterial.TextAlign = ContentAlignment.MiddleRight;
             btnAddMaterial.TextColor = Color.Black;
             btnAddMaterial.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddMaterial.UseVisualStyleBackColor = false;
             btnAddMaterial.Click += btnAddMaterial_Click;
             // 
-            // panelCustom1
+            // btnFind
             // 
-            panelCustom1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelCustom1.BorderStyle = BorderStyle.FixedSingle;
-            panelCustom1.Controls.Add(label1);
-            panelCustom1.Controls.Add(btnAddMaterial);
-            panelCustom1.ForeColor = SystemColors.ActiveCaptionText;
-            panelCustom1.Location = new Point(-14, -11);
-            panelCustom1.Name = "panelCustom1";
-            panelCustom1.Size = new Size(1277, 78);
-            panelCustom1.TabIndex = 7;
+            btnFind.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnFind.BackColor = Color.LightSkyBlue;
+            btnFind.BackgroundColor = Color.LightSkyBlue;
+            btnFind.BorderColor = Color.PaleVioletRed;
+            btnFind.BorderRadius = 0;
+            btnFind.BorderSize = 0;
+            btnFind.FlatAppearance.BorderSize = 0;
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.ForeColor = Color.Black;
+            btnFind.Location = new Point(1008, 65);
+            btnFind.Margin = new Padding(3, 4, 3, 4);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(128, 37);
+            btnFind.TabIndex = 8;
+            btnFind.Text = "Làm mới";
+            btnFind.TextAlign = ContentAlignment.MiddleRight;
+            btnFind.TextColor = Color.Black;
+            btnFind.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnFind.UseVisualStyleBackColor = false;
+            btnFind.Click += btnFind_Click;
             // 
-            // panelCustom2
+            // btnTreatment
             // 
-            panelCustom2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelCustom2.BorderStyle = BorderStyle.FixedSingle;
-            panelCustom2.Controls.Add(label4);
-            panelCustom2.Controls.Add(panelCustom3);
-            panelCustom2.Location = new Point(-14, 62);
-            panelCustom2.Name = "panelCustom2";
-            panelCustom2.Size = new Size(1277, 73);
-            panelCustom2.TabIndex = 8;
+            btnTreatment.Anchor = AnchorStyles.Right;
+            btnTreatment.BackColor = Color.LightSkyBlue;
+            btnTreatment.BackgroundColor = Color.LightSkyBlue;
+            btnTreatment.BorderColor = Color.PaleVioletRed;
+            btnTreatment.BorderRadius = 0;
+            btnTreatment.BorderSize = 0;
+            btnTreatment.FlatAppearance.BorderSize = 0;
+            btnTreatment.FlatStyle = FlatStyle.Flat;
+            btnTreatment.ForeColor = Color.Black;
+            btnTreatment.Image = Properties.Resources.search;
+            btnTreatment.Location = new Point(606, 113);
+            btnTreatment.Margin = new Padding(3, 4, 3, 4);
+            btnTreatment.Name = "btnTreatment";
+            btnTreatment.RightToLeft = RightToLeft.No;
+            btnTreatment.Size = new Size(128, 37);
+            btnTreatment.TabIndex = 33;
+            btnTreatment.Text = "  Lọc";
+            btnTreatment.TextAlign = ContentAlignment.MiddleRight;
+            btnTreatment.TextColor = Color.Black;
+            btnTreatment.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTreatment.UseVisualStyleBackColor = false;
+            btnTreatment.Click += btnTreatment_Click;
             // 
-            // panelCustom3
+            // Active
             // 
-            panelCustom3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panelCustom3.Controls.Add(buttonCustom5);
-            panelCustom3.Controls.Add(edtFindMaterial);
-            panelCustom3.Location = new Point(720, 3);
-            panelCustom3.Name = "panelCustom3";
-            panelCustom3.Size = new Size(539, 59);
-            panelCustom3.TabIndex = 9;
-            // 
-            // buttonCustom5
-            // 
-            buttonCustom5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCustom5.BackColor = Color.LightSkyBlue;
-            buttonCustom5.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom5.BorderColor = Color.PaleVioletRed;
-            buttonCustom5.BorderRadius = 0;
-            buttonCustom5.BorderSize = 0;
-            buttonCustom5.FlatAppearance.BorderSize = 0;
-            buttonCustom5.FlatStyle = FlatStyle.Flat;
-            buttonCustom5.ForeColor = Color.Black;
-            buttonCustom5.Image = Properties.Resources.search;
-            buttonCustom5.Location = new Point(430, 8);
-            buttonCustom5.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom5.Name = "buttonCustom5";
-            buttonCustom5.Size = new Size(100, 50);
-            buttonCustom5.TabIndex = 8;
-            buttonCustom5.Text = "Tìm";
-            buttonCustom5.TextColor = Color.Black;
-            buttonCustom5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonCustom5.UseVisualStyleBackColor = false;
-            // 
-            // edtFindMaterial
-            // 
-            edtFindMaterial.BackColor = SystemColors.Window;
-            edtFindMaterial.BorderColor = Color.MediumSlateBlue;
-            edtFindMaterial.BorderFocusColor = Color.HotPink;
-            edtFindMaterial.BorderRadius = 0;
-            edtFindMaterial.BorderSize = 2;
-            edtFindMaterial.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            edtFindMaterial.ForeColor = Color.FromArgb(64, 64, 64);
-            edtFindMaterial.Location = new Point(13, 18);
-            edtFindMaterial.Margin = new Padding(4);
-            edtFindMaterial.Multiline = false;
-            edtFindMaterial.Name = "edtFindMaterial";
-            edtFindMaterial.Padding = new Padding(10, 7, 10, 7);
-            edtFindMaterial.PasswordChar = false;
-            edtFindMaterial.PlaceholderColor = Color.DarkGray;
-            edtFindMaterial.PlaceholderText = "";
-            edtFindMaterial.Size = new Size(396, 35);
-            edtFindMaterial.TabIndex = 5;
-            edtFindMaterial.Texts = "";
-            edtFindMaterial.UnderlinedStyle = false;
-            // 
-            // panelCustom5
-            // 
-            panelCustom5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panelCustom5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panelCustom5.BorderStyle = BorderStyle.FixedSingle;
-            panelCustom5.Controls.Add(label2);
-            panelCustom5.Controls.Add(buttonCustom6);
-            panelCustom5.Controls.Add(rjToggle2);
-            panelCustom5.Controls.Add(rjDatePicker2);
-            panelCustom5.Controls.Add(label6);
-            panelCustom5.Location = new Point(-14, 134);
-            panelCustom5.Name = "panelCustom5";
-            panelCustom5.Size = new Size(1277, 76);
-            panelCustom5.TabIndex = 34;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Right;
-            label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ImageAlign = ContentAlignment.MiddleRight;
-            label2.Location = new Point(442, 9);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Size = new Size(249, 59);
-            label2.TabIndex = 29;
-            label2.Text = "Trạng thái (ẩn / hiện) :";
-            label2.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // buttonCustom6
-            // 
-            buttonCustom6.Anchor = AnchorStyles.Right;
-            buttonCustom6.BackColor = Color.LightSkyBlue;
-            buttonCustom6.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom6.BorderColor = Color.PaleVioletRed;
-            buttonCustom6.BorderRadius = 0;
-            buttonCustom6.BorderSize = 0;
-            buttonCustom6.FlatAppearance.BorderSize = 0;
-            buttonCustom6.FlatStyle = FlatStyle.Flat;
-            buttonCustom6.ForeColor = Color.Black;
-            buttonCustom6.Location = new Point(1149, 16);
-            buttonCustom6.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom6.Name = "buttonCustom6";
-            buttonCustom6.Size = new Size(101, 50);
-            buttonCustom6.TabIndex = 33;
-            buttonCustom6.Text = "Lọc";
-            buttonCustom6.TextColor = Color.Black;
-            buttonCustom6.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonCustom6.UseVisualStyleBackColor = false;
-            // 
-            // rjToggle2
-            // 
-            rjToggle2.Anchor = AnchorStyles.Right;
-            rjToggle2.AutoSize = true;
-            rjToggle2.Location = new Point(694, 28);
-            rjToggle2.Margin = new Padding(3, 4, 3, 4);
-            rjToggle2.MinimumSize = new Size(51, 29);
-            rjToggle2.Name = "rjToggle2";
-            rjToggle2.OffBackColor = Color.Gray;
-            rjToggle2.OffToggleColor = Color.Gainsboro;
-            rjToggle2.OnBackColor = Color.LightSkyBlue;
-            rjToggle2.OnToggleColor = Color.WhiteSmoke;
-            rjToggle2.Size = new Size(51, 29);
-            rjToggle2.TabIndex = 30;
-            rjToggle2.UseVisualStyleBackColor = true;
-            // 
-            // rjDatePicker2
-            // 
-            rjDatePicker2.Anchor = AnchorStyles.Right;
-            rjDatePicker2.BorderColor = Color.PaleVioletRed;
-            rjDatePicker2.BorderSize = 0;
-            rjDatePicker2.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            rjDatePicker2.Location = new Point(889, 23);
-            rjDatePicker2.Margin = new Padding(3, 4, 3, 4);
-            rjDatePicker2.MinimumSize = new Size(4, 35);
-            rjDatePicker2.Name = "rjDatePicker2";
-            rjDatePicker2.Size = new Size(240, 35);
-            rjDatePicker2.SkinColor = Color.LightSkyBlue;
-            rjDatePicker2.TabIndex = 32;
-            rjDatePicker2.TextColor = Color.Black;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Right;
-            label6.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.ImageAlign = ContentAlignment.MiddleRight;
-            label6.Location = new Point(748, 13);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(141, 55);
-            label6.TabIndex = 31;
-            label6.Text = "Ngày thêm :";
-            label6.TextAlign = ContentAlignment.MiddleRight;
+            Active.Anchor = AnchorStyles.Right;
+            Active.Location = new Point(1028, 164);
+            Active.Margin = new Padding(3, 4, 3, 4);
+            Active.MinimumSize = new Size(51, 29);
+            Active.Name = "Active";
+            Active.OffBackColor = Color.Gray;
+            Active.OffToggleColor = Color.Gainsboro;
+            Active.OnBackColor = Color.LightSkyBlue;
+            Active.OnToggleColor = Color.WhiteSmoke;
+            Active.Size = new Size(66, 35);
+            Active.TabIndex = 30;
+            Active.UseVisualStyleBackColor = true;
+            Active.CheckedChanged += Active_CheckedChanged;
             // 
             // panelCustom4
             // 
+            panelCustom4.Controls.Add(panel1);
             panelCustom4.Controls.Add(panelCustom6);
             panelCustom4.Controls.Add(dataGridViewMaterial);
-            panelCustom4.Controls.Add(panelCustom5);
-            panelCustom4.Controls.Add(panelCustom1);
-            panelCustom4.Controls.Add(panelCustom2);
             panelCustom4.Dock = DockStyle.Fill;
-            panelCustom4.Location = new Point(0, 0);
+            panelCustom4.Location = new Point(14, 16);
             panelCustom4.Name = "panelCustom4";
-            panelCustom4.Size = new Size(1250, 870);
+            panelCustom4.Size = new Size(1196, 748);
             panelCustom4.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(buttonDeleteType);
+            panel1.Controls.Add(btnRefreshType);
+            panel1.Controls.Add(btnAddType);
+            panel1.Controls.Add(inputTypeMaterial);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(btnTreatment);
+            panel1.Controls.Add(label5Loc);
+            panel1.Controls.Add(Active);
+            panel1.Controls.Add(btnFind);
+            panel1.Controls.Add(edtFindMaterial);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(btnAddMaterial);
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(27, 20);
+            panel1.Margin = new Padding(0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1139, 215);
+            panel1.TabIndex = 0;
+            // 
+            // buttonDeleteType
+            // 
+            buttonDeleteType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonDeleteType.BackColor = Color.LightSkyBlue;
+            buttonDeleteType.BackgroundColor = Color.LightSkyBlue;
+            buttonDeleteType.BorderColor = Color.PaleVioletRed;
+            buttonDeleteType.BorderRadius = 0;
+            buttonDeleteType.BorderSize = 0;
+            buttonDeleteType.FlatAppearance.BorderSize = 0;
+            buttonDeleteType.FlatStyle = FlatStyle.Flat;
+            buttonDeleteType.ForeColor = Color.Black;
+            buttonDeleteType.Image = Properties.Resources.icons8_remove_24;
+            buttonDeleteType.Location = new Point(1008, 113);
+            buttonDeleteType.Margin = new Padding(3, 4, 3, 4);
+            buttonDeleteType.Name = "buttonDeleteType";
+            buttonDeleteType.Size = new Size(128, 37);
+            buttonDeleteType.TabIndex = 42;
+            buttonDeleteType.Text = "  Xóa";
+            buttonDeleteType.TextAlign = ContentAlignment.MiddleRight;
+            buttonDeleteType.TextColor = Color.Black;
+            buttonDeleteType.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonDeleteType.UseVisualStyleBackColor = false;
+            // 
+            // btnRefreshType
+            // 
+            btnRefreshType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefreshType.BackColor = Color.LightSkyBlue;
+            btnRefreshType.BackgroundColor = Color.LightSkyBlue;
+            btnRefreshType.BorderColor = Color.PaleVioletRed;
+            btnRefreshType.BorderRadius = 0;
+            btnRefreshType.BorderSize = 0;
+            btnRefreshType.FlatAppearance.BorderSize = 0;
+            btnRefreshType.FlatStyle = FlatStyle.Flat;
+            btnRefreshType.ForeColor = Color.Black;
+            btnRefreshType.Location = new Point(740, 113);
+            btnRefreshType.Margin = new Padding(3, 4, 3, 4);
+            btnRefreshType.Name = "btnRefreshType";
+            btnRefreshType.Size = new Size(128, 37);
+            btnRefreshType.TabIndex = 41;
+            btnRefreshType.Text = "Làm mới";
+            btnRefreshType.TextAlign = ContentAlignment.MiddleRight;
+            btnRefreshType.TextColor = Color.Black;
+            btnRefreshType.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRefreshType.UseVisualStyleBackColor = false;
+            btnRefreshType.Click += btnRefreshType_Click;
+            // 
+            // btnAddType
+            // 
+            btnAddType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddType.BackColor = Color.LightSkyBlue;
+            btnAddType.BackgroundColor = Color.LightSkyBlue;
+            btnAddType.BorderColor = Color.PaleVioletRed;
+            btnAddType.BorderRadius = 0;
+            btnAddType.BorderSize = 0;
+            btnAddType.FlatAppearance.BorderSize = 0;
+            btnAddType.FlatStyle = FlatStyle.Flat;
+            btnAddType.ForeColor = Color.Black;
+            btnAddType.Image = Properties.Resources.add1;
+            btnAddType.Location = new Point(874, 113);
+            btnAddType.Margin = new Padding(3, 4, 3, 4);
+            btnAddType.Name = "btnAddType";
+            btnAddType.Size = new Size(128, 37);
+            btnAddType.TabIndex = 40;
+            btnAddType.Text = "Thêm ";
+            btnAddType.TextAlign = ContentAlignment.MiddleRight;
+            btnAddType.TextColor = Color.Black;
+            btnAddType.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddType.UseVisualStyleBackColor = false;
+            // 
+            // inputTypeMaterial
+            // 
+            inputTypeMaterial.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            inputTypeMaterial.FormattingEnabled = true;
+            inputTypeMaterial.Location = new Point(322, 118);
+            inputTypeMaterial.Name = "inputTypeMaterial";
+            inputTypeMaterial.Size = new Size(261, 28);
+            inputTypeMaterial.TabIndex = 39;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(3, 121);
+            label2.Name = "label2";
+            label2.Size = new Size(205, 25);
+            label2.TabIndex = 35;
+            label2.Text = "Loại Nguyên Liệu";
+            // 
+            // label5Loc
+            // 
+            label5Loc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5Loc.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5Loc.ImageAlign = ContentAlignment.MiddleRight;
+            label5Loc.Location = new Point(683, 162);
+            label5Loc.Margin = new Padding(0);
+            label5Loc.Name = "label5Loc";
+            label5Loc.Size = new Size(319, 45);
+            label5Loc.TabIndex = 34;
+            label5Loc.Text = "Danh Sách Nguyên Liệu Bị Ẩn";
+            label5Loc.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // edtFindMaterial
+            // 
+            edtFindMaterial.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            edtFindMaterial.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            edtFindMaterial.Location = new Point(322, 70);
+            edtFindMaterial.Margin = new Padding(0);
+            edtFindMaterial.Name = "edtFindMaterial";
+            edtFindMaterial.Size = new Size(680, 32);
+            edtFindMaterial.TabIndex = 33;
+            edtFindMaterial.TextChanged += edtFindMaterial_TextChanged;
             // 
             // panelCustom6
             // 
             panelCustom6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            panelCustom6.Controls.Add(buttonCustom7);
-            panelCustom6.Controls.Add(buttonCustom8);
-            panelCustom6.Controls.Add(comboBox1);
+            panelCustom6.Controls.Add(btnDeleteSelect);
+            panelCustom6.Controls.Add(SumPage);
+            panelCustom6.Controls.Add(btnAfter);
+            panelCustom6.Controls.Add(btnBefore);
+            panelCustom6.Controls.Add(numberPage);
             panelCustom6.Controls.Add(label7);
-            panelCustom6.Location = new Point(630, 812);
+            panelCustom6.Location = new Point(30, 693);
             panelCustom6.Name = "panelCustom6";
-            panelCustom6.Size = new Size(611, 55);
+            panelCustom6.Size = new Size(1136, 55);
             panelCustom6.TabIndex = 36;
             // 
-            // buttonCustom7
+            // btnDeleteSelect
             // 
-            buttonCustom7.Anchor = AnchorStyles.None;
-            buttonCustom7.BackColor = Color.LightSkyBlue;
-            buttonCustom7.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom7.BorderColor = Color.PaleVioletRed;
-            buttonCustom7.BorderRadius = 0;
-            buttonCustom7.BorderSize = 0;
-            buttonCustom7.FlatAppearance.BorderSize = 0;
-            buttonCustom7.FlatStyle = FlatStyle.Flat;
-            buttonCustom7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCustom7.ForeColor = Color.Black;
-            buttonCustom7.Location = new Point(498, 10);
-            buttonCustom7.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom7.Name = "buttonCustom7";
-            buttonCustom7.Size = new Size(108, 35);
-            buttonCustom7.TabIndex = 33;
-            buttonCustom7.Text = "Trước";
-            buttonCustom7.TextColor = Color.Black;
-            buttonCustom7.UseVisualStyleBackColor = false;
+            btnDeleteSelect.Anchor = AnchorStyles.None;
+            btnDeleteSelect.BackColor = Color.LightSkyBlue;
+            btnDeleteSelect.BackgroundColor = Color.LightSkyBlue;
+            btnDeleteSelect.BorderColor = Color.PaleVioletRed;
+            btnDeleteSelect.BorderRadius = 0;
+            btnDeleteSelect.BorderSize = 0;
+            btnDeleteSelect.FlatAppearance.BorderSize = 0;
+            btnDeleteSelect.FlatStyle = FlatStyle.Flat;
+            btnDeleteSelect.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeleteSelect.ForeColor = Color.Black;
+            btnDeleteSelect.Image = Properties.Resources.icons8_remove_24;
+            btnDeleteSelect.Location = new Point(130, 12);
+            btnDeleteSelect.Margin = new Padding(3, 4, 3, 4);
+            btnDeleteSelect.Name = "btnDeleteSelect";
+            btnDeleteSelect.RightToLeft = RightToLeft.Yes;
+            btnDeleteSelect.Size = new Size(358, 35);
+            btnDeleteSelect.TabIndex = 37;
+            btnDeleteSelect.Text = "Xóa tất cả nguyên liệu đã chọn";
+            btnDeleteSelect.TextColor = Color.Black;
+            btnDeleteSelect.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnDeleteSelect.UseVisualStyleBackColor = false;
+            btnDeleteSelect.Click += btnDeleteSelect_Click;
             // 
-            // buttonCustom8
+            // SumPage
             // 
-            buttonCustom8.Anchor = AnchorStyles.None;
-            buttonCustom8.BackColor = Color.LightSkyBlue;
-            buttonCustom8.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom8.BorderColor = Color.PaleVioletRed;
-            buttonCustom8.BorderRadius = 0;
-            buttonCustom8.BorderSize = 0;
-            buttonCustom8.FlatAppearance.BorderSize = 0;
-            buttonCustom8.FlatStyle = FlatStyle.Flat;
-            buttonCustom8.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCustom8.ForeColor = Color.Black;
-            buttonCustom8.Location = new Point(380, 10);
-            buttonCustom8.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom8.Name = "buttonCustom8";
-            buttonCustom8.Size = new Size(104, 35);
-            buttonCustom8.TabIndex = 34;
-            buttonCustom8.Text = "Sau";
-            buttonCustom8.TextColor = Color.Black;
-            buttonCustom8.UseVisualStyleBackColor = false;
+            SumPage.Anchor = AnchorStyles.None;
+            SumPage.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            SumPage.ForeColor = SystemColors.Highlight;
+            SumPage.Location = new Point(896, 12);
+            SumPage.Name = "SumPage";
+            SumPage.Size = new Size(123, 36);
+            SumPage.TabIndex = 37;
+            SumPage.Text = "ded";
+            SumPage.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // comboBox1
+            // btnAfter
             // 
-            comboBox1.Anchor = AnchorStyles.None;
-            comboBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "10", "20", "30", "40" });
-            comboBox1.Location = new Point(304, 12);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(61, 33);
-            comboBox1.TabIndex = 35;
-            comboBox1.Tag = "";
+            btnAfter.Anchor = AnchorStyles.None;
+            btnAfter.BackColor = Color.LightSkyBlue;
+            btnAfter.BackgroundColor = Color.LightSkyBlue;
+            btnAfter.BorderColor = Color.PaleVioletRed;
+            btnAfter.BorderRadius = 0;
+            btnAfter.BorderSize = 0;
+            btnAfter.FlatAppearance.BorderSize = 0;
+            btnAfter.FlatStyle = FlatStyle.Flat;
+            btnAfter.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAfter.ForeColor = Color.Black;
+            btnAfter.Location = new Point(1025, 13);
+            btnAfter.Margin = new Padding(3, 4, 3, 4);
+            btnAfter.Name = "btnAfter";
+            btnAfter.Size = new Size(108, 35);
+            btnAfter.TabIndex = 33;
+            btnAfter.Text = "Sau";
+            btnAfter.TextColor = Color.Black;
+            btnAfter.UseVisualStyleBackColor = false;
+            btnAfter.Click += btnAfter_Click;
+            // 
+            // btnBefore
+            // 
+            btnBefore.Anchor = AnchorStyles.None;
+            btnBefore.BackColor = Color.LightSkyBlue;
+            btnBefore.BackgroundColor = Color.LightSkyBlue;
+            btnBefore.BorderColor = Color.PaleVioletRed;
+            btnBefore.BorderRadius = 0;
+            btnBefore.BorderSize = 0;
+            btnBefore.FlatAppearance.BorderSize = 0;
+            btnBefore.FlatStyle = FlatStyle.Flat;
+            btnBefore.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBefore.ForeColor = Color.Black;
+            btnBefore.Location = new Point(772, 14);
+            btnBefore.Margin = new Padding(3, 4, 3, 4);
+            btnBefore.Name = "btnBefore";
+            btnBefore.Size = new Size(108, 35);
+            btnBefore.TabIndex = 34;
+            btnBefore.Text = "Trước";
+            btnBefore.TextColor = Color.Black;
+            btnBefore.UseVisualStyleBackColor = false;
+            btnBefore.Click += btnBefore_Click;
+            // 
+            // numberPage
+            // 
+            numberPage.Anchor = AnchorStyles.None;
+            numberPage.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            numberPage.FormattingEnabled = true;
+            numberPage.Items.AddRange(new object[] { "10", "20", "30", "40" });
+            numberPage.Location = new Point(696, 15);
+            numberPage.Margin = new Padding(3, 4, 3, 4);
+            numberPage.Name = "numberPage";
+            numberPage.Size = new Size(61, 33);
+            numberPage.TabIndex = 35;
+            numberPage.Tag = "";
+            numberPage.SelectedIndexChanged += numberPage_SelectedIndexChanged;
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.None;
             label7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ImageAlign = ContentAlignment.MiddleRight;
-            label7.Location = new Point(75, 19);
+            label7.Location = new Point(491, 17);
             label7.Margin = new Padding(0);
             label7.Name = "label7";
-            label7.Size = new Size(201, 26);
+            label7.Size = new Size(202, 26);
             label7.TabIndex = 36;
             label7.Text = "Số hàng hiển thị : ";
             label7.TextAlign = ContentAlignment.MiddleRight;
@@ -412,7 +480,7 @@
             dataGridViewMaterial.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridViewMaterial.EnableHeadersVisualStyles = false;
             dataGridViewMaterial.GridColor = Color.White;
-            dataGridViewMaterial.Location = new Point(9, 211);
+            dataGridViewMaterial.Location = new Point(27, 259);
             dataGridViewMaterial.Margin = new Padding(0);
             dataGridViewMaterial.Name = "dataGridViewMaterial";
             dataGridViewMaterial.ReadOnly = true;
@@ -440,10 +508,12 @@
             dataGridViewMaterial.RowTemplate.ReadOnly = true;
             dataGridViewMaterial.RowTemplate.Resizable = DataGridViewTriState.True;
             dataGridViewMaterial.ShowEditingIcon = false;
-            dataGridViewMaterial.Size = new Size(1228, 594);
+            dataGridViewMaterial.Size = new Size(1139, 431);
             dataGridViewMaterial.StandardTab = true;
             dataGridViewMaterial.TabIndex = 35;
             dataGridViewMaterial.CellContentClick += dataGridViewMaterial_CellContentClick;
+            dataGridViewMaterial.SelectionChanged += dataGridViewMaterial_SelectionChanged;
+
             // 
             // maNguyenLieu
             // 
@@ -527,21 +597,19 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1250, 870);
+            ClientSize = new Size(1224, 780);
             ControlBox = false;
             Controls.Add(panelCustom4);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            ForeColor = SystemColors.InactiveCaptionText;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "ManagerMaterial";
-            panelCustom1.ResumeLayout(false);
-            panelCustom1.PerformLayout();
-            panelCustom2.ResumeLayout(false);
-            panelCustom2.PerformLayout();
-            panelCustom3.ResumeLayout(false);
-            panelCustom5.ResumeLayout(false);
-            panelCustom5.PerformLayout();
+            Padding = new Padding(14, 16, 14, 16);
+            Text = "ManagerMaterial";
             panelCustom4.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panelCustom6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterial).EndInit();
             ResumeLayout(false);
@@ -552,23 +620,15 @@
         private Label label1;
         private Label label4;
         private ComponentCustom.ButtonCustom btnAddMaterial;
-        private ComponentCustom.PanelCustom panelCustom1;
-        private ComponentCustom.PanelCustom panelCustom2;
-        private ComponentCustom.ButtonCustom buttonCustom5;
-        private ComponentCustom.PanelCustom panelCustom3;
-        private CustomControls.RJControls.RJTextBox edtFindMaterial;
+        private ComponentCustom.ButtonCustom btnFind;
         private ComponentCustom.PanelCustom panelCustom4;
-        private Label label2;
-        private ComponentCustom.RJToggle rjToggle2;
-        private Label label6;
-        private ComponentCustom.RJDatePicker rjDatePicker2;
-        private ComponentCustom.ButtonCustom buttonCustom6;
-        private ComponentCustom.PanelCustom panelCustom5;
+        private ComponentCustom.RJToggle Active;
+        private ComponentCustom.ButtonCustom btnTreatment;
         private DataGridView dataGridViewMaterial;
         private ComponentCustom.PanelCustom panelCustom6;
-        private ComponentCustom.ButtonCustom buttonCustom7;
-        private ComponentCustom.ButtonCustom buttonCustom8;
-        private ComboBox comboBox1;
+        private ComponentCustom.ButtonCustom btnAfter;
+        private ComponentCustom.ButtonCustom btnBefore;
+        private ComboBox numberPage;
         private Label label7;
         private DataGridViewTextBoxColumn maNguyenLieu;
         private DataGridViewTextBoxColumn tenLoaiNguyenLieu;
@@ -579,5 +639,15 @@
         private DataGridViewCheckBoxColumn Column4;
         private DataGridViewImageColumn Column5;
         private DataGridViewImageColumn Column6;
+        private Panel panel1;
+        private TextBox edtFindMaterial;
+        private Label label5Loc;
+        private ComboBox inputTypeMaterial;
+        private Label label2;
+        private Label SumPage;
+        private ComponentCustom.ButtonCustom buttonDeleteType;
+        private ComponentCustom.ButtonCustom btnRefreshType;
+        private ComponentCustom.ButtonCustom btnAddType;
+        private ComponentCustom.ButtonCustom btnDeleteSelect;
     }
 }

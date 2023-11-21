@@ -54,7 +54,6 @@ namespace FinalProject_QUANLYKHO.Service
                 cmd.Parameters.Add(new SqlParameter("@sodienthoai", SqlDbType.VarChar, 255)).Value = account.SoDienThoai;
                 cmd.Parameters.Add(new SqlParameter("@email", SqlDbType.VarChar, 255)).Value = account.Email;
 
-
                 if (connection.State == ConnectionState.Closed)
                 {
                     connection.Open();
@@ -83,7 +82,7 @@ namespace FinalProject_QUANLYKHO.Service
             {
                 SqlCommand cmd = new SqlCommand(GET_USER_BY_USERNAME, connection);
 
-                cmd.Parameters.Add(new SqlParameter("@tentaikhoan", SqlDbType.VarChar, 255)).Value = account.TenTaiKhoan;
+                cmd.Parameters.Add(new SqlParameter("@tentaikhoan", SqlDbType.NVarChar, 255)).Value = account.TenTaiKhoan;
 
                 if (connection.State == ConnectionState.Closed)
                 {
@@ -96,6 +95,7 @@ namespace FinalProject_QUANLYKHO.Service
 
                     if (reader.Read())
                     {
+
                         Account accountLogin = new Account();
                         accountLogin.TenTaiKhoan = (string)reader["tenTaiKhoan"];
                         accountLogin.IdTaiKhoan = (string)reader["idTaiKhoan"];
@@ -126,6 +126,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
                 return null;
 
             }

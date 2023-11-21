@@ -141,7 +141,7 @@
             dataGridViewCustomer.RowTemplate.ReadOnly = true;
             dataGridViewCustomer.RowTemplate.Resizable = DataGridViewTriState.True;
             dataGridViewCustomer.ShowEditingIcon = false;
-            dataGridViewCustomer.Size = new Size(956, 358);
+            dataGridViewCustomer.Size = new Size(956, 372);
             dataGridViewCustomer.StandardTab = true;
             dataGridViewCustomer.TabIndex = 0;
             dataGridViewCustomer.CellContentClick += dataGridViewCustomer_CellContentClick;
@@ -172,6 +172,7 @@
             // soDienThoai
             // 
             soDienThoai.HeaderText = "Số điện thoại";
+            soDienThoai.MinimumWidth = 6;
             soDienThoai.Name = "soDienThoai";
             soDienThoai.ReadOnly = true;
             // 
@@ -222,10 +223,10 @@
             panel3.AutoSize = true;
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(dataGridViewCustomer);
-            panel3.Location = new Point(24, 158);
+            panel3.Location = new Point(24, 144);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(956, 358);
+            panel3.Size = new Size(956, 372);
             panel3.TabIndex = 5;
             // 
             // inputSearch
@@ -657,13 +658,13 @@
             // rowShowNotification
             // 
             rowShowNotification.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rowShowNotification.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rowShowNotification.Font = new Font("Verdana", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             rowShowNotification.ForeColor = SystemColors.HotTrack;
             rowShowNotification.ImageAlign = ContentAlignment.MiddleRight;
-            rowShowNotification.Location = new Point(312, 532);
+            rowShowNotification.Location = new Point(302, 528);
             rowShowNotification.Margin = new Padding(0);
             rowShowNotification.Name = "rowShowNotification";
-            rowShowNotification.Size = new Size(169, 35);
+            rowShowNotification.Size = new Size(212, 35);
             rowShowNotification.TabIndex = 33;
             rowShowNotification.Text = "row show";
             rowShowNotification.TextAlign = ContentAlignment.MiddleLeft;
@@ -682,7 +683,7 @@
             ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
             Name = "ManagerCustomer";
-            Padding = new Padding(12);
+            Padding = new Padding(12, 12, 12, 12);
             Text = "ManagerCustomer";
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
             panel3.ResumeLayout(false);

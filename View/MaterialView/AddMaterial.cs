@@ -28,15 +28,22 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
             materials = new List<Material>();
             material = new Material();
         }
-
         public void AddMaterialIntoMainForm()
         {
             ManagerMaterial form = (ManagerMaterial)Application.OpenForms["ManagerMaterial"];
 
             if (form != null)
             {
-                form.LoadDataIntoDataGridView();
-
+                if (form.checkType)
+                {
+                    form.NumberPageByType();
+                    form.LoadDataByPageAndTypeIntoDataGridView(form.currentPageType, form.size(), form.key(), form.checkActive());
+                }
+                else
+                {
+                    form.NumberPage();
+                    form.LoadDataByPageIntoDataGridView(form.currentPage, form.size(), form.checkActive());
+                }
             }
         }
 
@@ -61,20 +68,44 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
             string unitMaterial = inputUnit.Texts;
             string priceMaterial = inputPrice.Texts;
             string numberMaterial = InputNumber.Texts;
-            string nameTypeMaterial = inputTypeMaterial.SelectedItem.ToString();
+            string nameTypeMaterial = inputTypeMaterial.Text;
+            if (!IsNumeric(priceMaterial))
+            {
+                inputPrice.Focus();
+
+                MessageBox.Show("Giá tiền chỉ nhập số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (!IsNumeric(numberMaterial))
+            {
+                InputNumber.Focus();
+
+                MessageBox.Show("Số lượng chỉ nhập số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (nameMaterial == null || unitMaterial == null || priceMaterial == null || numberMaterial == null)
             {
-                MessageBox.Show("Thêm nguyên liệu thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cập nhập nguyên liệu thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return;
             }
-            Material material = materialService.Create(new Material(nameTypeMaterial, nameMaterial, unitMaterial, float.Parse(priceMaterial.ToString()), int.Parse(numberMaterial.ToString())));
+            if (nameMaterial == null || unitMaterial == null || priceMaterial == null || numberMaterial == null)
+            {
+                MessageBox.Show("Thêm nguyên liệu thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            MaterialTypeService materialTypeService = new MaterialTypeService();
+            string idType = materialTypeService.GetIDTypeMaterialByName(nameTypeMaterial);
+            materialService.Create(new Material(nameTypeMaterial, nameMaterial, unitMaterial, float.Parse(priceMaterial.ToString()), int.Parse(numberMaterial.ToString())));
+
             ClearForm();
             AddMaterialIntoMainForm();
             MessageBox.Show("Thêm nguyên liệu thành công!Thêm tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
+        }
+        public bool IsNumeric(string input)
+        {
+            double result;
+            return double.TryParse(input, out result);
         }
         private void ClearForm()
         {
@@ -82,12 +113,20 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
             inputUnit.Texts = "";
             inputPrice.Texts = "";
             InputNumber.Texts = "";
+            inputTypeMaterial.Text = "";
         }
-
         private void inputTypeMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        private void panelCustom1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void inputTypeMaterial_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

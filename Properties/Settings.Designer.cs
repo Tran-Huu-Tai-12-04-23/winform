@@ -70,5 +70,17 @@ namespace FinalProject_QUANLYKHO.Properties {
                 this["login"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("001")]
+        public string idTaiKhoan {
+            get {
+                return ((string)(this["idTaiKhoan"]));
+            }
+            set {
+                this["idTaiKhoan"] = value;
+            }
+        }
     }
 }

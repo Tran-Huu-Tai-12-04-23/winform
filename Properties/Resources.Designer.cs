@@ -133,6 +133,26 @@ namespace FinalProject_QUANLYKHO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap export_in {
+            get {
+                object obj = ResourceManager.GetObject("export_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap export_out {
+            get {
+                object obj = ResourceManager.GetObject("export_out", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hoadon {
             get {
                 object obj = ResourceManager.GetObject("hoadon", resourceCulture);
@@ -146,6 +166,36 @@ namespace FinalProject_QUANLYKHO.Properties {
         internal static System.Drawing.Bitmap home {
             get {
                 object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_cancel {
+            get {
+                object obj = ResourceManager.GetObject("icon_cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_prev {
+            get {
+                object obj = ResourceManager.GetObject("icon_prev", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_prev1 {
+            get {
+                object obj = ResourceManager.GetObject("icon_prev1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +243,16 @@ namespace FinalProject_QUANLYKHO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_export_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-export-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_menu_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-menu-24", resourceCulture);
@@ -213,9 +273,39 @@ namespace FinalProject_QUANLYKHO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_next_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-next-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_online_store_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8-online-store-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_other_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-other-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_other_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-other-301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +326,16 @@ namespace FinalProject_QUANLYKHO.Properties {
         internal static System.Drawing.Bitmap icons8_remove_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-remove-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_return_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-return-30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

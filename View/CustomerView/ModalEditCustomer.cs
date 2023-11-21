@@ -27,7 +27,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             customer = cus;
             customerService = new CustomerService();
             InitializeComponent();
-            LoadDataForm();
+            LoadDataForm(cus);
         }
 
         public void UpdateCustomerFromMainScreen(Customer cus)
@@ -91,7 +91,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
 
         }
 
-        private void LoadDataForm()
+        private void LoadDataForm(Customer customer)
         {
             if(customer != null)
             {

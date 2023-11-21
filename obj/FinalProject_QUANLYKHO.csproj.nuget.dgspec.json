@@ -49,9 +49,21 @@
               "target": "Package",
               "version": "[0.4.0, )"
             },
+            "Guna.Charts.WinForms": {
+              "target": "Package",
+              "version": "[1.0.9, )"
+            },
+            "Syncfusion.Chart.Windows": {
+              "target": "Package",
+              "version": "[23.1.44, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.5, )"
+            },
+            "WinForms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.9.1, )"
             }
           },
           "imports": [

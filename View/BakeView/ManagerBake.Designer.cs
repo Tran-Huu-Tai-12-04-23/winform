@@ -28,171 +28,275 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             panel1 = new Panel();
-            rjToggle3 = new ComponentCustom.RJToggle();
-            textBox1 = new TextBox();
+            edtFindBake = new TextBox();
+            inputTypeBake = new ComboBox();
+            btnTreatment = new ComponentCustom.ButtonCustom();
+            btnRefreshType = new ComponentCustom.ButtonCustom();
+            btnAddType = new ComponentCustom.ButtonCustom();
+            buttonDeleteType = new ComponentCustom.ButtonCustom();
+            btnFind = new ComponentCustom.ButtonCustom();
+            btnAddBake = new ComponentCustom.ButtonCustom();
+            Active = new ComponentCustom.RJToggle();
             label5Loc = new Label();
-            btnFilter = new ComponentCustom.ButtonCustom();
-            buttonCustom5 = new ComponentCustom.ButtonCustom();
-            buttonCustom4 = new ComponentCustom.ButtonCustom();
+            label1 = new Label();
             label2 = new Label();
             labelCustomerTitle = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label7 = new Label();
-            comboBox1 = new ComboBox();
-            buttonCustom8 = new ComponentCustom.ButtonCustom();
-            buttonCustom7 = new ComponentCustom.ButtonCustom();
             dataGridViewBake = new DataGridView();
             maBanh = new DataGridViewTextBoxColumn();
+            tenLoaiBanh = new DataGridViewTextBoxColumn();
             tenBanh = new DataGridViewTextBoxColumn();
-            soLuong = new DataGridViewTextBoxColumn();
+            doVi = new DataGridViewTextBoxColumn();
             giaTien = new DataGridViewTextBoxColumn();
-            donVi = new DataGridViewTextBoxColumn();
-            maLoaiBanh = new DataGridViewTextBoxColumn();
+            soLuong = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewCheckBoxColumn();
             Column5 = new DataGridViewImageColumn();
             Column6 = new DataGridViewImageColumn();
+            panel2 = new Panel();
+            SumPage = new Label();
+            btnAfter = new ComponentCustom.ButtonCustom();
+            btnBefore = new ComponentCustom.ButtonCustom();
+            numberPage = new ComboBox();
+            label7 = new Label();
+            btnDeleteSelect = new ComponentCustom.ButtonCustom();
             panel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBake).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(rjToggle3);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(edtFindBake);
+            panel1.Controls.Add(inputTypeBake);
+            panel1.Controls.Add(btnTreatment);
+            panel1.Controls.Add(btnRefreshType);
+            panel1.Controls.Add(btnAddType);
+            panel1.Controls.Add(buttonDeleteType);
+            panel1.Controls.Add(btnFind);
+            panel1.Controls.Add(btnAddBake);
+            panel1.Controls.Add(Active);
             panel1.Controls.Add(label5Loc);
-            panel1.Controls.Add(btnFilter);
-            panel1.Controls.Add(buttonCustom5);
-            panel1.Controls.Add(buttonCustom4);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(labelCustomerTitle);
-            panel1.Location = new Point(27, 20);
+            panel1.Location = new Point(25, 20);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1139, 172);
+            panel1.Size = new Size(1144, 215);
             panel1.TabIndex = 0;
             // 
-            // rjToggle3
+            // edtFindBake
             // 
-            rjToggle3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            rjToggle3.AutoSize = true;
-            rjToggle3.Location = new Point(951, 131);
-            rjToggle3.Margin = new Padding(3, 4, 3, 4);
-            rjToggle3.MinimumSize = new Size(51, 29);
-            rjToggle3.Name = "rjToggle3";
-            rjToggle3.OffBackColor = Color.Gray;
-            rjToggle3.OffToggleColor = Color.Gainsboro;
-            rjToggle3.OnBackColor = Color.LightSkyBlue;
-            rjToggle3.OnToggleColor = Color.WhiteSmoke;
-            rjToggle3.Size = new Size(51, 29);
-            rjToggle3.TabIndex = 33;
-            rjToggle3.UseVisualStyleBackColor = true;
+            edtFindBake.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            edtFindBake.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            edtFindBake.Location = new Point(217, 68);
+            edtFindBake.Margin = new Padding(0);
+            edtFindBake.Name = "edtFindBake";
+            edtFindBake.Size = new Size(790, 32);
+            edtFindBake.TabIndex = 48;
+            edtFindBake.TextChanged += edtFindBake_TextChanged;
             // 
-            // textBox1
+            // inputTypeBake
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(310, 67);
-            textBox1.Margin = new Padding(0);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(696, 32);
-            textBox1.TabIndex = 32;
+            inputTypeBake.FormattingEnabled = true;
+            inputTypeBake.Location = new Point(217, 126);
+            inputTypeBake.Name = "inputTypeBake";
+            inputTypeBake.Size = new Size(378, 28);
+            inputTypeBake.TabIndex = 47;
+            // 
+            // btnTreatment
+            // 
+            btnTreatment.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnTreatment.BackColor = Color.LightSkyBlue;
+            btnTreatment.BackgroundColor = Color.LightSkyBlue;
+            btnTreatment.BorderColor = Color.PaleVioletRed;
+            btnTreatment.BorderRadius = 0;
+            btnTreatment.BorderSize = 0;
+            btnTreatment.FlatAppearance.BorderSize = 0;
+            btnTreatment.FlatStyle = FlatStyle.Flat;
+            btnTreatment.ForeColor = Color.Black;
+            btnTreatment.Image = Properties.Resources.search;
+            btnTreatment.Location = new Point(609, 121);
+            btnTreatment.Margin = new Padding(3, 4, 3, 4);
+            btnTreatment.Name = "btnTreatment";
+            btnTreatment.RightToLeft = RightToLeft.No;
+            btnTreatment.Size = new Size(128, 37);
+            btnTreatment.TabIndex = 46;
+            btnTreatment.Text = "  Lọc";
+            btnTreatment.TextAlign = ContentAlignment.MiddleRight;
+            btnTreatment.TextColor = Color.Black;
+            btnTreatment.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnTreatment.UseVisualStyleBackColor = false;
+            btnTreatment.Click += btnTreatment_Click;
+            // 
+            // btnRefreshType
+            // 
+            btnRefreshType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefreshType.BackColor = Color.LightSkyBlue;
+            btnRefreshType.BackgroundColor = Color.LightSkyBlue;
+            btnRefreshType.BorderColor = Color.PaleVioletRed;
+            btnRefreshType.BorderRadius = 0;
+            btnRefreshType.BorderSize = 0;
+            btnRefreshType.FlatAppearance.BorderSize = 0;
+            btnRefreshType.FlatStyle = FlatStyle.Flat;
+            btnRefreshType.ForeColor = Color.Black;
+            btnRefreshType.Location = new Point(743, 121);
+            btnRefreshType.Margin = new Padding(3, 4, 3, 4);
+            btnRefreshType.Name = "btnRefreshType";
+            btnRefreshType.Size = new Size(128, 37);
+            btnRefreshType.TabIndex = 45;
+            btnRefreshType.Text = "Làm mới";
+            btnRefreshType.TextAlign = ContentAlignment.MiddleRight;
+            btnRefreshType.TextColor = Color.Black;
+            btnRefreshType.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnRefreshType.UseVisualStyleBackColor = false;
+            btnRefreshType.Click += btnRefreshType_Click;
+            // 
+            // btnAddType
+            // 
+            btnAddType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddType.BackColor = Color.LightSkyBlue;
+            btnAddType.BackgroundColor = Color.LightSkyBlue;
+            btnAddType.BorderColor = Color.PaleVioletRed;
+            btnAddType.BorderRadius = 0;
+            btnAddType.BorderSize = 0;
+            btnAddType.FlatAppearance.BorderSize = 0;
+            btnAddType.FlatStyle = FlatStyle.Flat;
+            btnAddType.ForeColor = Color.Black;
+            btnAddType.Image = Properties.Resources.add1;
+            btnAddType.Location = new Point(877, 121);
+            btnAddType.Margin = new Padding(3, 4, 3, 4);
+            btnAddType.Name = "btnAddType";
+            btnAddType.Size = new Size(128, 37);
+            btnAddType.TabIndex = 44;
+            btnAddType.Text = "Thêm ";
+            btnAddType.TextAlign = ContentAlignment.MiddleRight;
+            btnAddType.TextColor = Color.Black;
+            btnAddType.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddType.UseVisualStyleBackColor = false;
+            // 
+            // buttonDeleteType
+            // 
+            buttonDeleteType.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonDeleteType.BackColor = Color.LightSkyBlue;
+            buttonDeleteType.BackgroundColor = Color.LightSkyBlue;
+            buttonDeleteType.BorderColor = Color.PaleVioletRed;
+            buttonDeleteType.BorderRadius = 0;
+            buttonDeleteType.BorderSize = 0;
+            buttonDeleteType.FlatAppearance.BorderSize = 0;
+            buttonDeleteType.FlatStyle = FlatStyle.Flat;
+            buttonDeleteType.ForeColor = Color.Black;
+            buttonDeleteType.Image = Properties.Resources.icons8_remove_24;
+            buttonDeleteType.Location = new Point(1013, 121);
+            buttonDeleteType.Margin = new Padding(3, 4, 3, 4);
+            buttonDeleteType.Name = "buttonDeleteType";
+            buttonDeleteType.Size = new Size(128, 37);
+            buttonDeleteType.TabIndex = 43;
+            buttonDeleteType.Text = "  Xóa";
+            buttonDeleteType.TextAlign = ContentAlignment.MiddleRight;
+            buttonDeleteType.TextColor = Color.Black;
+            buttonDeleteType.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonDeleteType.UseVisualStyleBackColor = false;
+            // 
+            // btnFind
+            // 
+            btnFind.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnFind.BackColor = Color.LightSkyBlue;
+            btnFind.BackgroundColor = Color.LightSkyBlue;
+            btnFind.BorderColor = Color.PaleVioletRed;
+            btnFind.BorderRadius = 0;
+            btnFind.BorderSize = 0;
+            btnFind.FlatAppearance.BorderSize = 0;
+            btnFind.FlatStyle = FlatStyle.Flat;
+            btnFind.ForeColor = Color.Black;
+            btnFind.Location = new Point(1013, 65);
+            btnFind.Margin = new Padding(3, 4, 3, 4);
+            btnFind.Name = "btnFind";
+            btnFind.Size = new Size(128, 37);
+            btnFind.TabIndex = 9;
+            btnFind.Text = "Làm mới";
+            btnFind.TextAlign = ContentAlignment.MiddleRight;
+            btnFind.TextColor = Color.Black;
+            btnFind.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnFind.UseVisualStyleBackColor = false;
+            btnFind.Click += btnFind_Click;
+            // 
+            // btnAddBake
+            // 
+            btnAddBake.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAddBake.BackColor = Color.LightSkyBlue;
+            btnAddBake.BackgroundColor = Color.LightSkyBlue;
+            btnAddBake.BorderColor = Color.PaleVioletRed;
+            btnAddBake.BorderRadius = 0;
+            btnAddBake.BorderSize = 0;
+            btnAddBake.FlatAppearance.BorderSize = 0;
+            btnAddBake.FlatStyle = FlatStyle.Flat;
+            btnAddBake.ForeColor = Color.Black;
+            btnAddBake.Image = Properties.Resources.add1;
+            btnAddBake.Location = new Point(1013, 12);
+            btnAddBake.Margin = new Padding(3, 4, 3, 4);
+            btnAddBake.Name = "btnAddBake";
+            btnAddBake.Size = new Size(128, 37);
+            btnAddBake.TabIndex = 39;
+            btnAddBake.Text = "Thêm ";
+            btnAddBake.TextAlign = ContentAlignment.MiddleRight;
+            btnAddBake.TextColor = Color.Black;
+            btnAddBake.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddBake.UseVisualStyleBackColor = false;
+            btnAddBake.Click += btnAddBake_Click;
+            // 
+            // Active
+            // 
+            Active.Anchor = AnchorStyles.Right;
+            Active.Location = new Point(1055, 164);
+            Active.Margin = new Padding(3, 4, 3, 4);
+            Active.MinimumSize = new Size(51, 29);
+            Active.Name = "Active";
+            Active.OffBackColor = Color.Gray;
+            Active.OffToggleColor = Color.Gainsboro;
+            Active.OnBackColor = Color.LightSkyBlue;
+            Active.OnToggleColor = Color.WhiteSmoke;
+            Active.Size = new Size(66, 35);
+            Active.TabIndex = 38;
+            Active.UseVisualStyleBackColor = true;
+            Active.CheckedChanged += Active_CheckedChanged;
             // 
             // label5Loc
             // 
             label5Loc.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label5Loc.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5Loc.ImageAlign = ContentAlignment.MiddleRight;
-            label5Loc.Location = new Point(835, 115);
+            label5Loc.Location = new Point(787, 160);
             label5Loc.Margin = new Padding(0);
             label5Loc.Name = "label5Loc";
-            label5Loc.Size = new Size(113, 56);
-            label5Loc.TabIndex = 31;
-            label5Loc.Text = "Ẩn / Hiện";
+            label5Loc.Size = new Size(319, 45);
+            label5Loc.TabIndex = 37;
+            label5Loc.Text = "Danh Sách Bánh Bị Ẩn";
             label5Loc.TextAlign = ContentAlignment.MiddleLeft;
-            label5Loc.Click += label5Loc_Click;
             // 
-            // btnFilter
+            // label1
             // 
-            btnFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnFilter.BackColor = Color.LightSkyBlue;
-            btnFilter.BackgroundColor = Color.LightSkyBlue;
-            btnFilter.BorderColor = Color.PaleVioletRed;
-            btnFilter.BorderRadius = 0;
-            btnFilter.BorderSize = 0;
-            btnFilter.FlatAppearance.BorderSize = 0;
-            btnFilter.FlatStyle = FlatStyle.Flat;
-            btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(1008, 125);
-            btnFilter.Margin = new Padding(3, 4, 3, 4);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(128, 37);
-            btnFilter.TabIndex = 30;
-            btnFilter.Text = "Lọc";
-            btnFilter.TextColor = Color.Black;
-            btnFilter.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnFilter.UseVisualStyleBackColor = false;
-            // 
-            // buttonCustom5
-            // 
-            buttonCustom5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCustom5.BackColor = Color.LightSkyBlue;
-            buttonCustom5.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom5.BorderColor = Color.PaleVioletRed;
-            buttonCustom5.BorderRadius = 0;
-            buttonCustom5.BorderSize = 0;
-            buttonCustom5.FlatAppearance.BorderSize = 0;
-            buttonCustom5.FlatStyle = FlatStyle.Flat;
-            buttonCustom5.ForeColor = Color.Black;
-            buttonCustom5.Image = Properties.Resources.search;
-            buttonCustom5.Location = new Point(1008, 65);
-            buttonCustom5.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom5.Name = "buttonCustom5";
-            buttonCustom5.Size = new Size(128, 37);
-            buttonCustom5.TabIndex = 11;
-            buttonCustom5.Text = "Tìm";
-            buttonCustom5.TextAlign = ContentAlignment.MiddleRight;
-            buttonCustom5.TextColor = Color.Black;
-            buttonCustom5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonCustom5.UseVisualStyleBackColor = false;
-            // 
-            // buttonCustom4
-            // 
-            buttonCustom4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonCustom4.BackColor = Color.LightSkyBlue;
-            buttonCustom4.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom4.BorderColor = Color.PaleVioletRed;
-            buttonCustom4.BorderRadius = 0;
-            buttonCustom4.BorderSize = 0;
-            buttonCustom4.FlatAppearance.BorderSize = 0;
-            buttonCustom4.FlatStyle = FlatStyle.Flat;
-            buttonCustom4.ForeColor = Color.Black;
-            buttonCustom4.Image = Properties.Resources.add1;
-            buttonCustom4.Location = new Point(1008, 12);
-            buttonCustom4.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom4.Name = "buttonCustom4";
-            buttonCustom4.Size = new Size(128, 37);
-            buttonCustom4.TabIndex = 10;
-            buttonCustom4.Text = "Thêm";
-            buttonCustom4.TextAlign = ContentAlignment.MiddleRight;
-            buttonCustom4.TextColor = Color.Black;
-            buttonCustom4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonCustom4.UseVisualStyleBackColor = false;
-            buttonCustom4.Click += buttonCustom4_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(3, 124);
+            label1.Name = "label1";
+            label1.Size = new Size(122, 25);
+            label1.TabIndex = 36;
+            label1.Text = "Loại Bánh";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(3, 70);
+            label2.Location = new Point(3, 68);
             label2.Margin = new Padding(14, 0, 14, 0);
             label2.Name = "label2";
             label2.Size = new Size(177, 25);
@@ -203,143 +307,63 @@
             // 
             labelCustomerTitle.AutoSize = true;
             labelCustomerTitle.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelCustomerTitle.Location = new Point(3, 12);
+            labelCustomerTitle.Location = new Point(3, 15);
             labelCustomerTitle.Name = "labelCustomerTitle";
             labelCustomerTitle.Size = new Size(190, 25);
             labelCustomerTitle.TabIndex = 1;
             labelCustomerTitle.Text = "Danh sách bánh";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            flowLayoutPanel1.BackColor = Color.Transparent;
-            flowLayoutPanel1.Controls.Add(label7);
-            flowLayoutPanel1.Controls.Add(comboBox1);
-            flowLayoutPanel1.Controls.Add(buttonCustom8);
-            flowLayoutPanel1.Controls.Add(buttonCustom7);
-            flowLayoutPanel1.Location = new Point(706, 673);
-            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(467, 47);
-            flowLayoutPanel1.TabIndex = 1;
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Right;
-            label7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ImageAlign = ContentAlignment.MiddleRight;
-            label7.Location = new Point(0, 0);
-            label7.Margin = new Padding(0);
-            label7.Name = "label7";
-            label7.Size = new Size(193, 47);
-            label7.TabIndex = 33;
-            label7.Text = "Số hàng hiển thị : ";
-            label7.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // comboBox1
-            // 
-            comboBox1.Anchor = AnchorStyles.None;
-            comboBox1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "10", "20", "30", "40" });
-            comboBox1.Location = new Point(196, 7);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(58, 33);
-            comboBox1.TabIndex = 34;
-            comboBox1.Tag = "";
-            // 
-            // buttonCustom8
-            // 
-            buttonCustom8.BackColor = Color.LightSkyBlue;
-            buttonCustom8.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom8.BorderColor = Color.PaleVioletRed;
-            buttonCustom8.BorderRadius = 0;
-            buttonCustom8.BorderSize = 0;
-            buttonCustom8.FlatAppearance.BorderSize = 0;
-            buttonCustom8.FlatStyle = FlatStyle.Flat;
-            buttonCustom8.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCustom8.ForeColor = Color.Black;
-            buttonCustom8.Location = new Point(260, 4);
-            buttonCustom8.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom8.Name = "buttonCustom8";
-            buttonCustom8.Size = new Size(94, 35);
-            buttonCustom8.TabIndex = 35;
-            buttonCustom8.Text = "Sau";
-            buttonCustom8.TextColor = Color.Black;
-            buttonCustom8.UseVisualStyleBackColor = false;
-            // 
-            // buttonCustom7
-            // 
-            buttonCustom7.BackColor = Color.LightSkyBlue;
-            buttonCustom7.BackgroundColor = Color.LightSkyBlue;
-            buttonCustom7.BorderColor = Color.PaleVioletRed;
-            buttonCustom7.BorderRadius = 0;
-            buttonCustom7.BorderSize = 0;
-            buttonCustom7.FlatAppearance.BorderSize = 0;
-            buttonCustom7.FlatStyle = FlatStyle.Flat;
-            buttonCustom7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCustom7.ForeColor = Color.Black;
-            buttonCustom7.Location = new Point(360, 4);
-            buttonCustom7.Margin = new Padding(3, 4, 3, 4);
-            buttonCustom7.Name = "buttonCustom7";
-            buttonCustom7.Size = new Size(90, 35);
-            buttonCustom7.TabIndex = 36;
-            buttonCustom7.Text = "Trước";
-            buttonCustom7.TextColor = Color.Black;
-            buttonCustom7.UseVisualStyleBackColor = false;
-            // 
             // dataGridViewBake
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Padding = new Padding(12);
-            dataGridViewBake.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Padding = new Padding(12);
+            dataGridViewBake.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewBake.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewBake.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewBake.BackgroundColor = Color.White;
             dataGridViewBake.BorderStyle = BorderStyle.None;
             dataGridViewBake.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridViewBake.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.Padding = new Padding(0, 12, 0, 12);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewBake.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.Padding = new Padding(0, 12, 0, 12);
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewBake.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewBake.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewBake.Columns.AddRange(new DataGridViewColumn[] { maBanh, tenBanh, soLuong, giaTien, donVi, maLoaiBanh, Column4, Column5, Column6 });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle3.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewBake.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewBake.Columns.AddRange(new DataGridViewColumn[] { maBanh, tenLoaiBanh, tenBanh, doVi, giaTien, soLuong, Column4, Column5, Column6 });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle8.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridViewBake.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewBake.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridViewBake.EnableHeadersVisualStyles = false;
             dataGridViewBake.GridColor = Color.White;
-            dataGridViewBake.Location = new Point(27, 207);
+            dataGridViewBake.Location = new Point(27, 249);
             dataGridViewBake.Margin = new Padding(0);
             dataGridViewBake.Name = "dataGridViewBake";
             dataGridViewBake.ReadOnly = true;
             dataGridViewBake.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewBake.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewBake.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridViewBake.RowHeadersWidth = 60;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewBake.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewBake.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dataGridViewBake.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewBake.RowTemplate.DefaultCellStyle.BackColor = Color.White;
             dataGridViewBake.RowTemplate.DefaultCellStyle.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -350,52 +374,54 @@
             dataGridViewBake.RowTemplate.ReadOnly = true;
             dataGridViewBake.RowTemplate.Resizable = DataGridViewTriState.True;
             dataGridViewBake.ShowEditingIcon = false;
-            dataGridViewBake.Size = new Size(1139, 445);
+            dataGridViewBake.Size = new Size(1142, 341);
             dataGridViewBake.StandardTab = true;
-            dataGridViewBake.TabIndex = 2;
-            dataGridViewBake.CellContentClick += dataGridViewCustomer_CellContentClick;
+            dataGridViewBake.TabIndex = 36;
+            dataGridViewBake.CellContentClick += dataGridViewBake_CellContentClick;
+            dataGridViewBake.SelectionChanged += dataGridViewBake_SelectionChanged;
             // 
             // maBanh
             // 
+            maBanh.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             maBanh.HeaderText = "Mã Bánh";
             maBanh.MinimumWidth = 6;
             maBanh.Name = "maBanh";
             maBanh.ReadOnly = true;
             // 
+            // tenLoaiBanh
+            // 
+            tenLoaiBanh.HeaderText = "Loại Bánh";
+            tenLoaiBanh.MinimumWidth = 6;
+            tenLoaiBanh.Name = "tenLoaiBanh";
+            tenLoaiBanh.ReadOnly = true;
+            // 
             // tenBanh
             // 
-            tenBanh.HeaderText = "Tên bánh";
+            tenBanh.HeaderText = "Tên Bánh";
             tenBanh.MinimumWidth = 6;
             tenBanh.Name = "tenBanh";
             tenBanh.ReadOnly = true;
             // 
-            // soLuong
+            // doVi
             // 
-            soLuong.HeaderText = "Số lượng";
-            soLuong.MinimumWidth = 6;
-            soLuong.Name = "soLuong";
-            soLuong.ReadOnly = true;
+            doVi.HeaderText = "Đơn Vị";
+            doVi.MinimumWidth = 6;
+            doVi.Name = "doVi";
+            doVi.ReadOnly = true;
             // 
             // giaTien
             // 
-            giaTien.HeaderText = "Giá tiền";
+            giaTien.HeaderText = "Giá Tiền";
             giaTien.MinimumWidth = 6;
             giaTien.Name = "giaTien";
             giaTien.ReadOnly = true;
             // 
-            // donVi
+            // soLuong
             // 
-            donVi.HeaderText = "Đơn vị";
-            donVi.MinimumWidth = 6;
-            donVi.Name = "donVi";
-            donVi.ReadOnly = true;
-            // 
-            // maLoaiBanh
-            // 
-            maLoaiBanh.HeaderText = "Mã loại bánh";
-            maLoaiBanh.MinimumWidth = 6;
-            maLoaiBanh.Name = "maLoaiBanh";
-            maLoaiBanh.ReadOnly = true;
+            soLuong.HeaderText = "Số Lượng";
+            soLuong.MinimumWidth = 6;
+            soLuong.Name = "soLuong";
+            soLuong.ReadOnly = true;
             // 
             // Column4
             // 
@@ -432,26 +458,146 @@
             Column6.SortMode = DataGridViewColumnSortMode.Automatic;
             Column6.Width = 74;
             // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Controls.Add(SumPage);
+            panel2.Controls.Add(btnAfter);
+            panel2.Controls.Add(btnBefore);
+            panel2.Controls.Add(numberPage);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(btnDeleteSelect);
+            panel2.Location = new Point(42, 593);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1126, 58);
+            panel2.TabIndex = 39;
+            // 
+            // SumPage
+            // 
+            SumPage.Anchor = AnchorStyles.None;
+            SumPage.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            SumPage.ForeColor = SystemColors.Highlight;
+            SumPage.Location = new Point(869, 12);
+            SumPage.Name = "SumPage";
+            SumPage.Size = new Size(123, 36);
+            SumPage.TabIndex = 43;
+            SumPage.Text = "ded";
+            SumPage.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnAfter
+            // 
+            btnAfter.Anchor = AnchorStyles.None;
+            btnAfter.BackColor = Color.LightSkyBlue;
+            btnAfter.BackgroundColor = Color.LightSkyBlue;
+            btnAfter.BorderColor = Color.PaleVioletRed;
+            btnAfter.BorderRadius = 0;
+            btnAfter.BorderSize = 0;
+            btnAfter.FlatAppearance.BorderSize = 0;
+            btnAfter.FlatStyle = FlatStyle.Flat;
+            btnAfter.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAfter.ForeColor = Color.Black;
+            btnAfter.Location = new Point(999, 12);
+            btnAfter.Margin = new Padding(3, 4, 3, 4);
+            btnAfter.Name = "btnAfter";
+            btnAfter.Size = new Size(108, 35);
+            btnAfter.TabIndex = 42;
+            btnAfter.Text = "Sau";
+            btnAfter.TextColor = Color.Black;
+            btnAfter.UseVisualStyleBackColor = false;
+            btnAfter.Click += btnAfter_Click;
+            // 
+            // btnBefore
+            // 
+            btnBefore.Anchor = AnchorStyles.None;
+            btnBefore.BackColor = Color.LightSkyBlue;
+            btnBefore.BackgroundColor = Color.LightSkyBlue;
+            btnBefore.BorderColor = Color.PaleVioletRed;
+            btnBefore.BorderRadius = 0;
+            btnBefore.BorderSize = 0;
+            btnBefore.FlatAppearance.BorderSize = 0;
+            btnBefore.FlatStyle = FlatStyle.Flat;
+            btnBefore.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBefore.ForeColor = Color.Black;
+            btnBefore.Location = new Point(753, 12);
+            btnBefore.Margin = new Padding(3, 4, 3, 4);
+            btnBefore.Name = "btnBefore";
+            btnBefore.Size = new Size(108, 35);
+            btnBefore.TabIndex = 41;
+            btnBefore.Text = "Trước";
+            btnBefore.TextColor = Color.Black;
+            btnBefore.UseVisualStyleBackColor = false;
+            btnBefore.Click += btnBefore_Click;
+            // 
+            // numberPage
+            // 
+            numberPage.Anchor = AnchorStyles.None;
+            numberPage.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            numberPage.FormattingEnabled = true;
+            numberPage.Items.AddRange(new object[] { "10", "20", "30", "40" });
+            numberPage.Location = new Point(667, 14);
+            numberPage.Margin = new Padding(3, 4, 3, 4);
+            numberPage.Name = "numberPage";
+            numberPage.Size = new Size(61, 33);
+            numberPage.TabIndex = 40;
+            numberPage.Tag = "";
+            numberPage.SelectedIndexChanged += numberPage_SelectedIndexChanged;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.None;
+            label7.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ImageAlign = ContentAlignment.MiddleRight;
+            label7.Location = new Point(462, 16);
+            label7.Margin = new Padding(0);
+            label7.Name = "label7";
+            label7.Size = new Size(202, 26);
+            label7.TabIndex = 39;
+            label7.Text = "Số hàng hiển thị : ";
+            label7.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnDeleteSelect
+            // 
+            btnDeleteSelect.Anchor = AnchorStyles.None;
+            btnDeleteSelect.BackColor = Color.LightSkyBlue;
+            btnDeleteSelect.BackgroundColor = Color.LightSkyBlue;
+            btnDeleteSelect.BorderColor = Color.PaleVioletRed;
+            btnDeleteSelect.BorderRadius = 0;
+            btnDeleteSelect.BorderSize = 0;
+            btnDeleteSelect.FlatAppearance.BorderSize = 0;
+            btnDeleteSelect.FlatStyle = FlatStyle.Flat;
+            btnDeleteSelect.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDeleteSelect.ForeColor = Color.Black;
+            btnDeleteSelect.Image = Properties.Resources.icons8_remove_24;
+            btnDeleteSelect.Location = new Point(154, 12);
+            btnDeleteSelect.Margin = new Padding(3, 4, 3, 4);
+            btnDeleteSelect.Name = "btnDeleteSelect";
+            btnDeleteSelect.RightToLeft = RightToLeft.Yes;
+            btnDeleteSelect.Size = new Size(305, 35);
+            btnDeleteSelect.TabIndex = 38;
+            btnDeleteSelect.Text = "Xóa tất cả bánh đã chọn";
+            btnDeleteSelect.TextColor = Color.Black;
+            btnDeleteSelect.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnDeleteSelect.UseVisualStyleBackColor = false;
+            btnDeleteSelect.Click += btnDeleteSelect_Click;
+            // 
             // ManagerBake
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 246, 249);
-            ClientSize = new Size(1194, 740);
+            ClientSize = new Size(1187, 649);
+            Controls.Add(panel2);
             Controls.Add(dataGridViewBake);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ManagerBake";
             Padding = new Padding(14, 16, 14, 16);
             Text = "ManagerBake";
-            Load += ManagerBake_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBake).EndInit();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -460,26 +606,33 @@
         private Panel panel1;
         private Label labelCustomerTitle;
         private Label label2;
-        private ComponentCustom.ButtonCustom buttonCustom4;
-        private ComponentCustom.ButtonCustom buttonCustom5;
-        private ComponentCustom.ButtonCustom btnFilter;
+        private ComponentCustom.ButtonCustom btnAddBake;
+        private ComponentCustom.RJToggle Active;
         private Label label5Loc;
-        private TextBox textBox1;
-        private ComponentCustom.RJToggle rjToggle3;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label7;
-        private ComboBox comboBox1;
-        private ComponentCustom.ButtonCustom buttonCustom8;
-        private ComponentCustom.ButtonCustom buttonCustom7;
+        private Label label1;
+        private ComponentCustom.ButtonCustom btnFind;
+        private ComboBox inputTypeBake;
+        private ComponentCustom.ButtonCustom btnTreatment;
+        private ComponentCustom.ButtonCustom btnRefreshType;
+        private ComponentCustom.ButtonCustom btnAddType;
+        private ComponentCustom.ButtonCustom buttonDeleteType;
+        private TextBox edtFindBake;
         private DataGridView dataGridViewBake;
         private DataGridViewTextBoxColumn maBanh;
+        private DataGridViewTextBoxColumn tenLoaiBanh;
         private DataGridViewTextBoxColumn tenBanh;
-        private DataGridViewTextBoxColumn soLuong;
+        private DataGridViewTextBoxColumn doVi;
         private DataGridViewTextBoxColumn giaTien;
-        private DataGridViewTextBoxColumn donVi;
-        private DataGridViewTextBoxColumn maLoaiBanh;
+        private DataGridViewTextBoxColumn soLuong;
         private DataGridViewCheckBoxColumn Column4;
         private DataGridViewImageColumn Column5;
         private DataGridViewImageColumn Column6;
+        private Panel panel2;
+        private Label SumPage;
+        private ComponentCustom.ButtonCustom btnAfter;
+        private ComponentCustom.ButtonCustom btnBefore;
+        private ComboBox numberPage;
+        private Label label7;
+        private ComponentCustom.ButtonCustom btnDeleteSelect;
     }
 }

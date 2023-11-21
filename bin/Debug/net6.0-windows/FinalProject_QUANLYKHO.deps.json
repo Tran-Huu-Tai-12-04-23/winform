@@ -9,7 +9,10 @@
       "FinalProject_QUANLYKHO/1.0.0": {
         "dependencies": {
           "Bootstrap-Table": "0.4.0",
-          "System.Data.SqlClient": "4.8.5"
+          "Guna.Charts.WinForms": "1.0.9",
+          "Syncfusion.Chart.Windows": "23.1.44",
+          "System.Data.SqlClient": "4.8.5",
+          "WinForms.DataVisualization": "1.9.1"
         },
         "runtime": {
           "FinalProject_QUANLYKHO.dll": {}
@@ -19,6 +22,17 @@
         "dependencies": {
           "Twitter.Bootstrap": "2.0.3",
           "jQuery": "1.7.2"
+        }
+      },
+      "Guna.Charts.WinForms/1.0.9": {
+        "dependencies": {
+          "System.Management": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Guna.Charts.WinForms.dll": {
+            "assemblyVersion": "1.0.9.0",
+            "fileVersion": "1.0.9.0"
+          }
         }
       },
       "jQuery/1.7.2": {},
@@ -63,6 +77,64 @@
           }
         }
       },
+      "Syncfusion.Chart.Base/23.1.44": {
+        "dependencies": {
+          "Syncfusion.Licensing": "23.1.44",
+          "Syncfusion.Shared.Base": "23.1.44"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Chart.Base.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "Syncfusion.Chart.Windows/23.1.44": {
+        "dependencies": {
+          "Syncfusion.Chart.Base": "23.1.44",
+          "Syncfusion.Grouping.Base": "23.1.44",
+          "Syncfusion.Licensing": "23.1.44",
+          "Syncfusion.Shared.Base": "23.1.44"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Chart.Windows.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "Syncfusion.Grouping.Base/23.1.44": {
+        "dependencies": {
+          "Syncfusion.Licensing": "23.1.44",
+          "Syncfusion.Shared.Base": "23.1.44"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Grouping.Base.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/23.1.44": {
+        "runtime": {
+          "lib/net6.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "Syncfusion.Shared.Base/23.1.44": {
+        "dependencies": {
+          "Syncfusion.Licensing": "23.1.44"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Shared.Base.dll": {
+            "assemblyVersion": "23.1.44.0",
+            "fileVersion": "23.1.44.0"
+          }
+        }
+      },
+      "System.CodeDom/6.0.0": {},
       "System.Data.SqlClient/4.8.5": {
         "dependencies": {
           "Microsoft.Win32.Registry": "4.7.0",
@@ -90,6 +162,25 @@
           }
         }
       },
+      "System.Management/6.0.0": {
+        "dependencies": {
+          "System.CodeDom": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Management.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -97,7 +188,19 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
-      "Twitter.Bootstrap/2.0.3": {}
+      "Twitter.Bootstrap/2.0.3": {},
+      "WinForms.DataVisualization/1.9.1": {
+        "runtime": {
+          "lib/net6.0-windows7.0/WinForms.DataVisualization.Utilities.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.9.1.0"
+          },
+          "lib/net6.0-windows7.0/WinForms.DataVisualization.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.9.1.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -112,6 +215,13 @@
       "sha512": "sha512-ESK4ugRVJv3psHTMhRsay6nwaHcjNbIdtNUNSYtZNZKOSnrx1R3BJqDK9lhMO25FBVfVaF3bGSpTb+nC/qERnQ==",
       "path": "bootstrap-table/0.4.0",
       "hashPath": "bootstrap-table.0.4.0.nupkg.sha512"
+    },
+    "Guna.Charts.WinForms/1.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AT6CUHGi+3fh7ut9tKIW6UB8lwFbpqCibjm4ya5qxLvwQPNjKHr1gSeStf4r+B+asekyiuu8ZCKCVlVugL+lVg==",
+      "path": "guna.charts.winforms/1.0.9",
+      "hashPath": "guna.charts.winforms.1.0.9.nupkg.sha512"
     },
     "jQuery/1.7.2": {
       "type": "package",
@@ -162,12 +272,61 @@
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
     },
+    "Syncfusion.Chart.Base/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EDTPk4ze8n9uPoTu34b7tkboKqDqK6OmJGd2+wbLD17nmAAoKgEdvZPkM93Prlx0WhIwDTbUZ7YQmyhY4X7Onw==",
+      "path": "syncfusion.chart.base/23.1.44",
+      "hashPath": "syncfusion.chart.base.23.1.44.nupkg.sha512"
+    },
+    "Syncfusion.Chart.Windows/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0DsQFUk9lVwITVSybbnnUK7lzYypzBwVTKgqldxzRhAlrk0mIzt2h2+dsY7MIuHUVE02pup4bg6Q8GCjDT3BNw==",
+      "path": "syncfusion.chart.windows/23.1.44",
+      "hashPath": "syncfusion.chart.windows.23.1.44.nupkg.sha512"
+    },
+    "Syncfusion.Grouping.Base/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CEsFfiKc1h6awfwVNwN7ItoREgdq/YSrp7oBlDXifDJxgcgPrVAROQvoX9kyWZuGZZskUrsmyA/Ti3HgA7s/nQ==",
+      "path": "syncfusion.grouping.base/23.1.44",
+      "hashPath": "syncfusion.grouping.base.23.1.44.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-83M4d0oPKjTK9PYN4a2OTzqOHUmkZ7YaGlnnTZ5UIx5u5dNM8DEl37NJQBWt1FSDFUf3kXqJTrZcu6h2ClJ/2w==",
+      "path": "syncfusion.licensing/23.1.44",
+      "hashPath": "syncfusion.licensing.23.1.44.nupkg.sha512"
+    },
+    "Syncfusion.Shared.Base/23.1.44": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8Wfew/OhdNKGA0AUH95iVINQvuqKvzmP6KBn28TAYwEVh5JFMLE/Nd0Ut89TFKlTADkFdkE2mcI3nP79qxsICQ==",
+      "path": "syncfusion.shared.base/23.1.44",
+      "hashPath": "syncfusion.shared.base.23.1.44.nupkg.sha512"
+    },
+    "System.CodeDom/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
+      "path": "system.codedom/6.0.0",
+      "hashPath": "system.codedom.6.0.0.nupkg.sha512"
+    },
     "System.Data.SqlClient/4.8.5": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-fRqxut4lrndPHrXD+ht1XRmCL3obuKldm4XjCRYS9p5f7FSR7shBxAwTkDrpFMsHC9BhNgjjmUtiIjvehn5zkg==",
       "path": "system.data.sqlclient/4.8.5",
       "hashPath": "system.data.sqlclient.4.8.5.nupkg.sha512"
+    },
+    "System.Management/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sHsESYMmPDhQuOC66h6AEOs/XowzKsbT9srMbX71TCXP58hkpn1BqBjdmKj1+DCA/WlBETX1K5WjQHwmV0Txrg==",
+      "path": "system.management/6.0.0",
+      "hashPath": "system.management.6.0.0.nupkg.sha512"
     },
     "System.Security.AccessControl/4.7.0": {
       "type": "package",
@@ -189,6 +348,13 @@
       "sha512": "sha512-nav2nKSM8sadi5YBDyMeMkSxYUR9HLFBe3iOqsFc0phYtgY2uZkHOLogONbFoS90UrwzRQVjcpgHnFtJ0Xil7Q==",
       "path": "twitter.bootstrap/2.0.3",
       "hashPath": "twitter.bootstrap.2.0.3.nupkg.sha512"
+    },
+    "WinForms.DataVisualization/1.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/mKuUVwHYg0EpcjJbuvU5eGY8QGFB4iUMVEl0inHE5iF1fG/NK1dRR2sL26QDnv1wG0dnpuhE3jO5ktKQlvEGg==",
+      "path": "winforms.datavisualization/1.9.1",
+      "hashPath": "winforms.datavisualization.1.9.1.nupkg.sha512"
     }
   }
 }
