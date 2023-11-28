@@ -19,8 +19,7 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
         string materialName;
         List<Material> materials;
         Material material { get; set; }
-        List<string> oldData { get; set; }
-
+        Material oldData;
         private string idMaterial;
         public UpdateMaterial()
         {
@@ -30,19 +29,20 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
 
 
         }
-        public UpdateMaterial(List<string> data)
+        public UpdateMaterial(Material material)
         {
             InitializeComponent();
-            oldData = data;
-            inputTypeMaterial.Text = oldData[0];
-            inputNameMaterial.Texts = oldData[1];
-            inputUnit.Texts = oldData[2];
-            inputPrice.Texts = oldData[3];
-            InputNumber.Texts = oldData[4];
+            oldData = material;
+            inputTypeMaterial.Text = material.idLoaiNguyenLieu;
+            inputNameMaterial.Texts = material.tenNguyenLieu;
+            inputUnit.Texts = material.donVi;
+            inputPrice.Texts = material.giaTien.ToString();
+            InputNumber.Texts = material.sl.ToString();
             materialService = new MaterialService();
-            inputTypeMaterial.Items.AddRange(materialService.GetNameTypeMaterial().ToArray());
-
-
+            List<MaterialType> materialTypes = materialService.GetNameTypeMaterial();
+            inputTypeMaterial.DataSource = materialTypes;
+            inputTypeMaterial.DisplayMember = "tenLoaiNguyenLieu";
+            inputTypeMaterial.ValueMember = "idLoaiNguyenLieu";
         }
 
         public void SetIdMaterialUpdate(string idMaterial)
@@ -57,14 +57,7 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
 
             if (form != null)
             {
-                if (form.checkType)
-                {
-                    form.LoadDataByPageAndTypeIntoDataGridView(form.currentPageType,form.size(),form.key(),form.checkActive());
-                }
-                else
-                {
-                    form.LoadDataByPageIntoDataGridView(form.currentPage, form.size(), form.checkActive());
-                }
+                form.initDataGirdView();
 
             }
         }
@@ -77,6 +70,14 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
             string priceMaterial = inputPrice.Texts;
             string numberMaterial = InputNumber.Texts;
             string nameTypeMaterial = inputTypeMaterial.Text;
+            MaterialType materialType = (MaterialType)inputTypeMaterial.SelectedItem;
+
+            if (materialType == null)
+            {
+                MessageBox.Show("Loai ngyen lieu null");
+                return;
+            }
+
             if (!IsNumeric(priceMaterial))
             {
                 inputPrice.Focus();
@@ -98,8 +99,9 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
                 return;
             }
             MaterialTypeService materialTypeService = new MaterialTypeService();
-            string idType = materialTypeService.GetIDTypeMaterialByName(nameTypeMaterial);
-            materialService.Update(new Material(idMaterial, idType, nameMaterial, int.Parse(numberMaterial.ToString()), float.Parse(priceMaterial.ToString()), unitMaterial));
+
+            Material material = new Material(oldData.idNguyenLieu, materialType.idLoaiNguyenLieu, nameMaterial, int.Parse(numberMaterial.ToString()), float.Parse(priceMaterial.ToString()), unitMaterial);
+            materialService.Update(material);
             ClearForm();
             UpdateMaterialIntoMainForm();
             MessageBox.Show("Cập nhập nguyên liệu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -35,17 +35,16 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            dataGridViewInvoice = new DataGridView();
-            maHoaDon = new DataGridViewTextBoxColumn();
-            tongTien = new DataGridViewTextBoxColumn();
-            soLuong = new DataGridViewTextBoxColumn();
-            tenBoPhanXuat = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewImageColumn();
-            Column6 = new DataGridViewImageColumn();
             contextMenuStrip1 = new ContextMenuStrip(components);
             panel3 = new Panel();
+            dataGridViewInvoice = new DataGridView();
+            maKhachHang = new DataGridViewTextBoxColumn();
+            tenKhachHang = new DataGridViewTextBoxColumn();
+            diaChi = new DataGridViewTextBoxColumn();
+            soDienThoai = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewImageColumn();
+            Column6 = new DataGridViewImageColumn();
             btnAddInvoce = new ComponentCustom.ButtonCustom();
-            labelCustomerTitle = new Label();
             bindingSource1 = new BindingSource(components);
             label4 = new Label();
             button2 = new Button();
@@ -62,132 +61,12 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             listExportDepartMent = new ComboBox();
             label2 = new Label();
             dateOfInvoice = new ComponentCustom.RJDatePicker();
-            label1 = new Label();
             timerSearch = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // dataGridViewInvoice
-            // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Padding = new Padding(12);
-            dataGridViewInvoice.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewInvoice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewInvoice.BackgroundColor = Color.White;
-            dataGridViewInvoice.BorderStyle = BorderStyle.None;
-            dataGridViewInvoice.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewInvoice.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.Padding = new Padding(0, 12, 0, 12);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewInvoice.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewInvoice.Columns.AddRange(new DataGridViewColumn[] { maHoaDon, tongTien, soLuong, tenBoPhanXuat, Column4, Column6 });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle3.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewInvoice.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewInvoice.Dock = DockStyle.Fill;
-            dataGridViewInvoice.EditMode = DataGridViewEditMode.EditOnEnter;
-            dataGridViewInvoice.EnableHeadersVisualStyles = false;
-            dataGridViewInvoice.GridColor = Color.White;
-            dataGridViewInvoice.Location = new Point(0, 0);
-            dataGridViewInvoice.Margin = new Padding(0);
-            dataGridViewInvoice.Name = "dataGridViewInvoice";
-            dataGridViewInvoice.ReadOnly = true;
-            dataGridViewInvoice.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewInvoice.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewInvoice.RowHeadersWidth = 60;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewInvoice.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewInvoice.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewInvoice.RowTemplate.DefaultCellStyle.BackColor = Color.White;
-            dataGridViewInvoice.RowTemplate.DefaultCellStyle.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewInvoice.RowTemplate.DefaultCellStyle.ForeColor = Color.Black;
-            dataGridViewInvoice.RowTemplate.DefaultCellStyle.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewInvoice.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.AliceBlue;
-            dataGridViewInvoice.RowTemplate.Height = 60;
-            dataGridViewInvoice.RowTemplate.ReadOnly = true;
-            dataGridViewInvoice.RowTemplate.Resizable = DataGridViewTriState.True;
-            dataGridViewInvoice.ShowEditingIcon = false;
-            dataGridViewInvoice.Size = new Size(1219, 661);
-            dataGridViewInvoice.StandardTab = true;
-            dataGridViewInvoice.TabIndex = 0;
-            dataGridViewInvoice.CellContentClick += dataGridViewInvoice_CellContentClick;
-            // 
-            // maHoaDon
-            // 
-            maHoaDon.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            maHoaDon.HeaderText = "Mã hóa đơn";
-            maHoaDon.MinimumWidth = 6;
-            maHoaDon.Name = "maHoaDon";
-            maHoaDon.ReadOnly = true;
-            // 
-            // tongTien
-            // 
-            tongTien.HeaderText = "Tổng tiền hóa đơn";
-            tongTien.MinimumWidth = 6;
-            tongTien.Name = "tongTien";
-            tongTien.ReadOnly = true;
-            // 
-            // soLuong
-            // 
-            soLuong.HeaderText = "Số lượng";
-            soLuong.MinimumWidth = 6;
-            soLuong.Name = "soLuong";
-            soLuong.ReadOnly = true;
-            // 
-            // tenBoPhanXuat
-            // 
-            tenBoPhanXuat.HeaderText = "xuất cho";
-            tenBoPhanXuat.MinimumWidth = 6;
-            tenBoPhanXuat.Name = "tenBoPhanXuat";
-            tenBoPhanXuat.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Column4.HeaderText = "Chi tiết hóa đơn";
-            Column4.Image = Properties.Resources.icons8_detail_50;
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Resizable = DataGridViewTriState.True;
-            Column4.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column4.Width = 180;
-            // 
-            // Column6
-            // 
-            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Column6.HeaderText = "Xóa";
-            Column6.Image = Properties.Resources.icons8_remove_24;
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Resizable = DataGridViewTriState.True;
-            Column6.SortMode = DataGridViewColumnSortMode.Automatic;
-            Column6.Width = 74;
             // 
             // contextMenuStrip1
             // 
@@ -201,46 +80,171 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             panel3.AutoSize = true;
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(dataGridViewInvoice);
-            panel3.Location = new Point(27, 139);
+            panel3.Location = new Point(15, 79);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1219, 661);
+            panel3.Size = new Size(1086, 534);
             panel3.TabIndex = 5;
+            // 
+            // dataGridViewInvoice
+            // 
+            dataGridViewInvoice.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(28, 38, 45);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.Padding = new Padding(12);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(28, 38, 45);
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewInvoice.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewInvoice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewInvoice.BackgroundColor = Color.FromArgb(39, 52, 62);
+            dataGridViewInvoice.BorderStyle = BorderStyle.None;
+            dataGridViewInvoice.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewInvoice.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
+            dataGridViewInvoice.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(63, 84, 100);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.Padding = new Padding(0, 12, 0, 12);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(63, 84, 100);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewInvoice.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewInvoice.Columns.AddRange(new DataGridViewColumn[] { maKhachHang, tenKhachHang, diaChi, soDienThoai, Column4, Column6 });
+            dataGridViewInvoice.ContextMenuStrip = contextMenuStrip1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(63, 84, 100);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.InactiveCaptionText;
+            dataGridViewCellStyle3.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(63, 84, 100);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewInvoice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewInvoice.Dock = DockStyle.Fill;
+            dataGridViewInvoice.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridViewInvoice.EnableHeadersVisualStyles = false;
+            dataGridViewInvoice.GridColor = Color.FromArgb(39, 52, 62);
+            dataGridViewInvoice.ImeMode = ImeMode.On;
+            dataGridViewInvoice.Location = new Point(0, 0);
+            dataGridViewInvoice.Margin = new Padding(0);
+            dataGridViewInvoice.Name = "dataGridViewInvoice";
+            dataGridViewInvoice.ReadOnly = true;
+            dataGridViewInvoice.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(39, 52, 62);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(39, 52, 62);
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewInvoice.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewInvoice.RowHeadersVisible = false;
+            dataGridViewInvoice.RowHeadersWidth = 60;
+            dataGridViewInvoice.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(39, 52, 62);
+            dataGridViewCellStyle5.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(63, 84, 100);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(51, 145, 238);
+            dataGridViewInvoice.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(39, 52, 62);
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.ForeColor = Color.White;
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(63, 84, 100);
+            dataGridViewInvoice.RowTemplate.DefaultCellStyle.SelectionForeColor = Color.FromArgb(51, 145, 238);
+            dataGridViewInvoice.RowTemplate.Height = 60;
+            dataGridViewInvoice.RowTemplate.ReadOnly = true;
+            dataGridViewInvoice.RowTemplate.Resizable = DataGridViewTriState.True;
+            dataGridViewInvoice.ScrollBars = ScrollBars.Vertical;
+            dataGridViewInvoice.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewInvoice.ShowEditingIcon = false;
+            dataGridViewInvoice.Size = new Size(1086, 534);
+            dataGridViewInvoice.StandardTab = true;
+            dataGridViewInvoice.TabIndex = 1;
+            dataGridViewInvoice.CellContentClick += dataGridViewInvoice_CellContentClick_1;
+            // 
+            // maKhachHang
+            // 
+            maKhachHang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            maKhachHang.HeaderText = "Mã hóa đơn";
+            maKhachHang.MinimumWidth = 6;
+            maKhachHang.Name = "maKhachHang";
+            maKhachHang.ReadOnly = true;
+            // 
+            // tenKhachHang
+            // 
+            tenKhachHang.HeaderText = "Tổng tiền hóa đơn";
+            tenKhachHang.MinimumWidth = 6;
+            tenKhachHang.Name = "tenKhachHang";
+            tenKhachHang.ReadOnly = true;
+            // 
+            // diaChi
+            // 
+            diaChi.HeaderText = "Tổng số lượng";
+            diaChi.MinimumWidth = 6;
+            diaChi.Name = "diaChi";
+            diaChi.ReadOnly = true;
+            // 
+            // soDienThoai
+            // 
+            soDienThoai.HeaderText = "Xuất cho";
+            soDienThoai.MinimumWidth = 6;
+            soDienThoai.Name = "soDienThoai";
+            soDienThoai.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column4.HeaderText = "Chi tiết";
+            Column4.Image = Properties.Resources.icons8_invoice_return;
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Resizable = DataGridViewTriState.True;
+            Column4.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column4.ToolTipText = "Xem chi tiết hóa đơn";
+            Column4.Width = 71;
+            // 
+            // Column6
+            // 
+            Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column6.HeaderText = "Xóa";
+            Column6.Image = Properties.Resources.icons8_remove_241;
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Resizable = DataGridViewTriState.True;
+            Column6.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column6.ToolTipText = "Xóa hóa đơn";
+            Column6.Width = 54;
             // 
             // btnAddInvoce
             // 
             btnAddInvoce.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAddInvoce.BackColor = Color.LightSkyBlue;
-            btnAddInvoce.BackgroundColor = Color.LightSkyBlue;
+            btnAddInvoce.BackColor = Color.FromArgb(51, 145, 238);
+            btnAddInvoce.BackgroundColor = Color.FromArgb(51, 145, 238);
             btnAddInvoce.BorderColor = Color.PaleVioletRed;
-            btnAddInvoce.BorderRadius = 0;
+            btnAddInvoce.BorderRadius = 6;
             btnAddInvoce.BorderSize = 0;
             btnAddInvoce.FlatAppearance.BorderSize = 0;
             btnAddInvoce.FlatStyle = FlatStyle.Flat;
-            btnAddInvoce.ForeColor = Color.Black;
+            btnAddInvoce.ForeColor = Color.WhiteSmoke;
             btnAddInvoce.Image = Properties.Resources.add1;
-            btnAddInvoce.Location = new Point(1079, 15);
-            btnAddInvoce.Margin = new Padding(3, 4, 3, 4);
+            btnAddInvoce.Location = new Point(1064, 26);
             btnAddInvoce.Name = "btnAddInvoce";
-            btnAddInvoce.Size = new Size(128, 37);
+            btnAddInvoce.Size = new Size(37, 22);
             btnAddInvoce.TabIndex = 2;
-            btnAddInvoce.Text = "Thêm";
             btnAddInvoce.TextAlign = ContentAlignment.MiddleRight;
-            btnAddInvoce.TextColor = Color.Black;
+            btnAddInvoce.TextColor = Color.WhiteSmoke;
             btnAddInvoce.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddInvoce.UseVisualStyleBackColor = false;
             btnAddInvoce.Click += btnAddInvoce_Click;
-            // 
-            // labelCustomerTitle
-            // 
-            labelCustomerTitle.AutoSize = true;
-            labelCustomerTitle.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelCustomerTitle.Location = new Point(14, 15);
-            labelCustomerTitle.Name = "labelCustomerTitle";
-            labelCustomerTitle.Size = new Size(268, 25);
-            labelCustomerTitle.TabIndex = 0;
-            labelCustomerTitle.Text = "Phiếu xuất nguyên liệu";
-            labelCustomerTitle.Click += labelCustomerTitle_Click;
             // 
             // label4
             // 
@@ -428,27 +432,29 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(listExportDepartMent);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(dateOfInvoice);
-            panel1.Controls.Add(label1);
             panel1.Controls.Add(btnAddInvoce);
-            panel1.Controls.Add(labelCustomerTitle);
-            panel1.Location = new Point(27, 20);
-            panel1.Margin = new Padding(0);
+            panel1.Location = new Point(0, 1);
+            panel1.Margin = new Padding(12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1219, 119);
+            panel1.Size = new Size(1115, 77);
             panel1.TabIndex = 8;
             // 
             // listExportDepartMent
             // 
-            listExportDepartMent.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            listExportDepartMent.BackColor = Color.FromArgb(39, 52, 62);
+            listExportDepartMent.Cursor = Cursors.Hand;
+            listExportDepartMent.DropDownStyle = ComboBoxStyle.DropDownList;
+            listExportDepartMent.FlatStyle = FlatStyle.Flat;
+            listExportDepartMent.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            listExportDepartMent.ForeColor = Color.White;
             listExportDepartMent.FormattingEnabled = true;
-            listExportDepartMent.Location = new Point(424, 64);
-            listExportDepartMent.Margin = new Padding(3, 4, 3, 4);
+            listExportDepartMent.Location = new Point(336, 23);
             listExportDepartMent.Name = "listExportDepartMent";
-            listExportDepartMent.Size = new Size(138, 36);
+            listExportDepartMent.Size = new Size(121, 25);
             listExportDepartMent.TabIndex = 6;
             listExportDepartMent.SelectedIndexChanged += listExportDepartMent_SelectedIndexChanged;
             // 
@@ -456,36 +462,26 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(336, 73);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(259, 28);
             label2.Name = "label2";
-            label2.Size = new Size(93, 20);
+            label2.Size = new Size(71, 16);
             label2.TabIndex = 5;
             label2.Text = "Xuất cho";
             // 
             // dateOfInvoice
             // 
-            dateOfInvoice.BorderColor = Color.PaleVioletRed;
+            dateOfInvoice.BorderColor = Color.PaleTurquoise;
             dateOfInvoice.BorderSize = 0;
             dateOfInvoice.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            dateOfInvoice.Location = new Point(72, 64);
-            dateOfInvoice.Margin = new Padding(3, 4, 3, 4);
+            dateOfInvoice.Location = new Point(15, 20);
             dateOfInvoice.MinimumSize = new Size(4, 35);
             dateOfInvoice.Name = "dateOfInvoice";
-            dateOfInvoice.Size = new Size(258, 35);
-            dateOfInvoice.SkinColor = Color.CornflowerBlue;
+            dateOfInvoice.Size = new Size(226, 35);
+            dateOfInvoice.SkinColor = Color.FromArgb(39, 52, 62);
             dateOfInvoice.TabIndex = 4;
             dateOfInvoice.TextColor = Color.White;
             dateOfInvoice.ValueChanged += dateOfInvoice_ValueChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(14, 73);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 20);
-            label1.TabIndex = 3;
-            label1.Text = "Ngày";
             // 
             // timerSearch
             // 
@@ -493,21 +489,20 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             // 
             // ManagerExportMaterialGo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(241, 246, 249);
-            ClientSize = new Size(1275, 833);
+            BackColor = Color.FromArgb(28, 38, 45);
+            ClientSize = new Size(1116, 625);
             Controls.Add(panel1);
             Controls.Add(panel3);
             ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ManagerExportMaterialGo";
-            Padding = new Padding(14, 16, 14, 16);
+            Padding = new Padding(12);
             Text = "ManagerCustomer";
             Load += ManagerImportMaterial_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).EndInit();
             panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewInvoice).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -519,7 +514,6 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
         #endregion
         private ContextMenuStrip contextMenuStrip1;
         private Panel panel3;
-        private DataGridView dataGridViewInvoice;
         private BindingSource bindingSource1;
         private Button button2;
         private Label label4;
@@ -529,7 +523,6 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
         private Button button3;
         private Button button4;
         private ComponentCustom.ButtonCustom buttonCustom1;
-        private Label labelCustomerTitle;
         private Button btnSearch;
         private Button button1;
         private ComponentCustom.ButtonCustom buttonCustom2;
@@ -538,13 +531,13 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
         private Panel panel1;
         private System.Windows.Forms.Timer timerSearch;
         private ComponentCustom.RJDatePicker dateOfInvoice;
-        private Label label1;
         private ComboBox listExportDepartMent;
         private Label label2;
-        private DataGridViewTextBoxColumn maHoaDon;
-        private DataGridViewTextBoxColumn tongTien;
-        private DataGridViewTextBoxColumn soLuong;
-        private DataGridViewTextBoxColumn tenBoPhanXuat;
+        private DataGridView dataGridViewInvoice;
+        private DataGridViewTextBoxColumn maKhachHang;
+        private DataGridViewTextBoxColumn tenKhachHang;
+        private DataGridViewTextBoxColumn diaChi;
+        private DataGridViewTextBoxColumn soDienThoai;
         private DataGridViewImageColumn Column4;
         private DataGridViewImageColumn Column6;
     }

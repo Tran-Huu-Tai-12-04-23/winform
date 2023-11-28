@@ -59,7 +59,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
 
             Customer cusRes = customerService.Create(newCus);
 
-            if( cusRes != null)
+            if (cusRes != null)
             {
                 newCustomerList.Add(cusRes);
                 AddCusIntoMainForm(cusRes);
@@ -70,7 +70,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             {
                 MessageBox.Show("Thêm khách hàng thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void ClearForm()

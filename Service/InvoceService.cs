@@ -24,6 +24,9 @@ namespace FinalProject_QUANLYKHO.Service
         private const string CREATE_INVOCE_DETAIL = "InsertHoaDonXuatNguyenLieu";
         private const string GET_ALL_INVOCE_CANCEL_MATERIAL = "GetInvoiceGoByDate";
         private const string GET_DETAIL_INVOICE_MATERIAL_CANCEL = "GetInvoiceDetails";
+        private const string RMEOVE_INVOCE = "RemoveHoaDon";
+        private const string REMOVE_INVOICE_EXPORT_MATERIAL = "RemoveHoaDonExportMaterial";
+        private const string UPDATE_INVOICE_EXPORT_MATERIAL = "UpdateHoaDonExportMaterial";
 
 
         public InvoceService()
@@ -31,7 +34,6 @@ namespace FinalProject_QUANLYKHO.Service
             ConfigDB config = ConfigDB.Instance;
             connection = config.GetConnection();
         }
-
 
         public Invoice CreateInvoceMaterial(Invoice invoce)
         {
@@ -51,15 +53,12 @@ namespace FinalProject_QUANLYKHO.Service
                 idHoaDonParam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(idHoaDonParam);
 
-                // Open the connection if it's not already open
                 if (connection.State == ConnectionState.Closed)
                 {
                     connection.Open();
                 }
 
                 cmd.ExecuteNonQuery();
-
-                // Retrieve the value from the output parameter
                 invoce.idHoaDon = idHoaDonParam.Value.ToString();
 
                 return invoce;
@@ -78,7 +77,6 @@ namespace FinalProject_QUANLYKHO.Service
                 }
             }
         }
-
 
         public bool CreateDetailInvoceMaterial(InvoiceDetail invoceDetail)
         {
@@ -118,7 +116,86 @@ namespace FinalProject_QUANLYKHO.Service
                 }
             }
         }
+        
+        public bool UpdateDetailInvoceMaterial(InvoiceDetail invoceDetail)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(UPDATE_INVOICE_EXPORT_MATERIAL, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.Add("@idChiTietHoaDon", SqlDbType.VarChar, 255).Value = invoceDetail.idChiTietHoaDon;
+                cmd.Parameters.Add("@newSl", SqlDbType.VarChar, 255).Value = invoceDetail.sl;
+                cmd.Parameters.Add("@newTongTien", SqlDbType.Int).Value = invoceDetail.tongTien;
+                cmd.Parameters.Add("@idNguyenLieu", SqlDbType.VarChar, 255).Value = invoceDetail.idNguyenLieu;
+                SqlParameter result = new SqlParameter("@Result", SqlDbType.Int);
+                result.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(result);
+                // Open the connection if it's not already open
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+
+                // Retrieve the value from the output parameter
+                int resultInt = (int)result.Value;
+                return resultInt == 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
+                return false; // Handle the exception appropriately, and return null or throw an exception
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public bool RemoveDetailInvoice(InvoiceDetail invoceDetail)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(REMOVE_INVOICE_EXPORT_MATERIAL, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@idChiTietHoaDon", SqlDbType.VarChar, 255).Value = invoceDetail.idChiTietHoaDon;
+                SqlParameter result = new SqlParameter("@Result", SqlDbType.Int);
+                result.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(result);
+
+                // Open the connection if it's not already open
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+
+                // Retrieve the value from the output parameter
+                int resultInt = (int)result.Value;
+                return resultInt == 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
+                return false; // Handle the exception appropriately, and return null or throw an exception
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
 
         public List<Invoice> GetAllCancelledInvoicesByDate(DateTime dateOfInvoice)
         {
@@ -148,6 +225,7 @@ namespace FinalProject_QUANLYKHO.Service
                             invoice.ngayXuat = DateTime.Parse(reader["ngayxuat"].ToString());
                             invoice.idTaiKhoan = reader["idTaiKhoan"].ToString();
                             invoice.tenBoPhanXuat = reader["tenBoPhanXuat"].ToString();
+                            invoice.idBoPhanXuat = reader["idBoPhanXuat"].ToString();
 
                             invoices.Add(invoice);
                         }
@@ -169,8 +247,6 @@ namespace FinalProject_QUANLYKHO.Service
 
             return invoices;
         }
-
-
 
         public List<InvoiceDetail> GetInvoiceDetails(string idHoaDon)
         {
@@ -201,10 +277,12 @@ namespace FinalProject_QUANLYKHO.Service
                             invoiceDetail.idHoaDon = reader["idHoaDon"].ToString();
                             invoiceDetail.sl = Convert.ToInt32(reader["sl"]);
                             invoiceDetail.tongTien = double.Parse(reader["tongTien"].ToString());
+                            invoiceDetail.idChiTietHoaDon = reader["id"].ToString();
 
                             Material material = new Material();
                             material.tenNguyenLieu = reader["tenNguyenLieu"].ToString();
                             material.idLoaiNguyenLieu = reader["idLoaiNguyenLieu"].ToString();
+                            material.tenLoaiNguyenLieu = reader["tenLoaiNguyenlieu"].ToString();
                             material.donVi = reader["donVi"].ToString();
                             material.sl = Convert.ToInt32(reader["tonKho"]);
                             material.donVi = reader["donvi"].ToString();
@@ -233,7 +311,44 @@ namespace FinalProject_QUANLYKHO.Service
             return invoiceDetails;
         }
 
+        public bool RemoveInvoice(Invoice invoice)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(RMEOVE_INVOCE, connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add("@idHoaDon", SqlDbType.VarChar, 255).Value = invoice.idHoaDon;
+
+                    SqlParameter result = new SqlParameter("@Result", SqlDbType.Int);
+                    result.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(result);
+
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+
+                    cmd.ExecuteNonQuery();
+
+                    return int.Parse(result.Value.ToString()) == 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
+                return false; // Handle the exception appropriately, and return null or throw an exception
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
 
         /*  public void Update(Material material)
           {

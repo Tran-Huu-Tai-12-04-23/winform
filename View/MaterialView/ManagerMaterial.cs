@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,562 +18,313 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
 {
     public partial class ManagerMaterial : Form
     {
-        MaterialService materialService;
-        MaterialTypeService materialTypeService;
-        public int maxPage = 0;
-        public int currentPage = 0;
-        public int maxPageType = 0;
-        public int currentPageType = 0;
-        public bool checkType = false;
+        MaterialService materialService = new MaterialService();
+        MaterialTypeService materialTypeService = new MaterialTypeService();
+        List<Material> materials = new List<Material>();
+        List<MaterialType> materialTypes = new List<MaterialType>();
+        List<Material> listItemSelected = new List<Material>();
+        MaterialType materialTypeSelect = new MaterialType();
+        int currentPage = 0;
+        int totalPages = 0;
         public ManagerMaterial()
         {
             InitializeComponent();
-            materialService = new MaterialService();
-            materialTypeService = new MaterialTypeService();
-            inputTypeMaterial.Items.AddRange(materialService.GetNameTypeMaterial().ToArray());
-            numberPage.SelectedIndex = 0;
-            LoadDataByPageIntoDataGridView(currentPage, int.Parse(numberPage.Text), Active.Checked);
-            SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-            btnDeleteSelect.Visible = false;
+            initData();
+            initDataGirdView();
         }
-        public bool checkActive()
+
+        public void initData()
         {
-            return Active.Checked;
+            numberPage.SelectedIndex = 0;
+            int totalRows = materialService.GetTotalRowMaterial();
+            int pageSize = size();
+            this.totalPages = (int)Math.Ceiling((double)totalRows / pageSize);
+            notifiPagePresent.Text = (currentPage + 1) + " / " + this.totalPages;
         }
+        private void initListMaterials()
+        {
+            if (Active.Checked)
+            {
+                this.materials = materialService.PageMaterial(currentPage, size(), true);
+            }
+            else
+            {
+                this.materials = materialService.PageMaterial(currentPage, size(), false);
+            }
+        }
+        private void initListMaterialsByType()
+        {
+            if (Active.Checked)
+            {
+                this.materials = materialService.PageMaterialByType(currentPage, size(), this.materialTypeSelect.tenLoaiNguyenLieu, true);
+            }
+            else
+            {
+                this.materials = materialService.PageMaterialByType(currentPage, size(), this.materialTypeSelect.tenLoaiNguyenLieu, false);
+            }
+        }
+        public void initDataGirdView()
+        {
+            dataGridViewMaterial.Rows.Clear();
+
+            if (this.materialTypeSelect.idLoaiNguyenLieu == "-1" || this.materialTypeSelect.idLoaiNguyenLieu == null)
+            {
+                initListMaterials();
+            }
+            else
+            {
+                initListMaterialsByType();
+            }
+
+            MaterialType materialType = new MaterialType();
+            materialType.idLoaiNguyenLieu = "-1";
+            materialType.tenLoaiNguyenLieu = "Tất cả";
+
+            this.materialTypes.Add(materialType);
+            this.materialTypes.AddRange(materialService.GetNameTypeMaterial());
+
+            foreach (Material material in this.materials)
+            {
+                object[] rowData = new object[] { false, material.idNguyenLieu, material.tenNguyenLieu, material.idLoaiNguyenLieu, material.donVi, material.giaTien, material.sl, material.hien };
+                dataGridViewMaterial.Rows.Add(rowData);
+            }
+            inputTypeMaterial.DataSource = this.materialTypes;
+            inputTypeMaterial.DisplayMember = "tenLoaiNguyenLieu";
+            inputTypeMaterial.ValueMember = "idLoaiNguyenLieu";
+        }
+
+        public void loadDataIntoGirview(List<Material> listData)
+        {
+            dataGridViewMaterial.Rows.Clear();
+            foreach (Material material in listData)
+            {
+                object[] rowData = new object[] { false, material.idNguyenLieu, material.tenNguyenLieu, material.idLoaiNguyenLieu, material.donVi, material.giaTien, material.sl, material.hien };
+                dataGridViewMaterial.Rows.Add(rowData);
+            }
+        }
+
         public int size()
         {
             return int.Parse(numberPage.Text);
         }
-        public string key()
-        {
-            return inputTypeMaterial.Text;
-        }
-        private void btnAddMaterial_Click(object sender, EventArgs e)
-        {
-            AddMaterial modal = new AddMaterial();
-            modal.Show();
-        }
 
-        public void AddMaterialIntoGridView(Material material)
-        {
-            if (material != null)
-            {     /* rowData.Append(list[i]);*/
-                object[] rowData = new object[] { material.idNguyenLieu, material.idLoaiNguyenLieu, material.tenNguyenLieu, material.donVi, material.giaTien, material.sl, material.hien };
-                dataGridViewMaterial.Rows.Add(rowData);
-            }
-
-        }
-        public void LoadDataByPageAndTypeIntoDataGridView(int page, int size, string key, bool hien)
-        {
-
-            dataGridViewMaterial.Rows.Clear();
-            if (materialService != null)
-            {
-                List<Material> list = materialService.PageMaterialByType(page, size, key, hien);
-                for (int i = 0; i < list.Count; i++)
-                {
-                    /* rowData.Append(list[i]);*/
-                    Material material = list[i];
-                    object[] rowData = new object[] { material.idNguyenLieu, material.idLoaiNguyenLieu, material.tenNguyenLieu, material.donVi, material.giaTien, material.sl, material.hien };
-                    dataGridViewMaterial.Rows.Add(rowData);
-                }
-
-            }
-        }
-        public void LoadDataByPageIntoDataGridView(int page, int size, bool hien)
-        {
-
-            dataGridViewMaterial.Rows.Clear();
-            if (materialService != null)
-            {
-                List<Material> list = materialService.PageMaterial(page, size, hien);
-                for (int i = 0; i < list.Count; i++)
-                {
-                    /* rowData.Append(list[i]);*/
-                    Material material = list[i];
-                    object[] rowData = new object[] { material.idNguyenLieu, material.idLoaiNguyenLieu, material.tenNguyenLieu, material.donVi, material.giaTien, material.sl, material.hien };
-                    dataGridViewMaterial.Rows.Add(rowData);
-                }
-
-            }
-        }
-        private void dataGridViewMaterial_SelectionChanged(object sender, EventArgs e)
-        {
-            DataGridViewSelectedRowCollection selectedRows = dataGridViewMaterial.SelectedRows;
-            btnDeleteSelect.Visible = selectedRows.Count > 1;
-        }
         private void dataGridViewMaterial_CellContentClick(object sender, DataGridViewCellEventArgs e)
-
         {
-            int columnIndex = e.ColumnIndex;
-            if (e.RowIndex != dataGridViewMaterial.Rows.Count - 1)
+            if (e.RowIndex < 0) return;
+            int row = e.RowIndex;
+            int col = e.ColumnIndex;
+            string idNguyenLieu = dataGridViewMaterial.Rows[row].Cells[1].Value.ToString();
+            Material material = materials.Find(m => m.idNguyenLieu == idNguyenLieu);
+            if (material == null) return;
+
+            switch (col)
             {
-                if (columnIndex == 8)
-                {
-                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Kiểm tra xem ô được nhấp vào có hợp lệ không
-                        {
-                            // Lấy hàng (row) chứa ô được nhấp vào
-                            DataGridViewRow selectedRow = dataGridViewMaterial.Rows[e.RowIndex];
+                case 0:
+                    //handle select item 
+                    handleSelectItem(row, material);
+                    break;
+                case 7:
+                    //hanel active/deactive item
+                    handleActiveDeactiveItem(row, material);
+                    break;
+                case 8:
+                    //handle edit item
+                    handleEditItem(row, material);
+                    break;
+                case 9:
 
-                            // Lấy tất cả giá trị của các ô trong hàng và chuyển đổi thành danh sách hoặc mảng
-                            List<string> rowData = new List<string>();
-
-                            foreach (DataGridViewCell cell in selectedRow.Cells)
-                            {
-                                if (cell.Value != null)
-                                {
-                                    rowData.Add(cell.Value.ToString());
-                                }
-                                else
-                                {
-                                    rowData.Add("");
-                                }
-                            }
-
-                            string idNguyenLieu = rowData[0];
-                            string tenNguyenLieu = rowData[2];
-                            bool deleteRes = materialService.Delete(idNguyenLieu);
-
-                            if (deleteRes)
-                            {
-                                MessageBox.Show("Xóa nguyên liệu thành công " + tenNguyenLieu);
-                                dataGridViewMaterial.Rows.Remove(selectedRow);
-                                if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-                                {
-                                    int selected = int.Parse(numberPage.Text);
-                                    NumberPageByType();
-                                    if (currentPage > maxPage)
-                                    {
-                                        currentPage = maxPage;
-                                    }
-                                    LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                                    SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                                }
-                                else
-                                {
-                                    int selected = int.Parse(numberPage.Text);
-                                    NumberPage();
-                                    if (currentPage > maxPage)
-                                    {
-                                        currentPage = maxPage;
-                                    }
-                                    LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                                    SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("Xóa nguyên liệu thất bại " + tenNguyenLieu);
-                            }
-                        }
-
-                    }
-                }
-                else if (columnIndex == 7)
-                {
-                    DataGridViewRow selectedRow = dataGridViewMaterial.Rows[e.RowIndex];
-                    // Lấy tất cả giá trị của các ô trong hàng và chuyển đổi thành danh sách hoặc mảng
-                    List<string> rowData = new List<string>();
-                    foreach (DataGridViewCell cell in selectedRow.Cells)
-                    {
-                        if (cell.Value != null)
-                        {
-                            rowData.Add(cell.Value.ToString());
-                        }
-                        else
-                        {
-                            rowData.Add("");
-                        }
-                    }
-
-
-                    List<string> oldData = new List<string>();
-
-                    UpdateMaterial modal = new UpdateMaterial();
-
-                    modal.SetIdMaterialUpdate(rowData[0]);
-                    oldData.Add(rowData[1]);
-                    oldData.Add(rowData[2]);
-                    oldData.Add(rowData[3]);
-                    oldData.Add(rowData[4]);
-                    oldData.Add(rowData[5]);
-                    modal = new UpdateMaterial(oldData);
-
-                    modal.Show();
-
-                }
-                else if (columnIndex == 6)
-                {
-                    DataGridViewCheckBoxCell checkBoxCell = dataGridViewMaterial["Column4", e.RowIndex] as DataGridViewCheckBoxCell;
-                    if (checkBoxCell != null)
-                    {
-
-                        bool currentValue = (bool)checkBoxCell.Value;
-                        if (currentValue == true)
-                        {
-                            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn ẩn mục này?", "Xác nhận ẩn", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (result == DialogResult.Yes)
-                            {
-                                checkBoxCell.Value = false;
-                                DataGridViewRow selectedRow = dataGridViewMaterial.Rows[e.RowIndex];
-
-                                // Lấy tất cả giá trị của các ô trong hàng và chuyển đổi thành danh sách hoặc mảng
-                                List<string> rowData = new List<string>();
-
-                                foreach (DataGridViewCell cell in selectedRow.Cells)
-                                {
-                                    if (cell.Value != null)
-                                    {
-                                        rowData.Add(cell.Value.ToString());
-                                    }
-                                    else
-                                    {
-                                        rowData.Add("");
-                                    }
-                                }
-                                string idNguyenLieu = rowData[0];
-                                materialService.ActiveMaterial(idNguyenLieu, (bool)checkBoxCell.Value);
-                                string tenNguyenLieu = rowData[2];
-
-                                MessageBox.Show("Ẩn nguyên liệu thành công " + tenNguyenLieu);
-                                if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-                                {
-                                    int selected = int.Parse(numberPage.Text);
-                                    LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                                    SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                                }
-                                else
-                                {
-                                    int selected = int.Parse(numberPage.Text);
-                                    LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                                    SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-
-                                }
-                            }
-
-                        }
-                        else if (currentValue == false)
-                        {
-                            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn hiện mục này?", "Xác nhận hiện", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (result == DialogResult.Yes)
-                            {
-                                checkBoxCell.Value = true;
-                                DataGridViewRow selectedRow = dataGridViewMaterial.Rows[e.RowIndex];
-
-                                // Lấy tất cả giá trị của các ô trong hàng và chuyển đổi thành danh sách hoặc mảng
-                                List<string> rowData = new List<string>();
-
-                                foreach (DataGridViewCell cell in selectedRow.Cells)
-                                {
-                                    if (cell.Value != null)
-                                    {
-                                        rowData.Add(cell.Value.ToString());
-                                    }
-                                    else
-                                    {
-                                        rowData.Add("");
-                                    }
-                                }
-
-                                string idNguyenLieu = rowData[0];
-                                materialService.ActiveMaterial(idNguyenLieu, (bool)checkBoxCell.Value);
-                                string tenNguyenLieu = rowData[2];
-
-                                MessageBox.Show("Tắt ẩn nguyên liệu thành công " + tenNguyenLieu);
-                                if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-                                {
-                                    int selected = int.Parse(numberPage.Text);
-                                    NumberPageByType();
-                                    LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                                    SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                                }
-                                else
-                                {
-                                    int selected = int.Parse(numberPage.Text);
-                                    NumberPage();
-                                    LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                                    SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-
-                                }
-                            }
-
-                        }
-                        // Thay đổi giá trị CheckBox
-                        //checkBoxCell.Value = !currentValue;
-                        // Điều gì xảy ra khi CheckBox thay đổi
-
-                        if (!currentValue)
-                        {
-                            // CheckBox được bật lên
-                            // Thực hiện xử lý khi kiểm hoặc (checked)
-                        }
-                        else
-                        {
-                            // CheckBox bị tắt (unchecked)
-                            // Thực hiện xử lý khi bỏ kiểm
-                        }
-                    }
-                }
+                    //handle rmeve item 
+                    handleRemoveItem(row, material);
+                    break;
             }
-            
         }
-        private void edtFindMaterial_TextChanged(object sender, EventArgs e)
+
+        private void handleEditItem(int row, Material material) { 
+            UpdateMaterial updateMaterial = new UpdateMaterial(material);
+            updateMaterial.Show();
+        }   
+        private void handleRemoveItem(int row, Material material)
         {
-            string searchText = edtFindMaterial.Text;
-            if (string.IsNullOrEmpty(searchText) && string.IsNullOrEmpty(inputTypeMaterial.Text))
+            if (material == null) return;
+            DialogResult result = MessageBox.Show("Bạn có muốn xóa nguyên liệu này không?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                LoadDataByPageIntoDataGridView(currentPage, int.Parse(numberPage.Text), Active.Checked);
+                bool isRemoved = materialService.Delete(material.idNguyenLieu);
+                MessageBox.Show(isRemoved ? "Xóa nguyên liệu thành công" : "Xóa nguyên liệu thất bại!");
+                initDataGirdView();
+            }
+        }
+        private void handleActiveDeactiveItem(int row, Material material)
+        {
+            DataGridViewCheckBoxCell checkbox = (DataGridViewCheckBoxCell)dataGridViewMaterial.Rows[row].Cells[7];
+
+            if (checkbox == null)
+                return;
+
+            bool isChecked = Convert.ToBoolean(checkbox.Value);
+
+            if (isChecked == false)
+            {
+                materialService.ActiveMaterial(material.idNguyenLieu, !isChecked);
+
             }
             else
             {
-                dataGridViewMaterial.Rows.Clear();
-                if (materialService != null)
+                DialogResult result = MessageBox.Show("Bạn có muốn ẩn nguyên liệu này không?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    List<Material> list = materialService.FindMaterials(searchText.ToString());
-                    foreach (Material material in list)
-                    {
-                        object[] rowData = new object[] { material.idNguyenLieu, material.idLoaiNguyenLieu, material.tenNguyenLieu, material.donVi, material.giaTien, material.sl, material.hien };
-                        dataGridViewMaterial.Rows.Add(rowData);
-                    }
+                    materialService.ActiveMaterial(material.idNguyenLieu, !isChecked);
+                    MessageBox.Show("Ẩn nguyên liệu thành công!");
+
                 }
             }
+
+            initDataGirdView();
+            checkbox.Value = !isChecked;
         }
-        private void btnFind_Click(object sender, EventArgs e)
+
+
+        public void handleSelectItem(int row, Material material)
         {
-            edtFindMaterial.Text = "";
-            if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
+            if (dataGridViewMaterial.Rows[row].Cells[0].Value == null) return;
+
+            DataGridViewCheckBoxCell checkBox = (DataGridViewCheckBoxCell)dataGridViewMaterial.Rows[row].Cells[0];
+            bool isChecked = Convert.ToBoolean(dataGridViewMaterial.Rows[row].Cells[0].Value);
+            checkBox.Value = !isChecked;
+            if (isChecked)
             {
-                numberPage.SelectedIndex = 0;
-                int selected = int.Parse(numberPage.Text);
-                NumberPageByType();
-                currentPageType = 0;
-                LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
+                listItemSelected = listItemSelected.Where(m => m.idNguyenLieu != material.idNguyenLieu).ToList();
             }
             else
             {
-                numberPage.SelectedIndex = 0;
-                int selected = int.Parse(numberPage.Text);
-                NumberPage();
-                currentPage = 0;
-                LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
+                listItemSelected.Add(material);
+            }
 
+        }
+
+        private void btnDeleteSelectItem_Click(object sender, EventArgs e)
+        {
+            bool isCheckRes = true;
+            if (listItemSelected.Count <= 0)
+            {
+                MessageBox.Show("Bạn chưa chọn nguyên liệu nào để xóa!");
+
+                return;
+            }
+
+            foreach (Material material in listItemSelected)
+            {
+                isCheckRes = isCheckRes && materialService.Delete(material.idNguyenLieu);
+            }
+
+            MessageBox.Show(isCheckRes ? "Xóa các nguyên liệu đã chọn thành công!" : "Xóa các nguyên liệu đã chọn thất bại!");
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            if (currentPage + 1 <= totalPages)
+            {
+                this.currentPage++;
+                handleLoadPage();
             }
         }
 
+        private void btnPrevPage_Click(object sender, EventArgs e)
+        {
+            if (currentPage - 1 >= 0)
+            {
+                this.currentPage--;
+                handleLoadPage();
+            }
+
+        }
+
+        private void handleLoadPage()
+        {
+            notifiPagePresent.Text = (currentPage + 1) + " / " + this.totalPages;
+            activeBtnActionNavigatePage();
+            initDataGirdView();
+
+        }
+
+        private void activeBtnActionNavigatePage()
+        {
+            if (currentPage == 0)
+            {
+                btnPrevPage.Enabled = false;
+            }
+            else
+            {
+                btnPrevPage.Enabled = true;
+            }
+
+            if (currentPage + 1 == totalPages)
+            {
+                btnNextPage.Enabled = false;
+            }
+            else
+            {
+                btnNextPage.Enabled = true;
+            }
+        }
+
+        private void inputTypeMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.materialTypeSelect = (MaterialType)inputTypeMaterial.SelectedItem;
+            if (this.materialTypeSelect == null) return;
+
+
+            if (this.materialTypeSelect.idLoaiNguyenLieu == "-1" || this.materialTypeSelect.idLoaiNguyenLieu == null)
+            {
+                initDataGirdView();
+                return;
+            }
+
+            int totalRows = materialService.GetTotalRowMaterialByType(this.materialTypeSelect);
+            int pageSize = size();
+            this.totalPages = (int)Math.Ceiling((double)totalRows / pageSize);
+            notifiPagePresent.Text = (currentPage + 1) + " / " + this.totalPages;
+
+            initDataGirdView();
+        }
 
         private void Active_CheckedChanged(object sender, EventArgs e)
         {
-            bool isOn = Active.Checked;
-            if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-            {
-                numberPage.SelectedIndex = 0;
-                int selected = int.Parse(numberPage.Text);
-                NumberPageByType();
-                currentPageType = 0;
-                LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, isOn);
-                SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-            }
-            else
-            {
-                numberPage.SelectedIndex = 0;
-                int selected = int.Parse(numberPage.Text);
-                NumberPage();
-                currentPage = 0;
-                LoadDataByPageIntoDataGridView(currentPage, selected, isOn);
-                SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-            }
-
-
-
+            initDataGirdView();
         }
-        public void NumberPage()
-        {
-            maxPage = 0;
-            for (int i = int.Parse(numberPage.Text); i < materialService.GetAll(Active.Checked).Count; i += int.Parse(numberPage.Text))
-            {
-                this.maxPage++;
-            }
-        }
-        public void NumberPageByType()
-        {
-            maxPageType = 0;
-            for (int i = int.Parse(numberPage.Text); i < materialService.GetAllByType(inputTypeMaterial.Text, Active.Checked).Count; i += int.Parse(numberPage.Text))
-            {
-                this.maxPageType++;
-            }
-            MessageBox.Show(maxPageType.ToString());
 
-        }
-        private void btnAfter_Click(object sender, EventArgs e)
-        {
-            //materialService.PageMaterial();
-            if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-            {
-                if (currentPageType < maxPageType)
-                {
-                    currentPageType++;
-                    int selected = int.Parse(numberPage.Text);
-                    LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                    SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                }
-            }
-            else
-            {
-                if (currentPage < maxPage)
-                {
-                    currentPage++;
-                    int selected = int.Parse(numberPage.Text);
-                    LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                    SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-                }
-
-            }
-
-
-        }
         private void numberPage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-            {
-                int selected = int.Parse(numberPage.Text);
-                NumberPageByType();
-                LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-            }
-            else
-            {
-                int selected = int.Parse(numberPage.Text);
-                NumberPage();
-                currentPage = 0;
-                LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-            }
-
+            initDataGirdView();
         }
-        private void btnBefore_Click(object sender, EventArgs e)
+
+        private void timerSearch_Tick(object sender, EventArgs e)
         {
+            timerSearch.Stop();
+            string key = edtFindMaterial.Text;
 
-            if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
+            if (key.Equals(""))
             {
-                if (currentPageType > 0)
-                {
-                    currentPageType--;
-                    int selected = int.Parse(numberPage.Text);
-                    LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                    SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                }
-            }
-            else
-            {
-                if (currentPage > 0)
-                {
-                    currentPage--;
-                    int selected = int.Parse(numberPage.Text);
-                    LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                    SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-                }
-
-            }
-
-        }
-        private void btnTreatment_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(inputTypeMaterial.Text))
-            {
+                initDataGirdView();
                 return;
-            }
-            else
-            {
-                int selected = int.Parse(numberPage.Text);
-                for (int i = 0; i < inputTypeMaterial.Items.Count; i++)
-                {
-                    if (inputTypeMaterial.Text == inputTypeMaterial.Items[i].ToString())
-                    {
-                        maxPageType = 0;
-                        checkType = true;
-                        currentPageType = 0;
-                        NumberPageByType();
-                        LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                        SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                    }
-                }
-            }
+            };
+
+            List<Material> materials = materialService.FindMaterials(key);
+
+            loadDataIntoGirview(materials);
         }
-        private void btnRefreshType_Click(object sender, EventArgs e)
+
+        private void edtFindMaterial_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(inputTypeMaterial.Text))
-            {
-                return;
-            }
-            currentPage = 0;
-            maxPage = 0;
-            currentPageType = 0;
-            maxPageType = 0;
-            numberPage.SelectedIndex = 0;
-            NumberPage();
-            LoadDataByPageIntoDataGridView(currentPage, int.Parse(numberPage.Text), Active.Checked);
-            SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-            checkType = false;
-            inputTypeMaterial.Text = "";
+            timerSearch.Stop();
+            timerSearch.Start();
         }
 
-        private void btnDeleteSelect_Click(object sender, EventArgs e)
+        private void btnAddMaterial_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa tất cả mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                DataGridViewSelectedRowCollection selectedRows = dataGridViewMaterial.SelectedRows;
-                DataGridViewRow lastSelectedRow = selectedRows[selectedRows.Count - 1];
-                foreach (DataGridViewRow selectedRow in selectedRows)
-                {
-
-                    if (selectedRow != lastSelectedRow)
-                    {
-                        string idNguyenLieu = selectedRow.Cells[0].Value.ToString();
-                        materialService.Delete(idNguyenLieu);
-                        if (!string.IsNullOrEmpty(inputTypeMaterial.Text) && checkType == true)
-                        {
-                            int selected = int.Parse(numberPage.Text);
-                            NumberPageByType();
-                            if (currentPage > maxPage)
-                            {
-                                currentPage = maxPage;
-                            }
-                            LoadDataByPageAndTypeIntoDataGridView(currentPageType, selected, inputTypeMaterial.Text, Active.Checked);
-                            SumPage.Text = (currentPageType + 1) + "/" + (maxPageType + 1);
-                        }
-                        else
-                        {
-                            int selected = int.Parse(numberPage.Text);
-                            NumberPage();
-                            if (currentPage > maxPage)
-                            {
-                                currentPage = maxPage;
-                            }
-                            LoadDataByPageIntoDataGridView(currentPage, selected, Active.Checked);
-                            SumPage.Text = (currentPage + 1) + "/" + (maxPage + 1);
-
-
-                        }
-                    }
-                    
-                }
-                MessageBox.Show("Xóa nguyên liệu thành công");
-
-            }
+            ModalAddMaterial addMaterial = new ModalAddMaterial();
+            addMaterial.Show();
         }
- 
     }
 }

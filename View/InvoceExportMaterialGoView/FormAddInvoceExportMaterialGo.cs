@@ -2,7 +2,8 @@
 using FinalProject_QUANLYKHO.Models;
 using FinalProject_QUANLYKHO.Service;
 using FinalProject_QUANLYKHO.View.CustomerView;
-using FinalProject_QUANLYKHO.View.ImportMaterialView;
+using FinalProject_QUANLYKHO.View.InvoceView;
+using FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using FinalProject_QUANLYKHO.View.ImportMaterialView;
+using System.Reflection;
 
 namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
 {
@@ -25,189 +28,166 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
         private List<Material> materials;
         private double totalInvoce = 0;
         private int totalAmount = 0;
-        private List<string> selectedValues= new List<string>();
+        private List<Object> selectedValues = new List<Object>();
         public FormAddInvoceExportMaterialGo()
         {
             invoiceFunctionCommonService = new InvoiceFunctionCommonService();
             materialService = new MaterialService();
             invoceService = new InvoceService();
             InitializeComponent();
-            materials = materialService.GetAll(false);
-            renderExportDepartment();
-            renderComboboxIntoGridView(0);
 
+            materials = materialService.GetAll(false);
+
+            renderExportDepartment();
             lbTotalInvoce.Text = totalInvoce.ToString() + "000 vnd";
 
-            DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            comboBoxColumn.Name = "ComboBoxColumn";
-            comboBoxColumn.Items.AddRange("Option 1", "Option 2", "Option 3");
-            createInvoce.Columns.Add(comboBoxColumn);
-
-            // Gắn sự kiện EditingControlShowing để theo dõi ComboBox được hiển thị
-            createInvoce.EditingControlShowing += DataGridView1_EditingControlShowing;
+            FormClosed += handleFormClose;
+            dataGridCreateInvoice.Rows.Add();
         }
 
-        private void DataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        private void handleFormClose(object sender, FormClosedEventArgs e)
         {
-            if (e.Control is System.Windows.Forms.ComboBox comboBox)
+            ChooseMaterial form = (ChooseMaterial)Application.OpenForms["ChooseMaterial"];
+            if (form == null) return;
+            if (form != null && !form.IsDisposed)
             {
-                // Gắn sự kiện SelectedIndexChanged cho ComboBox
-                comboBox.SelectedIndexChanged -= ComboBox_SelectedIndexChanged;
-                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+                form.Close();
             }
         }
-
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (sender is System.Windows.Forms.ComboBox comboBox && createInvoce.CurrentCell != null)
-            {
-                // Lấy giá trị được chọn
-                object selectedValue = comboBox.SelectedItem;
-
-                // Kiểm tra xem giá trị đã được chọn hay chưa
-                if (selectedValues.Contains(selectedValue))
-                {
-                    // Nếu giá trị đã được chọn, hủy chọn và hiển thị thông báo
-                    comboBox.SelectedIndex = -1;
-                    MessageBox.Show("Giá trị này đã được chọn cho hàng khác.");
-                }
-                else
-                {
-                    MessageBox.Show(selectedValue.ToString());
-                    // Nếu giá trị chưa được chọn, lưu giá trị vào danh sách
-                    selectedValues.Add(selectedValue.ToString());
-                }
-            }
-        }
-
-        private void renderComboboxIntoGridView(int rowIndex)
-        {
-            // Assuming column 0 is a DataGridViewComboBoxColumn (replace with actual column index)
-            DataGridViewComboBoxCell comboBoxCell1 = createInvoce.Rows[rowIndex].Cells[0] as DataGridViewComboBoxCell;
-
-            if (comboBoxCell1 != null && materials != null)
-            {
-                materials = materialService.GetAll(false);
-
-                if (materials.Count > 0)
-                {
-                    comboBoxCell1.DataSource = materials;
-                    comboBoxCell1.DisplayMember = "tenNguyenLieu";
-                    comboBoxCell1.ValueMember = "idNguyenLieu";
-                    comboBoxCell1.Value = materials[0].idNguyenLieu;
-                }
-            }
-        }
-
-        public void renderComboboxIntoGridViewForAllRows()
-        {
-            for (int rowIndex = 0; rowIndex < createInvoce.Rows.Count; rowIndex++)
-            {
-                renderComboboxIntoGridView(rowIndex);
-            }
-        }
-
-        private void createInvoce_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            renderComboboxIntoGridView(e.RowIndex);
-        }
-
-
 
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView dataGridView = (DataGridView)sender; // Assuming dataGridView1 is the correct instance
+            DataGridView dataGridView = (DataGridView)sender;
 
-            int rowIndex = e.RowIndex;
+            if (e.RowIndex < 0 || e.RowIndex >= dataGridView.Rows.Count) return;
 
-            if (rowIndex < 0 || rowIndex >= dataGridView.Rows.Count) return;
+            DataGridViewButtonCell tenNguyenLieu = dataGridView.Rows[e.RowIndex].Cells[0] as DataGridViewButtonCell;
 
-            DataGridViewComboBoxCell comboBoxCell1 = dataGridView.Rows[rowIndex].Cells[0] as DataGridViewComboBoxCell;
+            if (tenNguyenLieu == null) return;
 
-            if (comboBoxCell1 == null) return;
+            string selectedValue = (string)tenNguyenLieu.Value;
 
-            Material material = new Material();
-
-            string selectedValue = comboBoxCell1.Value?.ToString(); 
-            material = materials.Find(m => m.idNguyenLieu == selectedValue);
+            Material material = materials.Find(m => m.tenNguyenLieu == selectedValue);
 
             if (material == null) return;
 
-            DataGridViewTextBoxCell textBoxCell = dataGridView.Rows[rowIndex].Cells[2] as DataGridViewTextBoxCell;
+            DataGridViewTextBoxCell tenLoaiNguyenLieu = dataGridView.Rows[e.RowIndex].Cells[2] as DataGridViewTextBoxCell;
+            DataGridViewTextBoxCell soLuong = dataGridView.Rows[e.RowIndex].Cells[1] as DataGridViewTextBoxCell;
 
-            DataGridViewTextBoxCell textBoxCellTon = dataGridView.Rows[rowIndex].Cells[1] as DataGridViewTextBoxCell;
+            if (tenLoaiNguyenLieu == null || soLuong == null) return;
 
-            if (textBoxCell == null || textBoxCellTon == null) return;
-
-            textBoxCell.Value = material.tenLoaiNguyenLieu;
-            textBoxCellTon.Value = material.sl;
+            tenLoaiNguyenLieu.Value = material.tenLoaiNguyenLieu;
+            soLuong.Value = material.sl;
 
 
-            if (e.RowIndex >= 0 && e.ColumnIndex == 3)
+            int col = e.ColumnIndex;
+            int row = e.RowIndex;
+
+            if (row < 0 || col < 0)
             {
-                // Assuming yourTextBoxColumnIndex is the index of the TextBox column
-                DataGridViewCell cell = createInvoce.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
-                if (cell.Value == null) return;
-                string editedValue = cell.Value.ToString();
-                if (!int.TryParse(editedValue, out int intValue))
-                {
-                    MessageBox.Show("Số lượng phải là số nguyên!");
-                    cell.Value = "";
+                MessageBox.Show("Col and row is not valid!");
+                return;
+            };
 
-                    return;
-                }
 
-                int amount = int.Parse(editedValue);
-
-                if (amount > material.sl)
-                {
-                    MessageBox.Show("Tồn kho của nguyên liệu không đủ để nhâp!");
-                    cell.Value = null;
-                    return;
-                }
-                DataGridViewCell totalcell = createInvoce.Rows[e.RowIndex].Cells[4];
-
-                double totalMaterial = (double)(material.giaTien * amount);
-                totalcell.Value = totalMaterial;
-
-                CalculatorTotal();
-
+            switch (col)
+            {
+                case 3:
+                    {
+                        handleCheckTotalValidForm(row, col, material);
+                        break;
+                    }
             }
+
 
         }
 
-        public void CalculatorTotal()
+        public void handleCheckTotalValidForm(int row, int col, Material material)
+        {
+            DataGridViewCell cell = dataGridCreateInvoice.Rows[row].Cells[col];
+
+            if (cell.Value == null) return;
+            string editedValue = (String)cell.Value;
+
+            if (!int.TryParse(editedValue, out int intValue))
+            {
+                MessageBox.Show("Số lượng phải là số nguyên!");
+                cell.Value = "";
+                return;
+            }
+
+            int amount = int.Parse(editedValue);
+            DataGridViewCell totalCell = dataGridCreateInvoice.Rows[row].Cells[4];
+            if (amount > material.sl)
+            {
+                MessageBox.Show("Tồn kho của nguyên liệu không đủ để nhập!");
+                cell.Value = null;
+                totalCell.Value = null;
+                return;
+            }
+
+
+            double totalMaterial = material.giaTien * amount;
+
+            totalCell.Value = totalMaterial;
+
+            calculatorTotal();
+        }
+
+        public void reRenderRow(int row)
+        {
+            if (row >= dataGridCreateInvoice.Rows.Count)
+            {
+                MessageBox.Show("Row nho hon total row");
+                return;
+            }
+            DataGridViewButtonCell tenNguyenLieu = dataGridCreateInvoice.Rows[row].Cells[0] as DataGridViewButtonCell;
+
+            if (tenNguyenLieu == null) return;
+
+            string selectedValue = (string)tenNguyenLieu.Value;
+
+            Material material = materials.Find(m => m.tenNguyenLieu == selectedValue);
+
+            if (material == null) return;
+
+            DataGridViewTextBoxCell textBoxCell = dataGridCreateInvoice.Rows[row].Cells[2] as DataGridViewTextBoxCell;
+            DataGridViewTextBoxCell textBoxCellTon = dataGridCreateInvoice.Rows[row].Cells[1] as DataGridViewTextBoxCell;
+
+
+        }
+
+        public void calculatorTotal()
         {
             double total = 0;
             int totalAmountItem = 0;
 
-            foreach (DataGridViewRow row in createInvoce.Rows)
+            foreach (DataGridViewRow row in dataGridCreateInvoice.Rows)
             {
-                if (row.Cells[0].Value == null) return;
+                if (row.Cells[0].Value == null) continue;
 
-                string idNguyenLieu = row.Cells[0].Value.ToString();
-                Material material = materials.Find(m => m.idNguyenLieu == idNguyenLieu);
+                string tenNguyenLieu = row.Cells[0].Value.ToString();
+                Material material = materials.Find(m => m.tenNguyenLieu == tenNguyenLieu);
 
-                if (material == null) return;
+                if (material == null) continue;
 
-                if (row.Cells[3].Value != null && row.Cells[3].Value != null)
+                if (row.Cells[3].Value != null)
                 {
-                    totalAmountItem += int.Parse(row.Cells[3].Value.ToString());
-                    row.Cells[4].Value = double.Parse((int.Parse(row.Cells[3].Value.ToString()) * material.giaTien).ToString()).ToString();
+                    int amount = int.Parse(row.Cells[3].Value.ToString());
+                    totalAmountItem += amount;
+
+                    row.Cells[4].Value = (amount * material.giaTien).ToString("N2") + "000 vnd";
+
+                    total += (double)amount * material.giaTien;
                 }
 
 
-                if (row.Cells[4].Value != null && double.TryParse(row.Cells[4].Value.ToString(), out double cellValue))
-                {
-                    // If the cell contains a valid numeric value, add it to the total
-                    total += cellValue;
-                }
             }
 
-            lbTotalInvoce.Text = Math.Round(total, 2).ToString("N2") + "000 vnd";
-            totalInvoce = Math.Round(total, 2);
+            lbTotalInvoce.Text = total.ToString("N2") + "000 vnd";
+            totalInvoce = total;
             totalAmount = totalAmountItem;
 
         }
@@ -242,18 +222,149 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
                 e.Handled = true;
             }
         }
+        public bool handleMaterialChoosed(Material material)
+        {
+            foreach (DataGridViewRow row in dataGridCreateInvoice.Rows)
+            {
+                if (row.Cells[0].Value == null) continue;
+                // Access row properties or cells as needed
+                string cellValue = row.Cells[0].Value.ToString();
+                MessageBox.Show(cellValue);
 
+                if (cellValue == material.tenNguyenLieu)
+                {
+
+                };
+            }
+
+            return false;
+
+        }
 
         private void createInvoce_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            //chlick col remove action
-            if (e.ColumnIndex == 5)
+            ChooseMaterial form = (ChooseMaterial)Application.OpenForms["ChooseMaterial"];
+
+            if (form != null)
             {
-                if (e.RowIndex >= 0 && e.RowIndex < createInvoce.Rows.Count)
+                form.Close();
+            }
+            if (e.RowIndex >= 0)
+            {
+
+                int col = e.ColumnIndex;
+
+                switch (col)
                 {
-                    createInvoce.Rows.RemoveAt(e.RowIndex);
+                    case 0:
+                        {
+                            openModalChooseMaterial(e.RowIndex, col);
+                            break;
+                        }
+
+                    case 5:
+                        {
+
+                            try
+                            {
+                                if (e.RowIndex >= 0 && e.RowIndex < dataGridCreateInvoice.Rows.Count)
+                                {
+                                    if (dataGridCreateInvoice.IsCurrentCellInEditMode)
+                                    {
+                                        dataGridCreateInvoice.CancelEdit();
+                                    }
+                                    dataGridCreateInvoice.Rows.RemoveAt(e.RowIndex);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                //MessageBox.Show("Error removing row: " + ex.Message);
+                            }
+                            break;
+                        }
                 }
             }
+
+
+        }
+
+        public void openModalChooseMaterial(int row, int col)
+        {
+            DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)dataGridCreateInvoice.Rows[row].Cells[col];
+
+            if (buttonCell == null) return;
+
+            Rectangle cellBounds = dataGridCreateInvoice.GetCellDisplayRectangle(col, row, false);
+
+            Point modalLocation = new Point(
+                cellBounds.Left + buttonCell.ContentBounds.Left,
+                cellBounds.Top + buttonCell.ContentBounds.Bottom
+            );
+
+            ChooseMaterial form = (ChooseMaterial)Application.OpenForms["ChooseMaterial"];
+
+            if (form == null)
+            {
+                form = new ChooseMaterial(row, this);
+            }
+            else if (!(form is ChooseMaterial))
+            {
+                return;
+            }
+
+            form.setFormParent(this);
+            form.setRowSelect(row);
+
+            int taskbarHeight = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
+
+            // Calculate available space above and below the button cell
+            int spaceAbove = modalLocation.Y;
+            int spaceBelow = Screen.PrimaryScreen.Bounds.Height - taskbarHeight - modalLocation.Y;
+
+            // Check if there is more space above or below and adjust the modalLocation accordingly
+            if (spaceAbove > spaceBelow && spaceAbove >= form.Height)
+            {
+                modalLocation.Y -= form.Height;
+            }
+            else if (spaceBelow >= form.Height)
+            {
+                modalLocation.Y += buttonCell.ContentBounds.Height;
+            }
+
+            form.TopMost = true;
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = dataGridCreateInvoice.PointToScreen(modalLocation);
+            form.Show();
+        }
+
+
+        public void handleLoadData(int row, Material material)
+        {
+            this.materials = materialService.GetAll(false);
+            bool checkMaterialChoosed = handleMaterialChoosed(material);
+
+            if (checkMaterialChoosed)
+            {
+                MessageBox.Show("Nguyên liệu đã được chọn vui lòng chọn nguyên liệu khác!");
+
+                return;
+            }
+
+
+            if (material == null) return;
+
+            DataGridViewButtonCell tenNguyenLieu = dataGridCreateInvoice.Rows[row].Cells[0] as DataGridViewButtonCell;
+            DataGridViewTextBoxCell soluong = dataGridCreateInvoice.Rows[row].Cells[1] as DataGridViewTextBoxCell;
+            DataGridViewTextBoxCell tenLoaiNguyenLieu = dataGridCreateInvoice.Rows[row].Cells[2] as DataGridViewTextBoxCell;
+
+            if (tenNguyenLieu == null || tenLoaiNguyenLieu == null || soluong == null) return;
+
+            tenNguyenLieu.Value = material.tenNguyenLieu;
+            soluong.Value = material.sl;
+            tenLoaiNguyenLieu.Value = material.tenLoaiNguyenLieu;
+
+            handleCheckTotalValidForm(row, 3, material);
+
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -281,14 +392,12 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
 
 
             bool checkErr = true;
-            foreach (DataGridViewRow row in createInvoce.Rows)
+            foreach (DataGridViewRow row in dataGridCreateInvoice.Rows)
             {
                 if (row.Cells[0].Value == null) return;
 
-                string idNguyenLieu = row.Cells[0].Value.ToString();
-                Material material = materials.Find(m => m.idNguyenLieu == idNguyenLieu);
-
-
+                string tenNguyenLieu = row.Cells[0].Value.ToString();
+                Material material = materials.Find(m => m.tenNguyenLieu == tenNguyenLieu);
 
                 if (material == null) return;
 
@@ -301,11 +410,15 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
                 {
                     break;
                 }
+                int sl = int.Parse(row.Cells[3].Value.ToString());
 
+                invoceDetail.sl = sl;
+                invoceDetail.tongTien = material.giaTien * sl;
 
-                invoceDetail.sl = int.Parse(row.Cells[3].Value.ToString());
                 if (row.Cells[4].Value == null) break;
-                invoceDetail.tongTien = double.Parse(row.Cells[4].Value.ToString());
+
+                //MessageBox.Show(row.Cells[4].Value.ToString());
+                //invoceDetail.tongTien = double.Parse(row.Cells[4].Value.ToString());
 
                 checkErr = invoceService.CreateDetailInvoceMaterial(invoceDetail) && checkErr;
 
@@ -331,15 +444,24 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
 
         public void clearValueInDataGrid()
         {
-            foreach (DataGridViewRow row in createInvoce.Rows)
-            {
-                row.Cells[0].Value = null;
-                row.Cells[1].Value = null;
-                row.Cells[2].Value = null;
-                row.Cells[3].Value = null;
-                row.Cells[4].Value = null;
-            }
+            dataGridCreateInvoice.Rows.Clear();
+            dataGridCreateInvoice.Rows.Add();
+            lbTotalInvoce.Text = "0 vnd";
         }
 
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            dataGridCreateInvoice.Rows.Add();
+        }
+
+        private void listExportDepartMent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exportDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

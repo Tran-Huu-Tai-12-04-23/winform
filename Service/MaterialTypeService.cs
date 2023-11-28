@@ -13,7 +13,8 @@ namespace FinalProject_QUANLYKHO.Service
     {
         private SqlConnection connection;
 
-        public MaterialTypeService() {
+        public MaterialTypeService()
+        {
             ConfigDB config = ConfigDB.Instance;
             connection = config.GetConnection();
         }

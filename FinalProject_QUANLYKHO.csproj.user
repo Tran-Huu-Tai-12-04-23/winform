@@ -7,6 +7,9 @@
     <Compile Update="ComponentCustom\PanelCustom.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="ComponentCustom\RJComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ComponentCustom\RJDatePicker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -43,6 +46,9 @@
     <Compile Update="View\DecentralizationView\ModalViewDecentralization.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\InvoceView\ChooseMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\InvoceExportMaterialGoView\DetailInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,7 +64,7 @@
     <Compile Update="View\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\MaterialView\AddMaterial.cs">
+    <Compile Update="View\MaterialView\ModalAddMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\MaterialView\ManagerMaterial.cs">

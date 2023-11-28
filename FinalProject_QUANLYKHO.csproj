@@ -11,6 +11,8 @@
   <ItemGroup>
     <PackageReference Include="Bootstrap-Table" Version="0.4.0" />
     <PackageReference Include="Guna.Charts.WinForms" Version="1.0.9" />
+    <PackageReference Include="LiveCharts" Version="0.9.7" />
+    <PackageReference Include="LiveCharts.WinForms" Version="0.9.7.1" />
     <PackageReference Include="Syncfusion.Chart.Windows" Version="23.1.44" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.1" />

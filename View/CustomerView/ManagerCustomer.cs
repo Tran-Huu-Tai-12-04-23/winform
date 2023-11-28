@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using FinalProject_QUANLYKHO.Models;
 using FinalProject_QUANLYKHO.Contanst;
 using FinalProject_QUANLYKHO.Service;
+using static Syncfusion.Windows.Forms.TabBar;
 
 namespace FinalProject_QUANLYKHO.View.CustomerView
 {
@@ -30,6 +31,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             InitializeComponent();
             customerService = new CustomerService();
             listCustomerDeleted = new List<Customer>();
+            btnRemoveSelected.Hide();
 
             LoadDataIntoDataGridView();
 
@@ -60,7 +62,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
         {
             if (cus != null)
             {     /* rowData.Append(list[i]);*/
-                object[] rowData = new object[] { cus.maKhachHang, cus.tenKhachHang, cus.diaChi, cus.sodienthoai, cus.hien };
+                object[] rowData = new object[] { false, cus.maKhachHang, cus.tenKhachHang, cus.diaChi, cus.sodienthoai, cus.hien };
                 dataGridViewCustomer.Rows.Add(rowData);
             }
 
@@ -73,17 +75,17 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
 
             if (isJustShowCustomerActive)
             {
-                dataCustomer = customerService.GetAllActive(page, rowOfPage);
+                dataCustomer = customerService.GetAllDeActive(page, rowOfPage);
             }
             else
             {
-                dataCustomer = customerService.GetAll(page, rowOfPage);
+                dataCustomer = customerService.GetAllActive(page, rowOfPage);
             }
             if (dataCustomer == null) return;
 
             foreach (Customer cus in dataCustomer)
             {
-                object[] rowData = new object[] { cus.maKhachHang, cus.tenKhachHang, cus.diaChi, cus.sodienthoai, cus.hien };
+                object[] rowData = new object[] { false, cus.maKhachHang, cus.tenKhachHang, cus.diaChi, cus.sodienthoai, cus.hien };
                 dataGridViewCustomer.Rows.Add(rowData);
             }
 
@@ -99,7 +101,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
                 {
                     /* rowData.Append(list[i]);*/
                     Customer cus = searchCustomer[i];
-                    object[] rowData = new object[] { cus.maKhachHang, cus.tenKhachHang, cus.diaChi, cus.sodienthoai, cus.hien };
+                    object[] rowData = new object[] { false, cus.maKhachHang, cus.tenKhachHang, cus.diaChi, cus.sodienthoai, cus.hien };
                     dataGridViewCustomer.Rows.Add(rowData);
                 }
             }
@@ -112,47 +114,25 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             modal.Show();
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+
+        private void handleSelectCustomer(Customer cus, bool status)
         {
-            // Kiểm tra xem có hàng nào được chọn hay không
-            if (dataGridViewCustomer.SelectedRows.Count > 0)
+            if (status)
             {
-                listCustomerDeleted.Clear();
-                foreach (DataGridViewRow row in dataGridViewCustomer.SelectedRows)
-                {
-                    List<string> rowData = new List<string>();
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        if (cell.Value != null)
-                        {
-                            rowData.Add(cell.Value.ToString());
-                        }
-                        else
-                        {
-                            rowData.Add("");
-                        }
-                    }
-                    Customer customer = new Customer();
-                    customer.maKhachHang = rowData[0];
-                    customer.tenKhachHang = rowData[1];
-                    customer.diaChi = rowData[2];
-                    customer.sodienthoai = rowData[3];
+                listCustomerDeleted.Add(cus);
+            }
+            else
+            {
+                listCustomerDeleted = listCustomerDeleted.Where(c => c.maKhachHang != cus.maKhachHang).ToList();
+            }
 
-
-
-                    if (customer == null || customer.maKhachHang.Equals("") || customer.diaChi.Equals("") || customer.sodienthoai.Equals(""))
-                    {
-                        if (dataGridViewCustomer.SelectedRows.Count == 1)
-                        {
-                            btnRemoveSelected.Hide();
-                            return;
-                        }
-                    }
-
-                    btnRemoveSelected.Show();
-
-                    listCustomerDeleted.Add(customer);
-                }
+            if (listCustomerDeleted.Count > 0)
+            {
+                btnRemoveSelected.Show();
+            }
+            else
+            {
+                btnRemoveSelected.Hide();
             }
         }
 
@@ -173,39 +153,52 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
                     {
                         rowData.Add(cell.Value.ToString());
                     }
-                    else
-                    {
-
-                    }
-                    {
-                        rowData.Add("");
-                    }
                 }
+
+                if (rowData.Count < 4)
+                {
+                    return;
+                }
+
+
                 Customer customer = new Customer();
-                customer.maKhachHang = rowData[0];
-                customer.tenKhachHang = rowData[1];
-                customer.diaChi = rowData[2];
-                customer.sodienthoai = rowData[3];
-                customer.hien = bool.Parse(rowData[8]);
+                customer.maKhachHang = rowData[1];
+                customer.tenKhachHang = rowData[2];
+                customer.diaChi = rowData[3];
+                customer.sodienthoai = rowData[4];
+                customer.hien = bool.Parse(rowData[5]);
 
 
                 switch (selectedColumn)
                 {
-                    case 4:
+                    case 0:
+                        {
+                            bool status = bool.Parse(rowData[0]);
+                            selectedRow.Cells[0].Value = !status;
+                            handleSelectCustomer(customer, !status);
+                            break;
+                        }
+                    case 5:
                         {
                             if (customer.hien)
                             {
-                                customerService.DeActive(customer.maKhachHang);
-                                selectedRow.Cells[4].Value = false;
+                                DialogResult result = MessageBox.Show("Bạn có muốn ẩn khách " + customer.tenKhachHang + " không?", "Xác nhận ẩn khách", MessageBoxButtons.YesNo);
+                                if (result == DialogResult.Yes)
+                                {
+                                    customerService.DeActive(customer.maKhachHang);
+                                    selectedRow.Cells[5].Value = false;
+                                }
                             }
                             else
                             {
                                 customerService.Active(customer.maKhachHang);
-                                selectedRow.Cells[4].Value = true;
+                                selectedRow.Cells[5].Value = true;
                             }
+
+
                             break;
                         }
-                    case 5:
+                    case 6:
                         {
                             /*Action edit*/
                             if (customer != null)
@@ -215,7 +208,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
                             }
                             break;
                         }
-                    case 6:
+                    case 7:
                         {
                             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             /*Action remove*/
@@ -244,13 +237,16 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
 
         private void btnRemoveSelected_Click(object sender, EventArgs e)
         {
+
+            if (listCustomerDeleted.Count <= 0) return;
             bool deleteRes = true;
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                MessageBox.Show(listCustomerDeleted.Count.ToString());
                 foreach (Customer customer in listCustomerDeleted)
                 {
-                    if (!customer.tenKhachHang.Equals(""))
+                    if (!string.IsNullOrEmpty(customer.tenKhachHang))
                     {
                         bool deleteResult = customerService.Delete(customer.maKhachHang);
 
@@ -258,18 +254,15 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
                         {
                             deleteRes = false;
                         }
-                        else
-                        {
-                            this.LoadDataIntoDataGridView();
-                            btnRemoveSelected.Hide();
-                        }
-                    }
 
+                    }
                 }
 
                 if (deleteRes)
                 {
                     MessageBox.Show("Xóa các khách hàng đã chọn thành công!");
+                    this.LoadDataIntoDataGridView();
+                    btnRemoveSelected.Hide();
                 }
                 else
                 {
@@ -289,11 +282,6 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
         }
 
 
-        private void yourTextBox_TextChanged(object sender, EventArgs e)
-        {
-            timerSearch.Stop();
-            timerSearch.Start();
-        }
 
         private void SearchTimer_Tick(object sender, EventArgs e)
         {
@@ -400,6 +388,26 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             }
             RestPageNotification();
             LoadDataIntoDataGridView();
+        }
+
+        private void buttonCustom3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inputSearch_TextChanged(object sender, EventArgs e)
+        {
+            timerSearch.Stop();
+            timerSearch.Start();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numberPage_Click(object sender, EventArgs e)
+        {
         }
     }
 

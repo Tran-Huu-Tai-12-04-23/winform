@@ -10,7 +10,7 @@ namespace FinalProject_QUANLYKHO.Service
     {
         private SqlConnection connection;
         private const string CREATE_CUSTOMER_QUERY = "CreateNewCustomer";
-        private const string GET_ALL_QUERY = "GetPaginatedData";
+        private const string GET_ALL_QUERY = "GetPaginatedDataHien";
         private const string REMOVE_CUSTOMER_BY_ID_QUERY = "DeleteById";
         private const string UPDATE_QUERY = "UpdateCustomer";
         private const string SEARCH_QUERY = "SearchCustomer";
@@ -20,6 +20,7 @@ namespace FinalProject_QUANLYKHO.Service
         private const string ACTIVE_QUERY = "ActivateKhachHang";
         private const string INACTIVE_QUERY = "DeactivateKhachHang";
         private const string GET_ALL_QUERY_ACTIVE = "GetPaginatedDataHien";
+        private const string GET_ALL_QUERY_DE_ACTIVE = "GetPaginatedDataAn";
 
         public CustomerService()
         {
@@ -34,10 +35,10 @@ namespace FinalProject_QUANLYKHO.Service
                 SqlCommand cmd = new SqlCommand(CREATE_CUSTOMER_QUERY, connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 
-                cmd.Parameters.Add("@tenKhachHang", SqlDbType.VarChar).Value = customer.tenKhachHang;
-                cmd.Parameters.Add("@diachi", SqlDbType.VarChar).Value = customer.diaChi;
+                cmd.Parameters.Add("@tenKhachHang", SqlDbType.NVarChar).Value = customer.tenKhachHang;
+                cmd.Parameters.Add("@diachi", SqlDbType.NVarChar).Value = customer.diaChi;
                 cmd.Parameters.Add("@soDienThoai", SqlDbType.VarChar).Value = customer.sodienthoai;
-                
+
                 SqlParameter newCustomerIDParam = new SqlParameter("@newCustomerID", SqlDbType.VarChar, 255);
                 newCustomerIDParam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(newCustomerIDParam);
@@ -59,6 +60,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
                 return null;
                 
             }
@@ -106,6 +108,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 // Xử lý lỗi
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -162,6 +165,64 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 // Xử lý lỗi
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return customers;
+        }
+
+        public List<Customer> GetAllDeActive(int page, int size)
+        {
+            List<Customer> customers = new List<Customer>();
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+
+
+                using (SqlCommand command = new SqlCommand(GET_ALL_QUERY_DE_ACTIVE, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@table", SqlDbType.VarChar, 255)).Value = TABLE;
+                    command.Parameters.Add(new SqlParameter("@page", SqlDbType.Int)).Value = page;
+                    command.Parameters.Add(new SqlParameter("@size", SqlDbType.Int)).Value = size;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Customer customer = new Customer
+                            {
+                                maKhachHang = reader["idKhachHang"].ToString(),
+                                tenKhachHang = reader["tenKhachHang"].ToString(),
+                                diaChi = reader["diaChi"].ToString(),
+                                sodienthoai = reader["sdt"].ToString(),
+
+                            };
+
+                            customer.hien = bool.Parse(reader["hien"].ToString());
+
+
+                            customers.Add(customer);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi
+                MessageBox.Show(ex.Message);
             }
             finally
             {

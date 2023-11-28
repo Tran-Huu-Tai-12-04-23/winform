@@ -24,7 +24,8 @@ namespace FinalProject_QUANLYKHO.View.InvoceView
 
         }
 
-        public void navigateView(int nameActive) {
+        public void navigateView(int nameActive)
+        {
             Form1 parentForm = (Form1)this.ParentForm;
 
             // Do something with the parent form, for example, show its name
@@ -40,7 +41,7 @@ namespace FinalProject_QUANLYKHO.View.InvoceView
         }
         private void btnNavInvoceExportMaterialCancel_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnActiveInvoceImportMaterialIn_Click(object sender, EventArgs e)

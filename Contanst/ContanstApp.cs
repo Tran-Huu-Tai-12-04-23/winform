@@ -51,13 +51,16 @@ namespace FinalProject_QUANLYKHO.Contanst
         public static string NAME_NAV_MATERIAL = "  Nguyên liệu";
         public static string NAME_NAV_BAKE = "  Bánh";
         public static string NAME_NAV_MANAGER_INVOCE = "  Quản lý hóa đơn";
+        public static string NAME_NAV_DECERLIZATION = "  Quản lý hóa đơn";
 
 
 
 
-        public static Color ACTIVE_COLOR = Color.FromArgb(135, 206, 250);
-        public static Color INACTIVE_COLOR = Color.FromArgb(241, 246, 249);
+        public static Color ACTIVE_COLOR = Color.FromArgb(32, 42, 49);
+        public static Color INACTIVE_COLOR = Color.FromArgb(20, 27, 31);
         public static Color BODY_COLOR = Color.FromArgb(241, 246, 249);
+        public static Color TEXT_COLOR = Color.FromArgb(240, 240, 240);
+        public static Color TEXT_ACTIVE_COLOR = Color.FromArgb(45, 130, 214);
 
         public static String CONNECT_DB_URL = "Data Source=\"localhost, 1433\";Initial Catalog=QUANLYKHOHANG2;Persist Security Info=True;User ID=sa;password=tai2k300@@@@@";
         public static string ERROR_EMPTY_USER = "Vui lòng nhập tên tài khoản";
@@ -82,6 +85,5 @@ namespace FinalProject_QUANLYKHO.Contanst
         public static readonly string XuatBanhKhac = "10";
         public static readonly string NhapBanhMuaNgoai = "11";
         public static readonly string NhapBanhNoiBo = "12";
-
     }
 }

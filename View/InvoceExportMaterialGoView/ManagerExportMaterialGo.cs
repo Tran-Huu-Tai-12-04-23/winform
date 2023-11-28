@@ -30,6 +30,7 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
 
         }
 
+
         public void AddCusIntoGridView(Customer cus)
         {
             if (cus != null)
@@ -41,8 +42,8 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
         }
         public void LoadDataIntoDataGridView()
         {
-            DateTime dateOfInvoiceValue = dateOfInvoice.Value;
             dataGridViewInvoice.Rows.Clear();
+            DateTime dateOfInvoiceValue = dateOfInvoice.Value;
             invoices = invoceService.GetAllCancelledInvoicesByDate(dateOfInvoiceValue);
 
             foreach (Invoice inv in invoices)
@@ -51,12 +52,22 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
                 dataGridViewInvoice.Rows.Add(rowData);
             }
 
+
         }
+
+
         public void renderExportDepartment()
         {
-            List<ExportDepartment> exportDepartMents = invoiceFunctionCommonService.GetAllExportDepartment();
 
-            listExportDepartMent.DataSource = exportDepartMents;
+            List<ExportDepartment> exportDepartMents = invoiceFunctionCommonService.GetAllExportDepartment();
+            List<ExportDepartment> exportDepartMentAll = new List<ExportDepartment>();
+            ExportDepartment exportDepartment = new ExportDepartment();
+            exportDepartment.tenBoPhanXuat = "Tất cả";
+            exportDepartment.idBoPhanXuat = "-1";
+            exportDepartMentAll.Add(exportDepartment);
+            exportDepartMentAll.AddRange(exportDepartMents);
+
+            listExportDepartMent.DataSource = exportDepartMentAll;
             listExportDepartMent.DisplayMember = "tenBoPhanXuat"; // Display the 'Name' property of the Item class
             listExportDepartMent.ValueMember = "idBoPhanXuat";     // Use the 'Id' property as the value
 
@@ -74,18 +85,56 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
 
         private void listExportDepartMent_SelectedIndexChanged(object sender, EventArgs e)
         {
+            object selectedItem = listExportDepartMent.SelectedItem;
 
+            // Check if an item is selected
+            if (selectedItem != null)
+            {
+                // Convert the selected item to the appropriate type if needed
+                ExportDepartment selectedDepartment = (ExportDepartment)selectedItem;
+
+                if (selectedDepartment == null) return;
+                // Access the properties of the selected item if needed
+                filterDataFollowExportDepartment(selectedDepartment);
+            }
+        }
+
+        private void filterDataFollowExportDepartment(ExportDepartment selectedDepartment)
+        {
+            if (selectedDepartment.idBoPhanXuat.Equals("-1"))
+            {
+                LoadDataIntoDataGridView();
+                return;
+            }
+
+            dataGridViewInvoice.Rows.Clear();
+            List<Invoice> invoicesPreview = invoices.FindAll(inv =>
+            {
+                return inv.idBoPhanXuat == selectedDepartment.idBoPhanXuat;
+            });
+
+
+            foreach (Invoice inv in invoicesPreview)
+            {
+                object[] rowData = new object[] { inv.idHoaDon, inv.tongTien, inv.soLuong, inv.tenBoPhanXuat };
+                dataGridViewInvoice.Rows.Add(rowData);
+            }
         }
 
         private void btnAddInvoce_Click(object sender, EventArgs e)
         {
             FormAddInvoceExportMaterialGo form = new FormAddInvoceExportMaterialGo();
+            form.WindowState = FormWindowState.Maximized;
             form.Show();
         }
 
-        private void dataGridViewInvoice_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dateOfInvoice_ValueChanged(object sender, EventArgs e)
         {
+            LoadDataIntoDataGridView();
+        }
 
+        private void dataGridViewInvoice_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // Kiểm tra xem ô được nhấp vào có hợp lệ không
             {
                 // Lấy hàng (row) chứa ô được nhấp vào
@@ -115,13 +164,26 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
                         }
                     case 5:
                         {
-                            /*Action edit*/
+                            //handle remove 
+                            // Handle remove
+                            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa hóa đơn không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                            break;
-                        }
-                    case 6:
-                        {
+                            if (result == DialogResult.Yes)
+                            {
+                                // Code to delete the bill goes here
+                                bool removeRes = invoceService.RemoveInvoice(invoice);
 
+                                if (removeRes)
+                                {
+                                    MessageBox.Show("Xóa hóa đơn thành công");
+
+                                    LoadDataIntoDataGridView();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Xóa hóa đơn thất bại!");
+                                }
+                            }
                             break;
                         }
 
@@ -129,11 +191,6 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
 
 
             }
-        }
-
-        private void dateOfInvoice_ValueChanged(object sender, EventArgs e)
-        {
-            LoadDataIntoDataGridView();
         }
     }
 }

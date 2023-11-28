@@ -14,25 +14,42 @@ namespace FinalProject_QUANLYKHO.Models
         public string idNguyenLieu { get; set; }
         public string idLoaiNguyenLieu { get; set; }
         public string tenNguyenLieu { get; set; }
+        public string tenLoaiNguyenLieu { get; set; }
         public int sl { get; set; }
         public float giaTien { get; set; }
         public string donVi { get; set; }
         public bool hien { get; set; }
-        public string tenLoaiNguyenLieu { get; set; }
-        public Material() {
+        public Material()
+        {
 
         }
-        public Material(string idNguyenLieu,string idLoaiNguyenLieu, string tenNguyenLieu, int sl, float giaTien, string donVi, bool hien)
+
+        public Material Clone()
+        {
+            return new Material
+            {
+                idNguyenLieu = this.idNguyenLieu,
+                idLoaiNguyenLieu = this.idLoaiNguyenLieu,
+                tenNguyenLieu = this.tenNguyenLieu,
+                tenLoaiNguyenLieu = this.tenLoaiNguyenLieu,
+                sl = this.sl,
+                giaTien = this.giaTien,
+                donVi = this.donVi,
+                hien = this.hien
+            };
+        }
+        public Material(string idNguyenLieu, string idLoaiNguyenLieu, string tenNguyenLieu, int sl, float giaTien, string donVi, bool hien)
         {
             this.idLoaiNguyenLieu = idLoaiNguyenLieu;
-            this.idNguyenLieu= idNguyenLieu;
-            this.tenNguyenLieu= tenNguyenLieu;
+            this.idNguyenLieu = idNguyenLieu;
+            this.tenNguyenLieu = tenNguyenLieu;
             this.sl = sl;
             this.giaTien = giaTien;
             this.donVi = donVi;
             this.hien = hien;
         }
-        public Material(string idLoaiNguyenLieu,string tenNguyenLieu,string donVi, float giaTien, int sl) {
+        public Material(string idLoaiNguyenLieu, string tenNguyenLieu, string donVi, float giaTien, int sl)
+        {
             this.tenNguyenLieu = tenNguyenLieu;
             this.sl = sl;
             this.giaTien = giaTien;
@@ -47,7 +64,7 @@ namespace FinalProject_QUANLYKHO.Models
             this.sl = sl;
             this.giaTien = giaTien;
             this.donVi = donVi;
-            this.hien = hien;   
+            this.hien = hien;
         }
     }
 }

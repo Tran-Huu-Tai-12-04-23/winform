@@ -61,7 +61,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
                 return;
             }
 
-            if( customer == null)
+            if (customer == null)
             {
                 return;
             }
@@ -70,7 +70,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             customer.diaChi = address;
             customer.sodienthoai = phone;
 
-            if ( customer.tenKhachHang.Equals("") || customer.diaChi.Equals("") || customer.sodienthoai.Equals("") )
+            if (customer.tenKhachHang.Equals("") || customer.diaChi.Equals("") || customer.sodienthoai.Equals(""))
             {
                 return;
             }
@@ -93,7 +93,7 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
 
         private void LoadDataForm(Customer customer)
         {
-            if(customer != null)
+            if (customer != null)
             {
                 inputAddress.Texts = customer.diaChi;
                 inputName.Texts = customer.tenKhachHang;
@@ -101,6 +101,6 @@ namespace FinalProject_QUANLYKHO.View.CustomerView
             }
         }
 
-      
+
     }
 }

@@ -14,17 +14,20 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FinalProject_QUANLYKHO.View.MaterialView
 {
-    public partial class AddMaterial : Form
+    public partial class ModalAddMaterial : Form
     {
         MaterialService materialService;
         string materialName;
         List<Material> materials;
         Material material;
-        public AddMaterial()
+        public ModalAddMaterial()
         {
             materialService = new MaterialService();
             InitializeComponent();
-            inputTypeMaterial.Items.AddRange(materialService.GetNameTypeMaterial().ToArray());
+            List<MaterialType> materialTypes = materialService.GetNameTypeMaterial();
+            inputTypeMaterial.DataSource = materialTypes;
+            inputTypeMaterial.DisplayMember = "tenLoaiNguyenLieu"; // Display the 'Name' property of the Item class
+            inputTypeMaterial.ValueMember = "tenLoaiNguyenLieu";     // Use t
             materials = new List<Material>();
             material = new Material();
         }
@@ -34,16 +37,7 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
 
             if (form != null)
             {
-                if (form.checkType)
-                {
-                    form.NumberPageByType();
-                    form.LoadDataByPageAndTypeIntoDataGridView(form.currentPageType, form.size(), form.key(), form.checkActive());
-                }
-                else
-                {
-                    form.NumberPage();
-                    form.LoadDataByPageIntoDataGridView(form.currentPage, form.size(), form.checkActive());
-                }
+                form.initDataGirdView();
             }
         }
 
@@ -63,6 +57,37 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+        public bool IsNumeric(string input)
+        {
+            double result;
+            return double.TryParse(input, out result);
+        }
+        private void ClearForm()
+        {
+            inputNameMaterial.Texts = "";
+            inputUnit.Texts = "";
+            inputPrice.Texts = "";
+            InputNumber.Texts = "";
+            inputTypeMaterial.Text = "";
+        }
+        private void inputTypeMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void panelCustom1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void inputTypeMaterial_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
         {
             string nameMaterial = inputNameMaterial.Texts;
             string unitMaterial = inputUnit.Texts;
@@ -101,32 +126,6 @@ namespace FinalProject_QUANLYKHO.View.MaterialView
             ClearForm();
             AddMaterialIntoMainForm();
             MessageBox.Show("Thêm nguyên liệu thành công!Thêm tiếp tục", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        public bool IsNumeric(string input)
-        {
-            double result;
-            return double.TryParse(input, out result);
-        }
-        private void ClearForm()
-        {
-            inputNameMaterial.Texts = "";
-            inputUnit.Texts = "";
-            inputPrice.Texts = "";
-            InputNumber.Texts = "";
-            inputTypeMaterial.Text = "";
-        }
-        private void inputTypeMaterial_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void panelCustom1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void inputTypeMaterial_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

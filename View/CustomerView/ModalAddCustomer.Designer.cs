@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonCustom2 = new ComponentCustom.ButtonCustom();
             panel1 = new Panel();
             panel2 = new Panel();
             label4 = new Label();
@@ -43,33 +42,13 @@
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // buttonCustom2
-            // 
-            buttonCustom2.BackColor = Color.Transparent;
-            buttonCustom2.BackgroundColor = Color.Transparent;
-            buttonCustom2.BorderColor = Color.Transparent;
-            buttonCustom2.BorderRadius = 0;
-            buttonCustom2.BorderSize = 0;
-            buttonCustom2.FlatAppearance.BorderSize = 0;
-            buttonCustom2.FlatStyle = FlatStyle.Flat;
-            buttonCustom2.ForeColor = Color.White;
-            buttonCustom2.Image = Properties.Resources.icons8_close_24;
-            buttonCustom2.Location = new Point(745, 1);
-            buttonCustom2.Margin = new Padding(0);
-            buttonCustom2.Name = "buttonCustom2";
-            buttonCustom2.Size = new Size(45, 32);
-            buttonCustom2.TabIndex = 1;
-            buttonCustom2.TextColor = Color.White;
-            buttonCustom2.UseVisualStyleBackColor = false;
-            buttonCustom2.Click += buttonCustom2_Click;
-            // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoSize = true;
+            panel1.BackColor = Color.FromArgb(28, 38, 45);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(buttonCustom2);
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
@@ -95,25 +74,26 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(241, 246, 249);
+            label4.BackColor = Color.Transparent;
             label4.FlatStyle = FlatStyle.Flat;
-            label4.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(65, 201);
             label4.Name = "label4";
-            label4.Size = new Size(216, 18);
+            label4.Size = new Size(175, 16);
             label4.TabIndex = 23;
             label4.Text = "Số điện thoại khách hàng";
             // 
             // inputPhoneNumber
             // 
             inputPhoneNumber.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            inputPhoneNumber.BackColor = SystemColors.Window;
-            inputPhoneNumber.BorderColor = Color.LightSkyBlue;
-            inputPhoneNumber.BorderFocusColor = Color.CornflowerBlue;
-            inputPhoneNumber.BorderRadius = 0;
-            inputPhoneNumber.BorderSize = 2;
-            inputPhoneNumber.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            inputPhoneNumber.ForeColor = Color.FromArgb(64, 64, 64);
+            inputPhoneNumber.BackColor = Color.FromArgb(39, 52, 62);
+            inputPhoneNumber.BorderColor = Color.LightSlateGray;
+            inputPhoneNumber.BorderFocusColor = Color.Gray;
+            inputPhoneNumber.BorderRadius = 6;
+            inputPhoneNumber.BorderSize = 1;
+            inputPhoneNumber.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            inputPhoneNumber.ForeColor = Color.White;
             inputPhoneNumber.Location = new Point(65, 223);
             inputPhoneNumber.Margin = new Padding(4);
             inputPhoneNumber.Multiline = false;
@@ -130,8 +110,8 @@
             // btnSubmit
             // 
             btnSubmit.Anchor = AnchorStyles.Bottom;
-            btnSubmit.BackColor = Color.LightSkyBlue;
-            btnSubmit.BackgroundColor = Color.LightSkyBlue;
+            btnSubmit.BackColor = Color.FromArgb(77, 147, 213);
+            btnSubmit.BackgroundColor = Color.FromArgb(77, 147, 213);
             btnSubmit.BorderColor = Color.PaleVioletRed;
             btnSubmit.BorderRadius = 6;
             btnSubmit.BorderSize = 0;
@@ -151,25 +131,26 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(241, 246, 249);
+            label3.BackColor = Color.Transparent;
             label3.FlatStyle = FlatStyle.Flat;
-            label3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(65, 139);
             label3.Name = "label3";
-            label3.Size = new Size(163, 18);
+            label3.Size = new Size(132, 16);
             label3.TabIndex = 21;
             label3.Text = "Địa chỉ khách hàng";
             // 
             // inputAddress
             // 
             inputAddress.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            inputAddress.BackColor = SystemColors.Window;
-            inputAddress.BorderColor = Color.LightSkyBlue;
-            inputAddress.BorderFocusColor = Color.CornflowerBlue;
-            inputAddress.BorderRadius = 0;
-            inputAddress.BorderSize = 2;
-            inputAddress.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            inputAddress.ForeColor = Color.FromArgb(64, 64, 64);
+            inputAddress.BackColor = Color.FromArgb(39, 52, 62);
+            inputAddress.BorderColor = Color.LightSlateGray;
+            inputAddress.BorderFocusColor = Color.Gray;
+            inputAddress.BorderRadius = 6;
+            inputAddress.BorderSize = 1;
+            inputAddress.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            inputAddress.ForeColor = Color.White;
             inputAddress.Location = new Point(65, 161);
             inputAddress.Margin = new Padding(4);
             inputAddress.Multiline = false;
@@ -186,25 +167,26 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(241, 246, 249);
+            label2.BackColor = Color.Transparent;
             label2.FlatStyle = FlatStyle.Flat;
-            label2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(65, 74);
             label2.Name = "label2";
-            label2.Size = new Size(137, 18);
+            label2.Size = new Size(113, 16);
             label2.TabIndex = 19;
             label2.Text = "Tên khách hàng";
             // 
             // inputName
             // 
             inputName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            inputName.BackColor = SystemColors.Window;
-            inputName.BorderColor = Color.LightSkyBlue;
-            inputName.BorderFocusColor = Color.CornflowerBlue;
-            inputName.BorderRadius = 0;
-            inputName.BorderSize = 2;
-            inputName.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            inputName.ForeColor = Color.FromArgb(64, 64, 64);
+            inputName.BackColor = Color.FromArgb(39, 52, 62);
+            inputName.BorderColor = Color.LightSlateGray;
+            inputName.BorderFocusColor = Color.Gray;
+            inputName.BorderRadius = 6;
+            inputName.BorderSize = 1;
+            inputName.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            inputName.ForeColor = Color.White;
             inputName.Location = new Point(65, 96);
             inputName.Margin = new Padding(4);
             inputName.Multiline = false;
@@ -223,21 +205,22 @@
             label1.AutoSize = true;
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(65, 19);
             label1.Name = "label1";
             label1.Size = new Size(250, 23);
             label1.TabIndex = 17;
             label1.Text = "Thêm khách hàng mới";
             // 
-            // ModalAddCustomer
+            // ModalAddMaterial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 246, 249);
             ClientSize = new Size(793, 383);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "ModalAddCustomer";
+            HelpButton = true;
+            Name = "ModalAddMaterial";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ModalAddCustomer";
             TopMost = true;
@@ -249,7 +232,6 @@
         }
 
         #endregion
-        private ComponentCustom.ButtonCustom buttonCustom2;
         private Panel panel1;
         private Panel panel2;
         private ComponentCustom.ButtonCustom btnSubmit;

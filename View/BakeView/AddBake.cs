@@ -25,7 +25,10 @@ namespace FinalProject_QUANLYKHO.View.BakeView
         {
             bakeService = new BakeService();
             InitializeComponent();
-            inputTypeBake.Items.AddRange(bakeService.GetNameTypeBake().ToArray());
+            List<BakeType> bakeTypes = bakeService.GetNameTypeBake();
+            inputTypeBake.DataSource = bakeTypes;
+            inputTypeBake.DisplayMember = "tenLoaiBanh";
+            inputTypeBake.ValueMember = "idLoaiBanh";
             bakes = new List<Bake>();
             bake = new Bake();
         }
@@ -36,21 +39,20 @@ namespace FinalProject_QUANLYKHO.View.BakeView
 
             if (form != null)
             {
-                if (form.checkType)
-                {
-                    form.NumberPageByType();
-                    form.LoadDataByPageAndTypeIntoDataGridView(form.currentPageType, form.size(), form.key(), form.checkActive());
-                }
-                else
-                {
-                    form.NumberPage();
-                    form.LoadDataByPageIntoDataGridView(form.currentPage, form.size(), form.checkActive());
-                }
+                form.initDataGirdView();
             }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            BakeType baketype = (BakeType)inputTypeBake.SelectedItem;
+
+            if (baketype == null)
+            {
+
+                MessageBox.Show("Bake type is null!");
+                return;
+            }
             string nameBake = inputNameBake.Texts;
             string unitBake = inputUnit.Texts;
             string priceBake = inputPrice.Texts;
@@ -82,8 +84,7 @@ namespace FinalProject_QUANLYKHO.View.BakeView
                 return;
             }
             BakeTypeService bakeTypeService = new BakeTypeService();
-            string idType = bakeTypeService.GetIDTypeBakeByName(nameTypeBake);
-            bakeService.Create(new Bake(nameTypeBake, nameBake, unitBake, float.Parse(priceBake.ToString()), int.Parse(numberBake.ToString())));
+            bakeService.Create(new Bake(baketype.idLoaiBanh, nameBake, unitBake, float.Parse(priceBake.ToString()), int.Parse(numberBake.ToString())));
 
             ClearForm();
             AddBakeIntoMainForm();

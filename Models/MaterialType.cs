@@ -9,11 +9,11 @@ namespace FinalProject_QUANLYKHO.Models
     internal class MaterialType
     {
         public string idLoaiNguyenLieu { get; set; }
-        public string tenLoaiNguyenLieu { get;set; }
+        public string tenLoaiNguyenLieu { get; set; }
         public MaterialType() { }
-        public MaterialType(string idLoaiNguyenLieu,string tnLoaiNguyenLieu)
+        public MaterialType(string idLoaiNguyenLieu, string tnLoaiNguyenLieu)
         {
-            this.idLoaiNguyenLieu=  idLoaiNguyenLieu;
+            this.idLoaiNguyenLieu = idLoaiNguyenLieu;
             this.tenLoaiNguyenLieu = tenLoaiNguyenLieu;
         }
 

@@ -69,7 +69,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(flowLayoutPanel1);
             panel1.Location = new Point(-1, 0);
             panel1.Name = "panel1";
@@ -78,15 +78,16 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.BackColor = Color.Transparent;
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Controls.Add(panel5);
-            flowLayoutPanel1.Location = new Point(17, 19);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(859, 561);
+            flowLayoutPanel1.Size = new Size(879, 599);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // panel3
@@ -101,10 +102,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(6, 9);
             label2.Name = "label2";
-            label2.Size = new Size(188, 21);
+            label2.Size = new Size(157, 17);
             label2.TabIndex = 41;
             label2.Text = "Hóa đơn xuất nguyên liệu";
             // 
@@ -121,87 +124,87 @@
             // 
             // btnNavInvoceExportMaterialCancel
             // 
-            btnNavInvoceExportMaterialCancel.BackColor = SystemColors.Menu;
-            btnNavInvoceExportMaterialCancel.BackgroundColor = SystemColors.Menu;
+            btnNavInvoceExportMaterialCancel.BackColor = Color.FromArgb(39, 52, 62);
+            btnNavInvoceExportMaterialCancel.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnNavInvoceExportMaterialCancel.BorderColor = Color.PaleVioletRed;
             btnNavInvoceExportMaterialCancel.BorderRadius = 20;
             btnNavInvoceExportMaterialCancel.BorderSize = 0;
             btnNavInvoceExportMaterialCancel.FlatAppearance.BorderSize = 0;
             btnNavInvoceExportMaterialCancel.FlatStyle = FlatStyle.Flat;
             btnNavInvoceExportMaterialCancel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNavInvoceExportMaterialCancel.ForeColor = Color.Black;
-            btnNavInvoceExportMaterialCancel.Image = Properties.Resources.icon_cancel;
+            btnNavInvoceExportMaterialCancel.ForeColor = Color.White;
+            btnNavInvoceExportMaterialCancel.Image = Properties.Resources.icons8_invoice_cancel;
             btnNavInvoceExportMaterialCancel.Location = new Point(3, 3);
             btnNavInvoceExportMaterialCancel.Name = "btnNavInvoceExportMaterialCancel";
             btnNavInvoceExportMaterialCancel.Size = new Size(190, 70);
             btnNavInvoceExportMaterialCancel.TabIndex = 42;
             btnNavInvoceExportMaterialCancel.Text = "   Hóa đơn xuất hủy nguyên liệu";
-            btnNavInvoceExportMaterialCancel.TextColor = Color.Black;
+            btnNavInvoceExportMaterialCancel.TextColor = Color.White;
             btnNavInvoceExportMaterialCancel.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnNavInvoceExportMaterialCancel.UseVisualStyleBackColor = false;
             btnNavInvoceExportMaterialCancel.Click += btnNavInvoceExportMaterialCancel_Click;
             // 
             // btnActiveInvoceExportMaterialReturn
             // 
-            btnActiveInvoceExportMaterialReturn.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportMaterialReturn.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportMaterialReturn.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportMaterialReturn.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportMaterialReturn.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportMaterialReturn.BorderRadius = 20;
             btnActiveInvoceExportMaterialReturn.BorderSize = 0;
             btnActiveInvoceExportMaterialReturn.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportMaterialReturn.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportMaterialReturn.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportMaterialReturn.ForeColor = Color.Black;
-            btnActiveInvoceExportMaterialReturn.Image = Properties.Resources.icons8_return_30;
+            btnActiveInvoceExportMaterialReturn.ForeColor = Color.White;
+            btnActiveInvoceExportMaterialReturn.Image = Properties.Resources.icons8_next_prev;
             btnActiveInvoceExportMaterialReturn.Location = new Point(199, 3);
             btnActiveInvoceExportMaterialReturn.Name = "btnActiveInvoceExportMaterialReturn";
             btnActiveInvoceExportMaterialReturn.Size = new Size(190, 70);
             btnActiveInvoceExportMaterialReturn.TabIndex = 43;
             btnActiveInvoceExportMaterialReturn.Text = "   Hóa đơn xuất trả nguyên liệu";
-            btnActiveInvoceExportMaterialReturn.TextColor = Color.Black;
+            btnActiveInvoceExportMaterialReturn.TextColor = Color.White;
             btnActiveInvoceExportMaterialReturn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportMaterialReturn.UseVisualStyleBackColor = false;
             // 
             // btnActiveInvoceExportMaterialGo
             // 
-            btnActiveInvoceExportMaterialGo.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportMaterialGo.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportMaterialGo.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportMaterialGo.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportMaterialGo.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportMaterialGo.BorderRadius = 10;
             btnActiveInvoceExportMaterialGo.BorderSize = 0;
             btnActiveInvoceExportMaterialGo.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportMaterialGo.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportMaterialGo.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportMaterialGo.ForeColor = Color.Black;
-            btnActiveInvoceExportMaterialGo.Image = Properties.Resources.icons8_export_30;
+            btnActiveInvoceExportMaterialGo.ForeColor = Color.White;
+            btnActiveInvoceExportMaterialGo.Image = Properties.Resources.icons8_invoice_24_go;
             btnActiveInvoceExportMaterialGo.Location = new Point(3, 79);
             btnActiveInvoceExportMaterialGo.Name = "btnActiveInvoceExportMaterialGo";
             btnActiveInvoceExportMaterialGo.Size = new Size(190, 70);
             btnActiveInvoceExportMaterialGo.TabIndex = 44;
             btnActiveInvoceExportMaterialGo.Text = "   Hóa đơn xuất đi nguyên liệu";
-            btnActiveInvoceExportMaterialGo.TextColor = Color.Black;
+            btnActiveInvoceExportMaterialGo.TextColor = Color.White;
             btnActiveInvoceExportMaterialGo.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportMaterialGo.UseVisualStyleBackColor = false;
             btnActiveInvoceExportMaterialGo.Click += btnActiveInvoceExportMaterialGo_Click;
             // 
             // btnActiveInvoceExportMaterialOther
             // 
-            btnActiveInvoceExportMaterialOther.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportMaterialOther.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportMaterialOther.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportMaterialOther.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportMaterialOther.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportMaterialOther.BorderRadius = 10;
             btnActiveInvoceExportMaterialOther.BorderSize = 0;
             btnActiveInvoceExportMaterialOther.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportMaterialOther.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportMaterialOther.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportMaterialOther.ForeColor = Color.Black;
-            btnActiveInvoceExportMaterialOther.Image = Properties.Resources.icons8_other_301;
+            btnActiveInvoceExportMaterialOther.ForeColor = Color.White;
+            btnActiveInvoceExportMaterialOther.Image = Properties.Resources.icons8_production_finished_24;
             btnActiveInvoceExportMaterialOther.Location = new Point(199, 79);
             btnActiveInvoceExportMaterialOther.Name = "btnActiveInvoceExportMaterialOther";
             btnActiveInvoceExportMaterialOther.Size = new Size(190, 70);
             btnActiveInvoceExportMaterialOther.TabIndex = 45;
-            btnActiveInvoceExportMaterialOther.Text = "   Hóa đơn xuất khác";
-            btnActiveInvoceExportMaterialOther.TextColor = Color.Black;
+            btnActiveInvoceExportMaterialOther.Text = "   Hóa đơn xuất phục sản xuất";
+            btnActiveInvoceExportMaterialOther.TextColor = Color.White;
             btnActiveInvoceExportMaterialOther.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportMaterialOther.UseVisualStyleBackColor = false;
             // 
@@ -227,95 +230,97 @@
             // 
             // btnActiveInvoceExportBakeCancel
             // 
-            btnActiveInvoceExportBakeCancel.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportBakeCancel.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportBakeCancel.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportBakeCancel.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportBakeCancel.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportBakeCancel.BorderRadius = 20;
             btnActiveInvoceExportBakeCancel.BorderSize = 0;
             btnActiveInvoceExportBakeCancel.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportBakeCancel.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportBakeCancel.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportBakeCancel.ForeColor = Color.Black;
-            btnActiveInvoceExportBakeCancel.Image = Properties.Resources.icon_cancel;
+            btnActiveInvoceExportBakeCancel.ForeColor = Color.White;
+            btnActiveInvoceExportBakeCancel.Image = Properties.Resources.icons8_invoice_cancel;
             btnActiveInvoceExportBakeCancel.Location = new Point(3, 3);
             btnActiveInvoceExportBakeCancel.Name = "btnActiveInvoceExportBakeCancel";
             btnActiveInvoceExportBakeCancel.Size = new Size(190, 70);
             btnActiveInvoceExportBakeCancel.TabIndex = 37;
             btnActiveInvoceExportBakeCancel.Text = "   Hóa đơn xuất hủy bánh";
-            btnActiveInvoceExportBakeCancel.TextColor = Color.Black;
+            btnActiveInvoceExportBakeCancel.TextColor = Color.White;
             btnActiveInvoceExportBakeCancel.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportBakeCancel.UseVisualStyleBackColor = false;
             // 
             // btnActiveInvoceExportBakeReturn
             // 
-            btnActiveInvoceExportBakeReturn.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportBakeReturn.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportBakeReturn.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportBakeReturn.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportBakeReturn.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportBakeReturn.BorderRadius = 20;
             btnActiveInvoceExportBakeReturn.BorderSize = 0;
             btnActiveInvoceExportBakeReturn.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportBakeReturn.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportBakeReturn.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportBakeReturn.ForeColor = Color.Black;
-            btnActiveInvoceExportBakeReturn.Image = Properties.Resources.icons8_return_30;
+            btnActiveInvoceExportBakeReturn.ForeColor = Color.White;
+            btnActiveInvoceExportBakeReturn.Image = Properties.Resources.icons8_next_prev;
             btnActiveInvoceExportBakeReturn.Location = new Point(199, 3);
             btnActiveInvoceExportBakeReturn.Name = "btnActiveInvoceExportBakeReturn";
             btnActiveInvoceExportBakeReturn.Size = new Size(190, 70);
             btnActiveInvoceExportBakeReturn.TabIndex = 38;
             btnActiveInvoceExportBakeReturn.Text = "   Hóa đơn xuất trả bánh";
-            btnActiveInvoceExportBakeReturn.TextColor = Color.Black;
+            btnActiveInvoceExportBakeReturn.TextColor = Color.White;
             btnActiveInvoceExportBakeReturn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportBakeReturn.UseVisualStyleBackColor = false;
             // 
             // btnActiveInvoceExportBakeGo
             // 
-            btnActiveInvoceExportBakeGo.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportBakeGo.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportBakeGo.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportBakeGo.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportBakeGo.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportBakeGo.BorderRadius = 20;
             btnActiveInvoceExportBakeGo.BorderSize = 0;
             btnActiveInvoceExportBakeGo.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportBakeGo.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportBakeGo.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportBakeGo.ForeColor = Color.Black;
-            btnActiveInvoceExportBakeGo.Image = Properties.Resources.icons8_export_30;
+            btnActiveInvoceExportBakeGo.ForeColor = Color.White;
+            btnActiveInvoceExportBakeGo.Image = Properties.Resources.icons8_invoice_24_go;
             btnActiveInvoceExportBakeGo.Location = new Point(3, 79);
             btnActiveInvoceExportBakeGo.Name = "btnActiveInvoceExportBakeGo";
             btnActiveInvoceExportBakeGo.Size = new Size(190, 70);
             btnActiveInvoceExportBakeGo.TabIndex = 39;
             btnActiveInvoceExportBakeGo.Text = "   Hóa đơn xuất bánh đi";
-            btnActiveInvoceExportBakeGo.TextColor = Color.Black;
+            btnActiveInvoceExportBakeGo.TextColor = Color.White;
             btnActiveInvoceExportBakeGo.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportBakeGo.UseVisualStyleBackColor = false;
             // 
             // btnActiveInvoceExportBakeOther
             // 
-            btnActiveInvoceExportBakeOther.BackColor = SystemColors.Menu;
-            btnActiveInvoceExportBakeOther.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceExportBakeOther.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceExportBakeOther.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceExportBakeOther.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceExportBakeOther.BorderRadius = 20;
             btnActiveInvoceExportBakeOther.BorderSize = 0;
             btnActiveInvoceExportBakeOther.FlatAppearance.BorderSize = 0;
             btnActiveInvoceExportBakeOther.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceExportBakeOther.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceExportBakeOther.ForeColor = Color.Black;
-            btnActiveInvoceExportBakeOther.Image = Properties.Resources.icons8_other_301;
+            btnActiveInvoceExportBakeOther.ForeColor = Color.White;
+            btnActiveInvoceExportBakeOther.Image = Properties.Resources.icons8_invoice_return;
             btnActiveInvoceExportBakeOther.Location = new Point(199, 79);
             btnActiveInvoceExportBakeOther.Name = "btnActiveInvoceExportBakeOther";
             btnActiveInvoceExportBakeOther.Size = new Size(190, 70);
             btnActiveInvoceExportBakeOther.TabIndex = 40;
             btnActiveInvoceExportBakeOther.Text = "   Hóa đơn xuất khác bánh";
-            btnActiveInvoceExportBakeOther.TextColor = Color.Black;
+            btnActiveInvoceExportBakeOther.TextColor = Color.White;
             btnActiveInvoceExportBakeOther.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceExportBakeOther.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(142, 21);
+            label1.Size = new Size(120, 17);
             label1.TabIndex = 32;
             label1.Text = "Hóa đơn xuất bánh";
             // 
@@ -331,10 +336,12 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
             label3.Location = new Point(6, 9);
             label3.Name = "label3";
-            label3.Size = new Size(194, 21);
+            label3.Size = new Size(162, 17);
             label3.TabIndex = 41;
             label3.Text = "Hóa đơn nhập nguyên liệu";
             // 
@@ -349,45 +356,45 @@
             // 
             // btnActiveInvoceImportMaterialIn
             // 
-            btnActiveInvoceImportMaterialIn.BackColor = SystemColors.Menu;
-            btnActiveInvoceImportMaterialIn.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceImportMaterialIn.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceImportMaterialIn.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceImportMaterialIn.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceImportMaterialIn.BorderRadius = 20;
             btnActiveInvoceImportMaterialIn.BorderSize = 0;
             btnActiveInvoceImportMaterialIn.FlatAppearance.BorderSize = 0;
             btnActiveInvoceImportMaterialIn.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceImportMaterialIn.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceImportMaterialIn.ForeColor = Color.Black;
-            btnActiveInvoceImportMaterialIn.Image = Properties.Resources.export_out;
+            btnActiveInvoceImportMaterialIn.ForeColor = Color.White;
+            btnActiveInvoceImportMaterialIn.Image = Properties.Resources.icons8_invoice_cancel;
             btnActiveInvoceImportMaterialIn.Location = new Point(3, 3);
             btnActiveInvoceImportMaterialIn.Name = "btnActiveInvoceImportMaterialIn";
             btnActiveInvoceImportMaterialIn.Size = new Size(190, 70);
             btnActiveInvoceImportMaterialIn.TabIndex = 42;
             btnActiveInvoceImportMaterialIn.Text = "   Hóa đơn nhập nguyên liệu mua ngoài";
-            btnActiveInvoceImportMaterialIn.TextColor = Color.Black;
+            btnActiveInvoceImportMaterialIn.TextColor = Color.White;
             btnActiveInvoceImportMaterialIn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceImportMaterialIn.UseVisualStyleBackColor = false;
             btnActiveInvoceImportMaterialIn.Click += btnActiveInvoceImportMaterialIn_Click;
             // 
             // btnActiveInvoceImportMaterialOut
             // 
-            btnActiveInvoceImportMaterialOut.BackColor = SystemColors.Menu;
-            btnActiveInvoceImportMaterialOut.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceImportMaterialOut.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceImportMaterialOut.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceImportMaterialOut.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceImportMaterialOut.BorderRadius = 20;
             btnActiveInvoceImportMaterialOut.BorderSize = 0;
             btnActiveInvoceImportMaterialOut.FlatAppearance.BorderSize = 0;
             btnActiveInvoceImportMaterialOut.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceImportMaterialOut.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceImportMaterialOut.ForeColor = Color.Black;
-            btnActiveInvoceImportMaterialOut.Image = Properties.Resources.export_in;
+            btnActiveInvoceImportMaterialOut.ForeColor = Color.White;
+            btnActiveInvoceImportMaterialOut.Image = Properties.Resources.icons8_invoice_return;
             btnActiveInvoceImportMaterialOut.Location = new Point(199, 3);
             btnActiveInvoceImportMaterialOut.Name = "btnActiveInvoceImportMaterialOut";
             btnActiveInvoceImportMaterialOut.Size = new Size(190, 70);
             btnActiveInvoceImportMaterialOut.TabIndex = 43;
             btnActiveInvoceImportMaterialOut.Text = "   Hóa đơn nhập nguyên liệu nội bộ";
             btnActiveInvoceImportMaterialOut.TextAlign = ContentAlignment.MiddleLeft;
-            btnActiveInvoceImportMaterialOut.TextColor = Color.Black;
+            btnActiveInvoceImportMaterialOut.TextColor = Color.White;
             btnActiveInvoceImportMaterialOut.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceImportMaterialOut.UseVisualStyleBackColor = false;
             // 
@@ -411,54 +418,56 @@
             // 
             // btnActiveInvoceImportBakeOut
             // 
-            btnActiveInvoceImportBakeOut.BackColor = SystemColors.Menu;
-            btnActiveInvoceImportBakeOut.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceImportBakeOut.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceImportBakeOut.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceImportBakeOut.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceImportBakeOut.BorderRadius = 20;
             btnActiveInvoceImportBakeOut.BorderSize = 0;
             btnActiveInvoceImportBakeOut.FlatAppearance.BorderSize = 0;
             btnActiveInvoceImportBakeOut.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceImportBakeOut.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceImportBakeOut.ForeColor = Color.Black;
-            btnActiveInvoceImportBakeOut.Image = Properties.Resources.export_out;
+            btnActiveInvoceImportBakeOut.ForeColor = Color.White;
+            btnActiveInvoceImportBakeOut.Image = Properties.Resources.icons8_invoice_24_go;
             btnActiveInvoceImportBakeOut.Location = new Point(3, 3);
             btnActiveInvoceImportBakeOut.Name = "btnActiveInvoceImportBakeOut";
             btnActiveInvoceImportBakeOut.Size = new Size(190, 70);
             btnActiveInvoceImportBakeOut.TabIndex = 44;
             btnActiveInvoceImportBakeOut.Text = "   Hóa đơn nhập bánh mua ngoài";
-            btnActiveInvoceImportBakeOut.TextColor = Color.Black;
+            btnActiveInvoceImportBakeOut.TextColor = Color.White;
             btnActiveInvoceImportBakeOut.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceImportBakeOut.UseVisualStyleBackColor = false;
             // 
             // btnActiveInvoceImportBakeIn
             // 
-            btnActiveInvoceImportBakeIn.BackColor = SystemColors.Menu;
-            btnActiveInvoceImportBakeIn.BackgroundColor = SystemColors.Menu;
+            btnActiveInvoceImportBakeIn.BackColor = Color.FromArgb(39, 52, 62);
+            btnActiveInvoceImportBakeIn.BackgroundColor = Color.FromArgb(39, 52, 62);
             btnActiveInvoceImportBakeIn.BorderColor = Color.PaleVioletRed;
             btnActiveInvoceImportBakeIn.BorderRadius = 20;
             btnActiveInvoceImportBakeIn.BorderSize = 0;
             btnActiveInvoceImportBakeIn.FlatAppearance.BorderSize = 0;
             btnActiveInvoceImportBakeIn.FlatStyle = FlatStyle.Flat;
             btnActiveInvoceImportBakeIn.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnActiveInvoceImportBakeIn.ForeColor = Color.Black;
-            btnActiveInvoceImportBakeIn.Image = Properties.Resources.export_in;
+            btnActiveInvoceImportBakeIn.ForeColor = Color.White;
+            btnActiveInvoceImportBakeIn.Image = Properties.Resources.icons8_invoice_return;
             btnActiveInvoceImportBakeIn.Location = new Point(199, 3);
             btnActiveInvoceImportBakeIn.Name = "btnActiveInvoceImportBakeIn";
             btnActiveInvoceImportBakeIn.Size = new Size(190, 70);
             btnActiveInvoceImportBakeIn.TabIndex = 45;
             btnActiveInvoceImportBakeIn.Text = "   Hóa đơn nhập bánh nội bộ";
             btnActiveInvoceImportBakeIn.TextAlign = ContentAlignment.MiddleLeft;
-            btnActiveInvoceImportBakeIn.TextColor = Color.Black;
+            btnActiveInvoceImportBakeIn.TextColor = Color.White;
             btnActiveInvoceImportBakeIn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnActiveInvoceImportBakeIn.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
             label4.Location = new Point(12, 9);
             label4.Name = "label4";
-            label4.Size = new Size(142, 21);
+            label4.Size = new Size(120, 17);
             label4.TabIndex = 32;
             label4.Text = "Hóa đơn xuất bánh";
             // 
@@ -466,6 +475,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(28, 38, 45);
             ClientSize = new Size(879, 599);
             Controls.Add(panel1);
             Name = "InvoceMenuView";

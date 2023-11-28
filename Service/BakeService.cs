@@ -25,9 +25,10 @@ namespace FinalProject_QUANLYKHO.Service
         private const string QUERY_ACTIVE_BAKE = "ActiveBake";
         private const string QUERY_GET_ALL = "GetAllBake";
         private const string QUERY_GET_ALL_BYTYPE = "GetAllBakeByType";
+        private const string QUERY_COUNT_ROW_BAKE = "Select * from banh where hien = @hienValue";
 
         private const string QUERY_REMOVE_BAKE_BY_ID = "DeleteById";
-        private const string QUERY_GET_NAMETYPEBAKE = "SELECT tenLoaiBanh FROM LoaiBanh";
+        private const string QUERY_GET_NAMETYPEBAKE = "SELECT * FROM LoaiBanh";
         private BakeTypeService bakeTypeService;
 
         public BakeService()
@@ -49,10 +50,7 @@ namespace FinalProject_QUANLYKHO.Service
                 cmd.Parameters.Add("@sl", SqlDbType.Int).Value = bake.sl;
                 cmd.Parameters.Add("@giaTien", SqlDbType.Float).Value = bake.giaTien;
                 cmd.Parameters.Add("@donVi", SqlDbType.VarChar).Value = bake.donVi;
-                cmd.Parameters.Add("@tenLoaibanh", SqlDbType.VarChar).Value = bake.idLoaiBanh;
-                SqlParameter IDTypeBakeParam = new SqlParameter("@idLoaibanhOutput", SqlDbType.VarChar, 255);
-                IDTypeBakeParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(IDTypeBakeParam);
+                cmd.Parameters.Add("@idLoaiBanh", SqlDbType.VarChar).Value = bake.idLoaiBanh;
                 SqlParameter newIDBakeParam = new SqlParameter("@idbanhOutput", SqlDbType.VarChar, 255);
                 newIDBakeParam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(newIDBakeParam);
@@ -69,23 +67,63 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
+
+        public int GetTotalRowBakeByState(bool state)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand(QUERY_COUNT_ROW_BAKE, connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@hienValue", SqlDbType.Bit).Value = state;
+
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+
+                    int rowCount = (int)cmd.ExecuteScalar();
+                    connection.Close();
+
+                    return rowCount;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return -1; 
+            }
+        }
+
         public void Update(Bake bake)
         {
+
             try
             {
                 SqlCommand cmd = new SqlCommand(QUERY_UPDATE_BAKE, connection);
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                MessageBox.Show(bake.idBanh);
+               
                 // Input parameters
                 cmd.Parameters.Add("@idBanh", SqlDbType.VarChar).Value = bake.idBanh;
+                MessageBox.Show(bake.idLoaiBanh);
+               
                 cmd.Parameters.Add("@idLoaiBanh", SqlDbType.VarChar).Value = bake.idLoaiBanh;
+                MessageBox.Show(bake.tenBanh);
+                
                 cmd.Parameters.Add("@tenBanh", SqlDbType.VarChar).Value = bake.tenBanh;
+                MessageBox.Show(bake.giaTien.ToString());
                 cmd.Parameters.Add("@sl", SqlDbType.Int).Value = bake.sl;
+                MessageBox.Show(bake.sl.ToString());
                 cmd.Parameters.Add("@giaTien", SqlDbType.Float).Value = bake.giaTien;
                 cmd.Parameters.Add("@donVi", SqlDbType.VarChar).Value = bake.donVi;
+                MessageBox.Show(bake.donVi.ToString());
                 // Open the connection if it's not already open
                 if (connection.State == ConnectionState.Closed)
                 {
@@ -98,6 +136,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
         public void ActiveBake(string id, bool hien)
@@ -126,12 +165,10 @@ namespace FinalProject_QUANLYKHO.Service
                     connection.Open();
                 }
                 cmd.ExecuteNonQuery();
-
-
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
         public List<Bake> PageBake(int page, int size, bool hien)
@@ -192,6 +229,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 // Xử lý lỗi
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -274,9 +312,9 @@ namespace FinalProject_QUANLYKHO.Service
 
             return bakes;
         }
-        public List<String> GetNameTypeBake()
+        public List<BakeType> GetNameTypeBake()
         {
-            List<string> name = new List<String>();
+            List<BakeType> name = new List<BakeType>();
 
             try
             {
@@ -292,8 +330,12 @@ namespace FinalProject_QUANLYKHO.Service
                         while (reader.Read())
                         {
                             string nametype = reader["tenLoaiBanh"].ToString();
+                            string idBakeType = reader["idLoaiBanh"].ToString();
+                            BakeType bakeType = new BakeType();
+                            bakeType.tenLoaiBanh = nametype;
+                            bakeType.idLoaiBanh = idBakeType;
 
-                            name.Add(nametype);
+                            name.Add(bakeType);
                         }
                     }
                 }
@@ -497,7 +539,6 @@ namespace FinalProject_QUANLYKHO.Service
         }
         public bool Delete(string id)
         {
-
             try
             {
                 if (connection.State != ConnectionState.Open)
@@ -512,7 +553,7 @@ namespace FinalProject_QUANLYKHO.Service
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add(new SqlParameter("@id", id));
-                    cmd.Parameters.Add(new SqlParameter("@tableName", "Banh" + ""));
+                    cmd.Parameters.Add(new SqlParameter("@tableName", "Banh"));
 
                     cmd.ExecuteNonQuery();
                 }
@@ -520,6 +561,7 @@ namespace FinalProject_QUANLYKHO.Service
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
             finally
@@ -532,6 +574,50 @@ namespace FinalProject_QUANLYKHO.Service
 
             return true;
 
+        }
+
+        public int GetTotalRowBakeByType(BakeType bakeType)
+        {
+            int totalRow = 0;
+            bakeTypeService = new BakeTypeService();
+
+            try
+            {
+                using (SqlCommand command = new SqlCommand("GetTotalRowOfBakeByType", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Input parameter
+                    command.Parameters.Add("@idLoaiBanh", SqlDbType.VarChar, 255).Value = bakeType.idLoaiBanh;
+
+                    // Output parameter
+                    command.Parameters.Add("@totalRow", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    // Open the connection if it's not already open
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+
+                    command.ExecuteNonQuery();
+
+                    totalRow = Convert.ToInt32(command.Parameters["@totalRow"].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return totalRow;
         }
     }
 }

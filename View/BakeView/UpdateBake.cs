@@ -21,7 +21,7 @@ namespace FinalProject_QUANLYKHO.View.BakeView
         string bakeName;
         List<Bake> bakes;
         Bake bake { get; set; }
-        List<string> oldData { get; set; }
+        Bake oldData{ get; set; }
 
         private string idBake;
 
@@ -31,18 +31,22 @@ namespace FinalProject_QUANLYKHO.View.BakeView
             bake = new Bake();
             InitializeComponent();
         }
-        public UpdateBake(List<string> data)
+        public UpdateBake(Bake bake)
         {
             InitializeComponent();
-            oldData = data;
-            idBake = oldData[0];
-            inputTypeBake.Text = oldData[1];
-            inputNameBake.Texts = oldData[2];
-            inputUnit.Texts = oldData[3];
-            inputPrice.Texts = oldData[4];
-            InputNumber.Texts = oldData[5];
+            oldData = bake;
+            idBake = bake.idBanh;
+            inputTypeBake.Text = bake.idLoaiBanh;
+            inputNameBake.Texts = bake.tenBanh;
+            inputUnit.Texts = bake.donVi;
+            inputPrice.Texts = bake.giaTien.ToString();
+            InputNumber.Texts = bake.sl.ToString();
             bakeService = new BakeService();
-            inputTypeBake.Items.AddRange(bakeService.GetNameTypeBake().ToArray());
+
+            List<BakeType> bakeTypes= bakeService.GetNameTypeBake();
+            inputTypeBake.DataSource = bakeTypes;
+            inputTypeBake.DisplayMember = "tenLoaiBanh";
+            inputTypeBake.ValueMember = "idLoaiBanh";
 
 
         }
@@ -57,21 +61,20 @@ namespace FinalProject_QUANLYKHO.View.BakeView
 
             if (form != null)
             {
-                if (form.checkType)
-                {
-                    form.LoadDataByPageAndTypeIntoDataGridView(form.currentPageType, form.size(), form.key(), form.checkActive());
-                }
-                else
-                {
-                    form.LoadDataByPageIntoDataGridView(form.currentPage, form.size(), form.checkActive());
-                }
-
+                form.initDataGirdView();
             }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            ManagerBake manager = new ManagerBake();
+            BakeType baketype = (BakeType)inputTypeBake.SelectedItem;
+
+            if (baketype == null) {
+
+                MessageBox.Show("Bake type is null!");
+                return;
+            }
+
             string nameBake = inputNameBake.Texts;
             string unitBake = inputUnit.Texts;
             string priceBake = inputPrice.Texts;
@@ -98,8 +101,8 @@ namespace FinalProject_QUANLYKHO.View.BakeView
                 return;
             }
             BakeTypeService bakeTypeService = new BakeTypeService();
-            string idType = bakeTypeService.GetIDTypeBakeByName(nameTypeBake);
-            bakeService.Update(new Bake(idBake, idType, nameBake, int.Parse(numberBake.ToString()), float.Parse(priceBake.ToString()), unitBake));
+            
+            bakeService.Update(new Bake(idBake, baketype.idLoaiBanh, nameBake, int.Parse(numberBake.ToString()), float.Parse(priceBake.ToString()), unitBake));
             ClearForm();
             UpdateBakeIntoMainForm();
             MessageBox.Show("Cập nhập bánh thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,6 +124,11 @@ namespace FinalProject_QUANLYKHO.View.BakeView
         private void buttonCustom2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void inputTypeBake_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

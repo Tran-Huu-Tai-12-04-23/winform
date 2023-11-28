@@ -68,6 +68,7 @@ namespace FinalProject_QUANLYKHO.Service
             catch (Exception ex)
             {
                 // Xử lý lỗi
+                MessageBox.Show(ex.Message);
             }
             finally
             {
