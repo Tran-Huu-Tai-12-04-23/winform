@@ -189,8 +189,6 @@ namespace FinalProject_QUANLYKHO.Service
                     connection.Open();
                 }
 
-
-
                 using (SqlCommand command = new SqlCommand(GET_ALL_QUERY_DE_ACTIVE, connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
