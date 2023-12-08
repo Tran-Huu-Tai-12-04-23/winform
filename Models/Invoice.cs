@@ -49,5 +49,16 @@ namespace FinalProject_QUANLYKHO.Models
         {
 
         }
+        public Invoice(string idHoaDon, string tenBoPhanXuat, string idBoPhanXuat, string idLoaiHoaDon, string idTaiKhoan, DateTime ngayXuat, double tongTien, int soLuong)
+        {
+            this.idHoaDon = idHoaDon;
+            this.tenBoPhanXuat = tenBoPhanXuat;
+            this.idBoPhanXuat = idBoPhanXuat;
+            this.idLoaiHoaDon = idLoaiHoaDon;
+            this.idTaiKhoan = idTaiKhoan;
+            this.ngayXuat = ngayXuat;
+            this.tongTien = tongTien;
+            this.soLuong = soLuong;
+        }
     }
 }

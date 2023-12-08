@@ -750,7 +750,6 @@ and nguyenlieu.idNguyenLieu = hoadonxuatnguyenlieu.idNguyenLieu
 
 
 
-//material 
 go
 CREATE PROCEDURE GetPaginatedDataByType
     @table NVARCHAR(128),

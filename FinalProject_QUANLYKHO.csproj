@@ -38,6 +38,27 @@
     <Compile Update="View\CustomerView\ModalEditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\InvoceImportBakeOutSideView\DetailBakeBillImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceImportBakeOutSideView\FormAddInvoceImportBakeOutSide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceImportBakeOutSideView\ManagerImportBakeOutSide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceExportBakeGoView\DetailBakeBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceExportBakeGoView\FormAddInvoceExportBakeGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceExportBakeGoView\ManagerExportBakeGo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\InvoceView\ChooseBake.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

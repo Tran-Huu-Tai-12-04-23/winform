@@ -76,6 +76,15 @@ namespace FinalProject_QUANLYKHO
                 OpenChildForm(new ManagerExportMaterialGo());
                 labelActiveBar.Text = ContanstApp.NAME_NAV_EXPORT_MATERIAL_GO;
             }
+            else if(active == ContanstApp.EXPORT_BAKE_GO)
+            {
+                OpenChildForm(new ManagerExportBakeGo());
+                labelActiveBar.Text = ContanstApp.NAME_NAV_EXPORT_BAKE_GO;
+            }else if(active == ContanstApp.IMPORT_BAKE_OUT)
+            {
+                OpenChildForm(new ManagerImportBakeOutSide());
+                labelActiveBar.Text = ContanstApp.NAME_NAV_IMPORT_BAKE_OUT;
+            }
             else if (active == ContanstApp.MAIN_MENU_INVOCE)
             {
                 OpenChildForm(new InvoceMenuView());

@@ -8,11 +8,11 @@ INSERT INTO loaiHoaDon (idLoaiHoaDon, tenLoaiHoaDon) VALUES
 ('5', N'Hóa đơn nhập nguyên liệu mua ngoài'),
 ('6', N'Hóa đơn nhập nguyên liệu nội bộ'),
 ('7', N'Hóa đơn xuất bánh đi'),
-('8', N'Hóa đơn xuất bánh liệu hủy'),
-('9', N'Hóa đơn xuất bánh liệu trả'),
-('10', N'Hóa đơn xuất bánh liệu khác'),
-('11', N'Hóa đơn nhập bánh liệu mua ngoài'),
-('12', N'Hóa đơn nhập bánh liệu nội bộ')
+('8', N'Hóa đơn xuất bánh hủy'),
+('9', N'Hóa đơn xuất bánh trả'),
+('10', N'Hóa đơn xuất bánh khác'),
+('11', N'Hóa đơn nhập bánh mua ngoài'),
+('12', N'Hóa đơn nhập bánh nội bộ')
 
 -- end 
 

@@ -62,7 +62,7 @@ namespace FinalProject_QUANLYKHO.Contanst
         public static Color TEXT_COLOR = Color.FromArgb(240, 240, 240);
         public static Color TEXT_ACTIVE_COLOR = Color.FromArgb(45, 130, 214);
 
-        public static String CONNECT_DB_URL = "Data Source=\"localhost, 1433\";Initial Catalog=QUANLYKHOHANG2;Persist Security Info=True;User ID=sa;password=tai2k300@@@@@";
+        public static String CONNECT_DB_URL = @"Data Source=LAPTOP-HQS92G2N\ILOVEIU3K;Initial Catalog=QUANLYKHOHANG2;MultipleActiveResultSets=true;Integrated Security=True";
         public static string ERROR_EMPTY_USER = "Vui lòng nhập tên tài khoản";
         public static string ERROR_EMPTY_PASSWORD = "Vui lòng nhập tên mật khẩu";
         public static string ERROR_LESS_LENGTH = "Vui lòng nhập nhiều hơn 6 ký tự";

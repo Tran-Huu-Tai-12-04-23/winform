@@ -463,5 +463,10 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
         {
 
         }
+
+        private void lbTotalInvoce_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

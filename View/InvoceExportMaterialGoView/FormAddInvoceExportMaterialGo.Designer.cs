@@ -74,8 +74,9 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1350, 506);
+            panel2.Size = new Size(1543, 675);
             panel2.TabIndex = 2;
             // 
             // btnSelect
@@ -91,9 +92,10 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             btnSelect.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnSelect.ForeColor = Color.White;
             btnSelect.Image = Properties.Resources.add;
-            btnSelect.Location = new Point(1106, 92);
+            btnSelect.Location = new Point(1264, 123);
+            btnSelect.Margin = new Padding(3, 4, 3, 4);
             btnSelect.Name = "btnSelect";
-            btnSelect.Size = new Size(123, 28);
+            btnSelect.Size = new Size(141, 37);
             btnSelect.TabIndex = 45;
             btnSelect.Text = "Thêm hàng";
             btnSelect.TextColor = Color.White;
@@ -107,10 +109,11 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             listExportDepartMent.FlatStyle = FlatStyle.Flat;
             listExportDepartMent.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             listExportDepartMent.ForeColor = Color.White;
-            listExportDepartMent.Location = new Point(322, 94);
-            listExportDepartMent.MinimumSize = new Size(200, 0);
+            listExportDepartMent.Location = new Point(368, 125);
+            listExportDepartMent.Margin = new Padding(3, 4, 3, 4);
+            listExportDepartMent.MinimumSize = new Size(228, 0);
             listExportDepartMent.Name = "listExportDepartMent";
-            listExportDepartMent.Size = new Size(200, 25);
+            listExportDepartMent.Size = new Size(228, 31);
             listExportDepartMent.TabIndex = 44;
             listExportDepartMent.SelectedIndexChanged += listExportDepartMent_SelectedIndexChanged;
             // 
@@ -121,12 +124,13 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             lbTotalInvoce.FlatStyle = FlatStyle.Flat;
             lbTotalInvoce.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lbTotalInvoce.ForeColor = Color.FromArgb(21, 147, 255);
-            lbTotalInvoce.Location = new Point(578, 94);
+            lbTotalInvoce.Location = new Point(661, 125);
             lbTotalInvoce.Name = "lbTotalInvoce";
-            lbTotalInvoce.Padding = new Padding(4);
-            lbTotalInvoce.Size = new Size(117, 24);
+            lbTotalInvoce.Padding = new Padding(5);
+            lbTotalInvoce.Size = new Size(156, 30);
             lbTotalInvoce.TabIndex = 43;
             lbTotalInvoce.Text = "3 000 000 vnd";
+            lbTotalInvoce.Click += lbTotalInvoce_Click;
             // 
             // label2
             // 
@@ -135,9 +139,9 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(581, 62);
+            label2.Location = new Point(664, 83);
             label2.Name = "label2";
-            label2.Size = new Size(70, 16);
+            label2.Size = new Size(90, 20);
             label2.TabIndex = 42;
             label2.Text = "Tổng tiền";
             // 
@@ -154,10 +158,11 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             btnCreate.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             btnCreate.ForeColor = Color.White;
             btnCreate.Image = Properties.Resources.icons8_create_24;
-            btnCreate.Location = new Point(1235, 91);
-            btnCreate.MaximumSize = new Size(200, 60);
+            btnCreate.Location = new Point(1411, 121);
+            btnCreate.Margin = new Padding(3, 4, 3, 4);
+            btnCreate.MaximumSize = new Size(229, 80);
             btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(94, 28);
+            btnCreate.Size = new Size(107, 37);
             btnCreate.TabIndex = 41;
             btnCreate.Text = "Tạo";
             btnCreate.TextColor = Color.White;
@@ -170,10 +175,11 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             exportDate.BorderColor = Color.PaleVioletRed;
             exportDate.BorderSize = 0;
             exportDate.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            exportDate.Location = new Point(17, 90);
+            exportDate.Location = new Point(19, 120);
+            exportDate.Margin = new Padding(3, 4, 3, 4);
             exportDate.MinimumSize = new Size(4, 35);
             exportDate.Name = "exportDate";
-            exportDate.Size = new Size(272, 35);
+            exportDate.Size = new Size(310, 35);
             exportDate.SkinColor = Color.FromArgb(39, 52, 62);
             exportDate.TabIndex = 40;
             exportDate.TextColor = Color.White;
@@ -218,7 +224,7 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             dataGridCreateInvoice.EditMode = DataGridViewEditMode.EditOnEnter;
             dataGridCreateInvoice.EnableHeadersVisualStyles = false;
             dataGridCreateInvoice.GridColor = Color.FromArgb(28, 38, 45);
-            dataGridCreateInvoice.Location = new Point(17, 149);
+            dataGridCreateInvoice.Location = new Point(19, 199);
             dataGridCreateInvoice.Margin = new Padding(0);
             dataGridCreateInvoice.Name = "dataGridCreateInvoice";
             dataGridCreateInvoice.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -250,7 +256,7 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             dataGridCreateInvoice.RowTemplate.Height = 30;
             dataGridCreateInvoice.RowTemplate.Resizable = DataGridViewTriState.True;
             dataGridCreateInvoice.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dataGridCreateInvoice.Size = new Size(1312, 337);
+            dataGridCreateInvoice.Size = new Size(1499, 449);
             dataGridCreateInvoice.StandardTab = true;
             dataGridCreateInvoice.TabIndex = 39;
             dataGridCreateInvoice.CellContentClick += createInvoce_CellContentClick_1;
@@ -313,7 +319,7 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             remove.Name = "remove";
             remove.Resizable = DataGridViewTriState.True;
             remove.SortMode = DataGridViewColumnSortMode.Automatic;
-            remove.Width = 54;
+            remove.Width = 66;
             // 
             // btnSubmit
             // 
@@ -327,9 +333,10 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             btnSubmit.FlatStyle = FlatStyle.Flat;
             btnSubmit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(1027, 1291);
+            btnSubmit.Location = new Point(1174, 1721);
+            btnSubmit.Margin = new Padding(3, 4, 3, 4);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(116, 30);
+            btnSubmit.Size = new Size(133, 40);
             btnSubmit.TabIndex = 38;
             btnSubmit.Text = "Tạo";
             btnSubmit.TextColor = Color.White;
@@ -342,9 +349,9 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             label4.FlatStyle = FlatStyle.Flat;
             label4.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(322, 62);
+            label4.Location = new Point(368, 83);
             label4.Name = "label4";
-            label4.Size = new Size(67, 16);
+            label4.Size = new Size(85, 20);
             label4.TabIndex = 23;
             label4.Text = "Xuất cho";
             // 
@@ -355,9 +362,9 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Verdana", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(17, 62);
+            label3.Location = new Point(19, 83);
             label3.Name = "label3";
-            label3.Size = new Size(76, 16);
+            label3.Size = new Size(99, 20);
             label3.TabIndex = 21;
             label3.Text = "Ngày Xuất";
             // 
@@ -368,21 +375,22 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(17, 19);
+            label1.Location = new Point(19, 25);
             label1.Name = "label1";
-            label1.Size = new Size(361, 23);
+            label1.Size = new Size(442, 29);
             label1.TabIndex = 17;
             label1.Text = "Tạo hóa đơn xuất nguyên liệu đi";
             // 
             // FormAddInvoceExportMaterialGo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 246, 249);
-            ClientSize = new Size(1350, 506);
+            ClientSize = new Size(1543, 675);
             Controls.Add(panel2);
             HelpButton = true;
             ImeMode = ImeMode.Off;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormAddInvoceExportMaterialGo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ModalAddCustomer";

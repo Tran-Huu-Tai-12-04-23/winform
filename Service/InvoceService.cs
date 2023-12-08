@@ -23,6 +23,7 @@ namespace FinalProject_QUANLYKHO.Service
         private const string CREATE_INVOCE = "InsertHoaDon";
         private const string CREATE_INVOCE_DETAIL = "InsertHoaDonXuatNguyenLieu";
         private const string GET_ALL_INVOCE_CANCEL_MATERIAL = "GetInvoiceGoByDate";
+        private const string GET_ALL_INVOCE_CANCEL_BAKE = "GetInvoiceGoByDate";
         private const string GET_DETAIL_INVOICE_MATERIAL_CANCEL = "GetInvoiceDetails";
         private const string RMEOVE_INVOCE = "RemoveHoaDon";
         private const string REMOVE_INVOICE_EXPORT_MATERIAL = "RemoveHoaDonExportMaterial";
@@ -76,6 +77,95 @@ namespace FinalProject_QUANLYKHO.Service
                     connection.Close();
                 }
             }
+        }
+        public Invoice CreateInvoiceBake(Invoice invoce)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(CREATE_INVOCE, connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@idBoPhanXuat", SqlDbType.VarChar).Value = invoce.idBoPhanXuat;
+                cmd.Parameters.Add("@idLoaiHoaDon", SqlDbType.VarChar).Value = invoce.idLoaiHoaDon;
+                cmd.Parameters.Add("@ngayXuat", SqlDbType.Date).Value = invoce.ngayXuat.Date;
+                cmd.Parameters.Add("@idTaiKhoan", SqlDbType.VarChar).Value = invoce.idTaiKhoan;
+                cmd.Parameters.Add("@tongtien", SqlDbType.Float).Value = invoce.tongTien;
+                cmd.Parameters.Add("@soLuong", SqlDbType.Int).Value = invoce.soLuong;
+
+                SqlParameter idHoaDonParam = new SqlParameter("@idHoaDon", SqlDbType.VarChar, 255);
+                idHoaDonParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(idHoaDonParam);
+
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                cmd.ExecuteNonQuery();
+                invoce.idHoaDon = idHoaDonParam.Value.ToString();
+
+                return invoce;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
+                return null; // Handle the exception appropriately, and return null or throw an exception
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        public Invoice GetInvoice(string id)
+        {
+            Invoice invoice = new Invoice();
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                using (SqlCommand command = new SqlCommand("GetHoaDon", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@idHoaDon", SqlDbType.VarChar).Value = id;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            invoice.soLuong = int.Parse(reader["soLuongHoaDon"].ToString());
+                            invoice.idHoaDon = reader["idHoaDon"].ToString();
+                            invoice.idLoaiHoaDon = reader["idLoaiHoaDon"].ToString();
+                            invoice.tongTien = double.Parse(reader["tongTienHoaDon"].ToString());
+                            invoice.ngayXuat = DateTime.Parse(reader["ngayXuat"].ToString());
+                            invoice.idTaiKhoan = reader["idTaiKhoan"].ToString();
+                            invoice.tenBoPhanXuat = reader["tenBoPhanXuat"].ToString();
+
+                            return invoice;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            return invoice;
         }
 
         public bool CreateDetailInvoceMaterial(InvoiceDetail invoceDetail)
@@ -211,7 +301,7 @@ namespace FinalProject_QUANLYKHO.Service
                 using (SqlCommand command = new SqlCommand(GET_ALL_INVOCE_CANCEL_MATERIAL, connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("@dateOfInvoice", SqlDbType.DateTime).Value = dateOfInvoice;
+                    command.Parameters.Add("@dateOfInvoice", SqlDbType.Date).Value = dateOfInvoice;
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
@@ -222,7 +312,58 @@ namespace FinalProject_QUANLYKHO.Service
                             invoice.idHoaDon = reader["idHoaDon"].ToString();
                             invoice.idLoaiHoaDon = reader["idLoaiHoaDon"].ToString();
                             invoice.tongTien = double.Parse(reader["tongTienHoaDon"].ToString());
-                            invoice.ngayXuat = DateTime.Parse(reader["ngayxuat"].ToString());
+                            invoice.ngayXuat = DateTime.Parse(reader["ngayXuat"].ToString());
+                            invoice.idTaiKhoan = reader["idTaiKhoan"].ToString();
+                            invoice.tenBoPhanXuat = reader["tenBoPhanXuat"].ToString();
+
+                            invoices.Add(invoice);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return invoices;
+        }
+        
+        public List<Invoice> GetAllInvoicesByDateAndType(DateTime dateOfInvoice,string type)
+        {
+            List<Invoice> invoices = new List<Invoice>();
+
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                using (SqlCommand command = new SqlCommand("GetInvoiceGoByDateCUATRUONG", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@dateOfInvoice", SqlDbType.Date).Value = dateOfInvoice;
+                    command.Parameters.Add("@typeInvoice", SqlDbType.VarChar).Value = type;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Invoice invoice = new Invoice();
+                            invoice.soLuong = int.Parse(reader["soLuongHoaDon"].ToString());
+                            invoice.idHoaDon = reader["idHoaDon"].ToString();
+                            invoice.idLoaiHoaDon = reader["idLoaiHoaDon"].ToString();
+                            invoice.tongTien = double.Parse(reader["tongTienHoaDon"].ToString());
+                            invoice.ngayXuat = DateTime.Parse(reader["ngayXuat"].ToString());
                             invoice.idTaiKhoan = reader["idTaiKhoan"].ToString();
                             invoice.tenBoPhanXuat = reader["tenBoPhanXuat"].ToString();
                             invoice.idBoPhanXuat = reader["idBoPhanXuat"].ToString();
@@ -247,7 +388,6 @@ namespace FinalProject_QUANLYKHO.Service
 
             return invoices;
         }
-
         public List<InvoiceDetail> GetInvoiceDetails(string idHoaDon)
         {
             List<InvoiceDetail> invoiceDetails = new List<InvoiceDetail>();
@@ -349,6 +489,40 @@ namespace FinalProject_QUANLYKHO.Service
                 }
             }
         }
+        public void DeleteInvoice(Invoice invoice)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteHoaDon", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@idHoaDon", SqlDbType.VarChar, 255).Value = invoice.idHoaDon;
+
+
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+        
 
         /*  public void Update(Material material)
           {

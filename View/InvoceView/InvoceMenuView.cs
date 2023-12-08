@@ -53,5 +53,17 @@ namespace FinalProject_QUANLYKHO.View.InvoceView
         {
             navigateView(ContanstApp.EXPORT_MATERIAL_GO);
         }
+
+        private void btnActiveInvoceExportBakeGo_Click(object sender, EventArgs e)
+        {
+            navigateView(ContanstApp.EXPORT_BAKE_GO);
+
+        }
+
+        private void btnActiveInvoceImportBakeOut_Click(object sender, EventArgs e)
+        {
+            navigateView(ContanstApp.IMPORT_BAKE_OUT);
+
+        }
     }
 }

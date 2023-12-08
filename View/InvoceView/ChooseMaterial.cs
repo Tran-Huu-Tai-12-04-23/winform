@@ -20,11 +20,13 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
         int rowSelect = 0;
         Form form = new Form();
 
-        public void setFormParent(Form form) {
+        public void setFormParent(Form form)
+        {
             this.form = form;
         }
 
-        public void setRowSelect(int row) { 
+        public void setRowSelect(int row)
+        {
             this.rowSelect = row;
         }
 
@@ -38,13 +40,13 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
 
         }
 
-   
+
         public ChooseMaterial()
         {
             InitializeComponent();
             materialService = new MaterialService();
             loadData();
-            this.form= new Form();
+            this.form = new Form();
 
         }
 
@@ -99,7 +101,7 @@ namespace FinalProject_QUANLYKHO.View.InvoceExportMaterialGoView
                 FormAddInvoceExportMaterialGo formE = (FormAddInvoceExportMaterialGo)form;
 
                 formE.handleLoadData(rowSelect, selectedValue);
-              
+
             }
             else if (form is DetailInvoice)
             {

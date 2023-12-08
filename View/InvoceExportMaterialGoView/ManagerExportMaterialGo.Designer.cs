@@ -80,10 +80,10 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             panel3.AutoSize = true;
             panel3.BackColor = Color.Transparent;
             panel3.Controls.Add(dataGridViewInvoice);
-            panel3.Location = new Point(15, 79);
+            panel3.Location = new Point(17, 105);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1086, 534);
+            panel3.Size = new Size(1241, 712);
             panel3.TabIndex = 5;
             // 
             // dataGridViewInvoice
@@ -164,7 +164,7 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             dataGridViewInvoice.ScrollBars = ScrollBars.Vertical;
             dataGridViewInvoice.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewInvoice.ShowEditingIcon = false;
-            dataGridViewInvoice.Size = new Size(1086, 534);
+            dataGridViewInvoice.Size = new Size(1241, 712);
             dataGridViewInvoice.StandardTab = true;
             dataGridViewInvoice.TabIndex = 1;
             dataGridViewInvoice.CellContentClick += dataGridViewInvoice_CellContentClick_1;
@@ -209,7 +209,7 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             Column4.Resizable = DataGridViewTriState.True;
             Column4.SortMode = DataGridViewColumnSortMode.Automatic;
             Column4.ToolTipText = "Xem chi tiết hóa đơn";
-            Column4.Width = 71;
+            Column4.Width = 92;
             // 
             // Column6
             // 
@@ -222,7 +222,7 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             Column6.Resizable = DataGridViewTriState.True;
             Column6.SortMode = DataGridViewColumnSortMode.Automatic;
             Column6.ToolTipText = "Xóa hóa đơn";
-            Column6.Width = 54;
+            Column6.Width = 66;
             // 
             // btnAddInvoce
             // 
@@ -236,9 +236,10 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             btnAddInvoce.FlatStyle = FlatStyle.Flat;
             btnAddInvoce.ForeColor = Color.WhiteSmoke;
             btnAddInvoce.Image = Properties.Resources.add1;
-            btnAddInvoce.Location = new Point(1064, 26);
+            btnAddInvoce.Location = new Point(1190, 32);
+            btnAddInvoce.Margin = new Padding(3, 4, 3, 4);
             btnAddInvoce.Name = "btnAddInvoce";
-            btnAddInvoce.Size = new Size(37, 22);
+            btnAddInvoce.Size = new Size(42, 29);
             btnAddInvoce.TabIndex = 2;
             btnAddInvoce.TextAlign = ContentAlignment.MiddleRight;
             btnAddInvoce.TextColor = Color.WhiteSmoke;
@@ -438,9 +439,9 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             panel1.Controls.Add(dateOfInvoice);
             panel1.Controls.Add(btnAddInvoce);
             panel1.Location = new Point(0, 1);
-            panel1.Margin = new Padding(12);
+            panel1.Margin = new Padding(14, 16, 14, 16);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1115, 77);
+            panel1.Size = new Size(1260, 103);
             panel1.TabIndex = 8;
             // 
             // listExportDepartMent
@@ -452,9 +453,10 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             listExportDepartMent.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             listExportDepartMent.ForeColor = Color.White;
             listExportDepartMent.FormattingEnabled = true;
-            listExportDepartMent.Location = new Point(336, 23);
+            listExportDepartMent.Location = new Point(395, 32);
+            listExportDepartMent.Margin = new Padding(3, 4, 3, 4);
             listExportDepartMent.Name = "listExportDepartMent";
-            listExportDepartMent.Size = new Size(121, 25);
+            listExportDepartMent.Size = new Size(138, 29);
             listExportDepartMent.TabIndex = 6;
             listExportDepartMent.SelectedIndexChanged += listExportDepartMent_SelectedIndexChanged;
             // 
@@ -463,9 +465,9 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(259, 28);
+            label2.Location = new Point(296, 37);
             label2.Name = "label2";
-            label2.Size = new Size(71, 16);
+            label2.Size = new Size(93, 20);
             label2.TabIndex = 5;
             label2.Text = "Xuất cho";
             // 
@@ -474,10 +476,11 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             dateOfInvoice.BorderColor = Color.PaleTurquoise;
             dateOfInvoice.BorderSize = 0;
             dateOfInvoice.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular, GraphicsUnit.Point);
-            dateOfInvoice.Location = new Point(15, 20);
+            dateOfInvoice.Location = new Point(17, 27);
+            dateOfInvoice.Margin = new Padding(3, 4, 3, 4);
             dateOfInvoice.MinimumSize = new Size(4, 35);
             dateOfInvoice.Name = "dateOfInvoice";
-            dateOfInvoice.Size = new Size(226, 35);
+            dateOfInvoice.Size = new Size(258, 35);
             dateOfInvoice.SkinColor = Color.FromArgb(39, 52, 62);
             dateOfInvoice.TabIndex = 4;
             dateOfInvoice.TextColor = Color.White;
@@ -489,16 +492,17 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             // 
             // ManagerExportMaterialGo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(28, 38, 45);
-            ClientSize = new Size(1116, 625);
+            ClientSize = new Size(1275, 833);
             Controls.Add(panel1);
             Controls.Add(panel3);
             ForeColor = SystemColors.InactiveCaptionText;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ManagerExportMaterialGo";
-            Padding = new Padding(12);
+            Padding = new Padding(14, 16, 14, 16);
             Text = "ManagerCustomer";
             Load += ManagerImportMaterial_Load;
             panel3.ResumeLayout(false);

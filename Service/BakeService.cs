@@ -107,23 +107,13 @@ namespace FinalProject_QUANLYKHO.Service
                 SqlCommand cmd = new SqlCommand(QUERY_UPDATE_BAKE, connection);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-
-                MessageBox.Show(bake.idBanh);
-               
                 // Input parameters
-                cmd.Parameters.Add("@idBanh", SqlDbType.VarChar).Value = bake.idBanh;
-                MessageBox.Show(bake.idLoaiBanh);
-               
-                cmd.Parameters.Add("@idLoaiBanh", SqlDbType.VarChar).Value = bake.idLoaiBanh;
-                MessageBox.Show(bake.tenBanh);
-                
+                cmd.Parameters.Add("@idBanh", SqlDbType.VarChar).Value = bake.idBanh;               
                 cmd.Parameters.Add("@tenBanh", SqlDbType.VarChar).Value = bake.tenBanh;
-                MessageBox.Show(bake.giaTien.ToString());
                 cmd.Parameters.Add("@sl", SqlDbType.Int).Value = bake.sl;
-                MessageBox.Show(bake.sl.ToString());
                 cmd.Parameters.Add("@giaTien", SqlDbType.Float).Value = bake.giaTien;
-                cmd.Parameters.Add("@donVi", SqlDbType.VarChar).Value = bake.donVi;
-                MessageBox.Show(bake.donVi.ToString());
+                cmd.Parameters.Add("@donVi", SqlDbType.NVarChar).Value = bake.donVi;
+                cmd.Parameters.Add("@hien", SqlDbType.Bit).Value = 1;
                 // Open the connection if it's not already open
                 if (connection.State == ConnectionState.Closed)
                 {
@@ -618,6 +608,101 @@ namespace FinalProject_QUANLYKHO.Service
             }
 
             return totalRow;
+        }
+        public Bake GetBakeById(string id)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("GetBakeById", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@idBanh", SqlDbType.VarChar).Value = id;
+
+
+                    // Open the connection if it's not already open
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+                    command.ExecuteNonQuery();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            Bake bake = new Bake(reader["idBanh"].ToString(),
+                                reader["idLoaiBanh"].ToString(),
+                                reader["tenBanh"].ToString(),
+                                int.Parse(reader["sl"].ToString()),
+                                float.Parse(reader["giaTien"].ToString()),
+                                reader["donVi"].ToString(),
+                                bool.Parse(reader["hien"].ToString()));
+                            return bake;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return null;
+        }
+        public Bake GetBakeByName(string name)
+        {
+            try
+            {
+                using (SqlCommand command = new SqlCommand("GetBakeByName", connection))
+                {
+                    command.Parameters.Add("@tenBanh", SqlDbType.VarChar).Value = name;
+
+
+                    // Open the connection if it's not already open
+                    if (connection.State == ConnectionState.Closed)
+                    {
+                        connection.Open();
+                    }
+                    command.ExecuteNonQuery();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            Bake bake = new Bake(reader["idBanh"].ToString(),
+                                reader["idLoaiBanh"].ToString(),
+                                reader["tenBanh"].ToString(),
+                                int.Parse(reader["sl"].ToString()),
+                                float.Parse(reader["giaTien"].ToString()),
+                                reader["donVi"].ToString(),
+                                bool.Parse(reader["hien"].ToString()));
+                            return bake;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return null;
         }
     }
 }

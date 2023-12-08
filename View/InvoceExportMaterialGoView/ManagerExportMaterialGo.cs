@@ -45,7 +45,7 @@ namespace FinalProject_QUANLYKHO.View.ImportMaterialView
             dataGridViewInvoice.Rows.Clear();
             DateTime dateOfInvoiceValue = dateOfInvoice.Value;
             invoices = invoceService.GetAllCancelledInvoicesByDate(dateOfInvoiceValue);
-
+            MessageBox.Show(invoices.Count.ToString());
             foreach (Invoice inv in invoices)
             {
                 object[] rowData = new object[] { inv.idHoaDon, inv.tongTien, inv.soLuong, inv.tenBoPhanXuat };
